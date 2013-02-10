@@ -31,6 +31,8 @@ var articleProvider = new ArticleProvider("localhost", 27017);
 app.get('/', function (req, res) {
    articleProvider.findAll(function (error, docs) {
       res.render('index.jade', {
+         session: true,
+         meta: {},
          title: 'Blog',
          articles: docs
       });
@@ -58,6 +60,8 @@ app.get('/blog/:id', function (req, res) {
    articleProvider.findById(req.params.id, function (error, article) {
       res.render('blog_show.jade',
       {
+         session: {},
+         meta: {},
          title: article.title,
          article: article
       });

@@ -1,9 +1,130 @@
-doctype 5
-html
-   head
-      title= title
-      link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-      link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
-      link(rel='stylesheet', href='/stylesheets/docs.css')
-   body
-      block content
+!!! 5
+html(lang="en",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#",xmlns:fb="https://www.facebook.com/2008/fbml")
+  head
+
+        
+    link(rel="alternate",type="application/rss+xml",title="RSS Feed",href="/feed/")    
+    link(rel="stylesheet", href="/stylesheets/bootstrap.css")
+    link(rel="stylesheet", href="/stylesheets/bootstrap-responsive.css")
+    link(rel="stylesheet", href="/stylesheets/docs.css")
+    link(rel="stylesheet", href="/stylesheets/custom.css")
+    
+  
+  body
+   div.navbar.navbar-inverse.navbar-fixed-top
+            div.navbar-inner
+                div.container-fluid
+                    a.btn.btn-navbar.collapsed(data-toggle="collapse", data-target=".nav-collapse")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.brand(href="/") troy forster
+                    div(class="nav-collapse collapse")
+                        p.navbar-text.pull-right
+                            - if (session.valid) 
+                              a#buttoncompose(href="#") Compose Article
+                              a#buttondrafts(href="#") Show Drafts                                                        
+                            - else
+                                a#login(href="#", class="navbar-link") Login
+                        ul.nav
+                            li(class=(meta.current == 'home' ? 'active' : ''))
+                                a(href="/") Home
+                            li(class=(meta.current == 'posts' ? 'active' : ''))
+                                a(href="/posts") Posts
+    div.container-fluid
+       
+
+    
+    block content
+    #logindata.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Authentication Required!
+      .modal-body
+        form
+          fieldset
+            .clearfix
+              label(for="uname") Username
+              .input
+                input#uname.xlarge(type="text")
+            .clearfix
+              label(for="pword") Password
+              .input
+                input#pword.xlarge(type="password")                
+      .modal-footer
+        input#authenticate.pull-right.btn.primary(type="submit", value="Login")
+        span.pull-right#loginstatus.loader
+          img(src="/images/loader.gif")
+    #composemodal.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Compose Article
+      .modal-body
+        form
+          fieldset
+            .clearfix
+              label(for="npid") New ID
+              .input
+                input#npid.xlarge(type="text","readonly"="readonly",value=session.maxID)
+            .clearfix
+              label(for="ntitle") Headline
+              .input
+                input#ntitle.xlarge(type="text")    
+                br 
+                br
+                span.help-block New articles will be hidden per default.
+      .modal-footer
+        input#composecreate.pull-right.btn.primary(type="submit", value="Create")
+        span.pull-right#composestatus.loader
+          img(src="/images/loader.gif")   
+    #draftsmodal.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Unpublished Drafts
+      .modal-body.loading-body
+        p
+          img(src="/images/loader-big.gif")
+      .modal-footer
+        input#composecreate.pull-right.btn(type="button", value="close")
+    footer.footer
+      .container
+        p All Posts, Ideas and Information written by  
+          a(href="/about") #{meta.author}
+          | . Nice Nerdporn thanks to  
+          a(href="http://semu.mp/node-blog.html") node-blog
+          | ,          
+          a(href="http://twitter.github.com/bootstrap/") bootstrap
+          | ,
+          a(href="http://semu.mp/node-kickstart.html") Kickstart
+          | ,
+          a(href="http://jade-lang.com/") Jade
+          | ,
+          a(href="http://lesscss.org/") Less
+          |  and 
+          a(href="http://daringfireball.net/projects/markdown/") Markdown
+          | …
+   script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js")    
+   script(src="scripts/bootstrap-transition.js")
+   script(src="scripts/bootstrap-alert.js")
+   script(src="scripts/bootstrap-modal.js")
+   script(src="scripts/bootstrap-dropdown.js")
+   script(src="scripts/bootstrap-scrollspy.js")
+   script(src="scripts/bootstrap-tab.js")
+   script(src="scripts/bootstrap-tooltip.js")
+   script(src="scripts/bootstrap-popover.js")
+   script(src="scripts/bootstrap-button.js")
+   script(src="scripts/bootstrap-collapse.js")
+   script(src="scripts/bootstrap-carousel.js")
+   script(src="scripts/bootstrap-typeahead.js")
+   
+
+
+   script(src="/scripts/init.js")
+  
+
+   - if (session.valid)
+      script
+         var auth = true, redirectTo = null, maxID = #{session.maxID};
+   - else
+      script
+         var auth = false, redirectTo = null, maxID = null;

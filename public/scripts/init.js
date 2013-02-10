@@ -53,47 +53,47 @@ var editMode = function() {
   return true;
 };
 
-$(document).ready(function() { 
-  $("abbr.timeago").timeago();
+//$(document).ready(function() { 
+//  $("abbr.timeago").timeago();
   
-  /** Add Event to Edit Button **/
-  if ($('#editMode').length > 0) {
-    $('#editMode').click(function(e) { e.preventDefault(); editMode(); }); }
+//  /** Add Event to Edit Button **/
+//  if ($('#editMode').length > 0) {
+//    $('#editMode').click(function(e) { e.preventDefault(); editMode(); }); }
 
-  /** Add Events to Administration Menu Items **/  
-  if ($('#buttoncompose, #buttondrafts, #login').length > 0) {
-    $('#buttoncompose').click(function(e) { e.preventDefault(); if (!auth) { showLogin('compose'); } else { $('#composemodal').modal('show'); $('#ntitle').focus(); }});
-    $('#buttondrafts').click(function(e) { e.preventDefault(); if (!auth) { showLogin('drafts'); } else { $('#draftsmodal').modal('show'); loadDrafts(); }});
-    $('#login').click(function(e) { e.preventDefault(); showLogin(); });
-    $('#logout').click(function(e) { e.preventDefault(); $.post("/api/logout", { }, function(data) { location.reload(); }); } );
+//  /** Add Events to Administration Menu Items **/  
+//  if ($('#buttoncompose, #buttondrafts, #login').length > 0) {
+//    $('#buttoncompose').click(function(e) { e.preventDefault(); if (!auth) { showLogin('compose'); } else { $('#composemodal').modal('show'); $('#ntitle').focus(); }});
+//    $('#buttondrafts').click(function(e) { e.preventDefault(); if (!auth) { showLogin('drafts'); } else { $('#draftsmodal').modal('show'); loadDrafts(); }});
+//    $('#login').click(function(e) { e.preventDefault(); showLogin(); });
+//    $('#logout').click(function(e) { e.preventDefault(); $.post("/api/logout", { }, function(data) { location.reload(); }); } );
     
-    /** Create Article Handling **/
-    $('#composecreate').click(function(e) {
-      e.preventDefault();      
-      $('#composestatus').css('display', 'block').removeClass('failed').removeClass('done').addClass('loader');
-      $.post("/api/new", { pid: $('#npid').val(), name: $('#ntitle').val() }, function(data) {
-        if (data == '0') {
-          $('#composestatus').html("Failed to create article!");
-          $('#composestatus').removeClass('loader').removeClass('done').addClass('failed'); }
-        else {
-          $('#composestatus').html("Article created, Please wait!");
-          $('#composestatus').removeClass('loader').removeClass('failed').addClass('done');
-          window.setTimeout('location.href = "/' + data + '.html";', 500); }
-      });
-    });
+//    /** Create Article Handling **/
+//    $('#composecreate').click(function(e) {
+//      e.preventDefault();      
+//      $('#composestatus').css('display', 'block').removeClass('failed').removeClass('done').addClass('loader');
+//      $.post("/api/new", { pid: $('#npid').val(), name: $('#ntitle').val() }, function(data) {
+//        if (data == '0') {
+//          $('#composestatus').html("Failed to create article!");
+//          $('#composestatus').removeClass('loader').removeClass('done').addClass('failed'); }
+//        else {
+//          $('#composestatus').html("Article created, Please wait!");
+//          $('#composestatus').removeClass('loader').removeClass('failed').addClass('done');
+//          window.setTimeout('location.href = "/' + data + '.html";', 500); }
+//      });
+//    });
     
-    /** Authentication Handling **/
-    $('#authenticate').click(function(e) {
-      e.preventDefault();
-      $('#loginstatus').css('display', 'block').removeClass('failed').removeClass('done').addClass('loader');
-      $.post("/api/auth", { name: $('#uname').val(), password: $('#pword').val() }, function(data) {
-        if (data == '1') {
-          $('#loginstatus').html("Login done, Please wait!");
-          $('#loginstatus').removeClass('loader').removeClass('failed').addClass('done');
-          window.setTimeout('location.reload()', 500); }
-        else {
-          $('#loginstatus').html("Login failed!");
-          $('#loginstatus').removeClass('loader').removeClass('done').addClass('failed'); }
-      });
-    }); }
-});
+//    /** Authentication Handling **/
+//    $('#authenticate').click(function(e) {
+//      e.preventDefault();
+//      $('#loginstatus').css('display', 'block').removeClass('failed').removeClass('done').addClass('loader');
+//      $.post("/api/auth", { name: $('#uname').val(), password: $('#pword').val() }, function(data) {
+//        if (data == '1') {
+//          $('#loginstatus').html("Login done, Please wait!");
+//          $('#loginstatus').removeClass('loader').removeClass('failed').addClass('done');
+//          window.setTimeout('location.reload()', 500); }
+//        else {
+//          $('#loginstatus').html("Login failed!");
+//          $('#loginstatus').removeClass('loader').removeClass('done').addClass('failed'); }
+//      });
+//    }); }
+//});
