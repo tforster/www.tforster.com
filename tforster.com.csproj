@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F76EA87B-B5E2-4E4A-8F0E-12C309B2EC90}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tforster.com</RootNamespace>
+    <AssemblyName>tforster.com</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="articleprovider-memory.js" />
+    <Content Include="articleprovider-mongodb.js" />
+    <Content Include="node_modules\.bin\express" />
+    <Content Include="node_modules\.bin\express.cmd" />
+    <Content Include="node_modules\.bin\jade" />
+    <Content Include="node_modules\.bin\jade.cmd" />
+    <Content Include="node_modules\express\.npmignore" />
+    <Content Include="node_modules\express\.travis.yml" />
+    <Content Include="node_modules\express\bin\express" />
+    <Content Include="node_modules\express\History.md" />
+    <Content Include="node_modules\express\LICENSE" />
+    <Content Include="node_modules\express\Makefile" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\.npmignore" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\README.md" />
+    <Content Include="node_modules\express\node_modules\commander\.npmignore" />
+    <Content Include="node_modules\express\node_modules\commander\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\commander\History.md" />
+    <Content Include="node_modules\express\node_modules\commander\Makefile" />
+    <Content Include="node_modules\express\node_modules\commander\Readme.md" />
+    <Content Include="node_modules\express\node_modules\connect\.npmignore" />
+    <Content Include="node_modules\express\node_modules\connect\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\connect\LICENSE" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\.npmignore" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\History.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\Makefile" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\Readme.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\.npmignore" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\Makefile" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\Makefile" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\Readme.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\Readme.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\http\special-chars-in-filename\info.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\TODO" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\.npmignore" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\History.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\Makefile" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\Readme.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\.npmignore" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\History.md" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\Makefile" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\Readme.md" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\.npmignore" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\History.md" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\Makefile" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\Readme.md" />
+    <Content Include="node_modules\express\node_modules\cookie\.npmignore" />
+    <Content Include="node_modules\express\node_modules\cookie\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\cookie\README.md" />
+    <Content Include="node_modules\express\node_modules\cookie\test\mocha.opts" />
+    <Content Include="node_modules\express\node_modules\debug\.npmignore" />
+    <Content Include="node_modules\express\node_modules\debug\History.md" />
+    <Content Include="node_modules\express\node_modules\debug\Readme.md" />
+    <Content Include="node_modules\express\node_modules\fresh\.npmignore" />
+    <Content Include="node_modules\express\node_modules\fresh\Makefile" />
+    <Content Include="node_modules\express\node_modules\fresh\Readme.md" />
+    <Content Include="node_modules\express\node_modules\mkdirp\.gitignore.orig" />
+    <Content Include="node_modules\express\node_modules\mkdirp\.gitignore.rej" />
+    <Content Include="node_modules\express\node_modules\mkdirp\.npmignore" />
+    <Content Include="node_modules\express\node_modules\mkdirp\.travis.yml" />
+    <Content Include="node_modules\express\node_modules\mkdirp\examples\pow.js.orig" />
+    <Content Include="node_modules\express\node_modules\mkdirp\examples\pow.js.rej" />
+    <Content Include="node_modules\express\node_modules\mkdirp\LICENSE" />
+    <Content Include="node_modules\express\node_modules\mkdirp\README.markdown" />
+    <Content Include="node_modules\express\node_modules\range-parser\.npmignore" />
+    <Content Include="node_modules\express\node_modules\range-parser\History.md" />
+    <Content Include="node_modules\express\node_modules\range-parser\Makefile" />
+    <Content Include="node_modules\express\node_modules\range-parser\Readme.md" />
+    <Content Include="node_modules\express\node_modules\send\.npmignore" />
+    <Content Include="node_modules\express\node_modules\send\History.md" />
+    <Content Include="node_modules\express\node_modules\send\Makefile" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\LICENSE" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\README.md" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\types\mime.types" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\types\node.types" />
+    <Content Include="node_modules\express\node_modules\send\Readme.md" />
+    <Content Include="node_modules\express\Readme.md" />
+    <Content Include="node_modules\jade\.npmignore" />
+    <Content Include="node_modules\jade\bin\jade" />
+    <Content Include="node_modules\jade\jade.md" />
+    <Content Include="node_modules\jade\LICENSE" />
+    <Content Include="node_modules\jade\node_modules\.bin\cake" />
+    <Content Include="node_modules\jade\node_modules\.bin\cake.cmd" />
+    <Content Include="node_modules\jade\node_modules\.bin\coffee" />
+    <Content Include="node_modules\jade\node_modules\.bin\coffee.cmd" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\.npmignore" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\bin\cake" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\bin\coffee" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\CNAME" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\CONTRIBUTING.md" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\extras\jsl.conf" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\LICENSE" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\Rakefile" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\README" />
+    <Content Include="node_modules\jade\node_modules\commander\.npmignore" />
+    <Content Include="node_modules\jade\node_modules\commander\.travis.yml" />
+    <Content Include="node_modules\jade\node_modules\commander\History.md" />
+    <Content Include="node_modules\jade\node_modules\commander\Makefile" />
+    <Content Include="node_modules\jade\node_modules\commander\Readme.md" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\.npmignore" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\.travis.yml" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\LICENSE" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\README.markdown" />
+    <Content Include="node_modules\jade\Readme.md" />
+    <Content Include="node_modules\jade\Readme_zh-cn.md" />
+    <Content Include="node_modules\jade\testing\index.jade" />
+    <Content Include="node_modules\jade\testing\layout.jade" />
+    <Content Include="node_modules\jade\testing\mobile.jade" />
+    <Content Include="node_modules\jade\testing\nested\something.jade" />
+    <Content Include="node_modules\jade\testing\test.md" />
+    <Content Include="public\scripts\bootstrap-affix.js" />
+    <Content Include="public\scripts\bootstrap-alert.js" />
+    <Content Include="public\scripts\bootstrap-button.js" />
+    <Content Include="public\scripts\bootstrap-carousel.js" />
+    <Content Include="public\scripts\bootstrap-collapse.js" />
+    <Content Include="public\scripts\bootstrap-dropdown.js" />
+    <Content Include="public\scripts\bootstrap-modal.js" />
+    <Content Include="public\scripts\bootstrap-popover.js" />
+    <Content Include="public\scripts\bootstrap-scrollspy.js" />
+    <Content Include="public\scripts\bootstrap-tab.js" />
+    <Content Include="public\scripts\bootstrap-tooltip.js" />
+    <Content Include="public\scripts\bootstrap-transition.js" />
+    <Content Include="public\scripts\bootstrap-typeahead.js" />
+    <Content Include="public\scripts\init.js" />
+    <Content Include="public\scripts\showdown.js" />
+    <Content Include="public\scripts\timeago.js" />
+    <Content Include="public\stylesheets\bootstrap-responsive.css" />
+    <Content Include="public\stylesheets\bootstrap.css" />
+    <Content Include="public\stylesheets\glyphicons-halflings-white.png" />
+    <Content Include="public\stylesheets\glyphicons-halflings.png" />
+    <None Include="public\stylesheets\custom.css-maybe" />
+    <Content Include="public\stylesheets\docs.css" />
+    <Content Include="README.md" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\blog_new.jade" />
+    <Content Include="views\blog_show.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="node_modules\express\client.js" />
+    <Content Include="node_modules\express\index.js" />
+    <Content Include="node_modules\express\lib\application.js" />
+    <Content Include="node_modules\express\lib\express.js" />
+    <Content Include="node_modules\express\lib\middleware.js" />
+    <Content Include="node_modules\express\lib\request.js" />
+    <Content Include="node_modules\express\lib\response.js" />
+    <Content Include="node_modules\express\lib\router\index.js" />
+    <Content Include="node_modules\express\lib\router\route.js" />
+    <Content Include="node_modules\express\lib\utils.js" />
+    <Content Include="node_modules\express\lib\view.js" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\index.js" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\package.json" />
+    <Content Include="node_modules\express\node_modules\buffer-crc32\tests\crc.test.js" />
+    <Content Include="node_modules\express\node_modules\commander\index.js" />
+    <Content Include="node_modules\express\node_modules\commander\lib\commander.js" />
+    <Content Include="node_modules\express\node_modules\commander\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\cache.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\connect.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\basicAuth.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\bodyParser.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\compress.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\cookieParser.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\cookieSession.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\csrf.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\directory.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\errorHandler.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\favicon.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\json.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\limit.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\logger.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\methodOverride.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\multipart.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\query.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\responseTime.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\session.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\session\cookie.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\session\memory.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\session\session.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\session\store.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\static.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\staticCache.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\timeout.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\urlencoded.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\middleware\vhost.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\patch.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\proto.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\directory.html" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\error.html" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\favicon.ico" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_add.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_attach.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_code.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_copy.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_delete.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_edit.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_error.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_excel.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_find.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_gear.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_go.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_green.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_key.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_lightning.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_link.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_paintbrush.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_paste.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_red.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_refresh.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_save.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_acrobat.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_actionscript.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_add.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_c.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_camera.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_cd.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_code.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_code_red.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_coldfusion.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_compressed.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_copy.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_cplusplus.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_csharp.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_cup.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_database.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_delete.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_dvd.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_edit.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_error.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_excel.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_find.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_flash.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_freehand.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_gear.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_get.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_go.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_h.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_horizontal.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_key.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_lightning.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_link.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_magnify.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_medal.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_office.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_paint.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_paintbrush.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_paste.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_php.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_picture.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_powerpoint.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_put.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_ruby.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_stack.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_star.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_swoosh.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_text.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_text_width.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_tux.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_vector.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_visualstudio.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_width.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_word.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_world.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_wrench.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_white_zip.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_word.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\icons\page_world.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\public\style.css" />
+    <Content Include="node_modules\express\node_modules\connect\lib-cov\utils.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\cache.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\connect.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\basicAuth.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\bodyParser.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\compress.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\cookieParser.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\cookieSession.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\csrf.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\directory.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\errorHandler.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\favicon.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\json.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\limit.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\logger.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\methodOverride.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\multipart.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\query.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\responseTime.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\session.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\session\cookie.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\session\memory.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\session\session.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\session\store.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\static.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\staticCache.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\timeout.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\urlencoded.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\middleware\vhost.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\patch.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\proto.js" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\directory.html" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\error.html" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\favicon.ico" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_add.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_attach.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_code.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_copy.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_delete.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_edit.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_error.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_excel.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_find.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_gear.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_go.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_green.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_key.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_lightning.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_link.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_paintbrush.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_paste.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_red.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_refresh.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_save.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_acrobat.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_actionscript.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_add.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_c.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_camera.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_cd.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_code.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_code_red.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_coldfusion.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_compressed.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_copy.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_cplusplus.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_csharp.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_cup.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_database.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_delete.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_dvd.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_edit.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_error.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_excel.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_find.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_flash.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_freehand.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_gear.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_get.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_go.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_h.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_horizontal.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_key.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_lightning.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_link.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_magnify.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_medal.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_office.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_paint.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_paintbrush.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_paste.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_php.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_picture.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_powerpoint.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_put.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_ruby.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_stack.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_star.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_swoosh.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_text.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_text_width.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_tux.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_vector.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_visualstudio.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_width.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_word.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_world.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_wrench.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_white_zip.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_word.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\icons\page_world.png" />
+    <Content Include="node_modules\express\node_modules\connect\lib\public\style.css" />
+    <Content Include="node_modules\express\node_modules\connect\lib\utils.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\component.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\bytes\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\benchmark\bench-multipart-parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\example\post.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\example\upload.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\file.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\incoming_form.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\multipart_parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\querystring_parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\lib\util.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\example\dog.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\example\event_emitter.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\lib\gently\gently.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\lib\gently\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\test\common.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\node-gently\test\simple\test-gently.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\common.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\file\funkyfilename.txt" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\file\plain.txt" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\js\no-filename.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\js\special-chars-in-filename.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\fixture\multipart.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\integration\test-fixtures.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\common.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\integration\test-multipart-parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\simple\test-file.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\simple\test-incoming-form.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\simple\test-multipart-parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\simple\test-querystring-parser.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\legacy\system\test-multi-video-upload.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\run.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\test\unit\test-incoming-form.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\formidable\tool\record.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\pause\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\.gitmodules" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\benchmark.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\component.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\examples.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\index.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\lib\head.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\lib\querystring.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\lib\tail.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\querystring.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\expect.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\index.html" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\jquery.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\mocha.css" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\mocha.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\qs.css" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\browser\qs.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\parse.js" />
+    <Content Include="node_modules\express\node_modules\connect\node_modules\qs\test\stringify.js" />
+    <Content Include="node_modules\express\node_modules\connect\package.json" />
+    <Content Include="node_modules\express\node_modules\connect\test.js" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\index.js" />
+    <Content Include="node_modules\express\node_modules\cookie-signature\package.json" />
+    <Content Include="node_modules\express\node_modules\cookie\index.js" />
+    <Content Include="node_modules\express\node_modules\cookie\package.json" />
+    <Content Include="node_modules\express\node_modules\cookie\test\parse.js" />
+    <Content Include="node_modules\express\node_modules\cookie\test\serialize.js" />
+    <Content Include="node_modules\express\node_modules\debug\component.json" />
+    <Content Include="node_modules\express\node_modules\debug\debug.js" />
+    <Content Include="node_modules\express\node_modules\debug\example\app.js" />
+    <Content Include="node_modules\express\node_modules\debug\example\browser.html" />
+    <Content Include="node_modules\express\node_modules\debug\example\wildcards.js" />
+    <Content Include="node_modules\express\node_modules\debug\example\worker.js" />
+    <Content Include="node_modules\express\node_modules\debug\index.js" />
+    <Content Include="node_modules\express\node_modules\debug\lib\debug.js" />
+    <Content Include="node_modules\express\node_modules\debug\package.json" />
+    <Content Include="node_modules\express\node_modules\fresh\index.js" />
+    <Content Include="node_modules\express\node_modules\fresh\package.json" />
+    <Content Include="node_modules\express\node_modules\methods\index.js" />
+    <Content Include="node_modules\express\node_modules\methods\package.json" />
+    <Content Include="node_modules\express\node_modules\mkdirp\examples\pow.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\index.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\package.json" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\chmod.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\clobber.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\mkdirp.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\perm.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\perm_sync.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\race.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\rel.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\return.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\return_sync.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\root.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\sync.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\umask.js" />
+    <Content Include="node_modules\express\node_modules\mkdirp\test\umask_sync.js" />
+    <Content Include="node_modules\express\node_modules\range-parser\index.js" />
+    <Content Include="node_modules\express\node_modules\range-parser\package.json" />
+    <Content Include="node_modules\express\node_modules\send\index.js" />
+    <Content Include="node_modules\express\node_modules\send\lib\send.js" />
+    <Content Include="node_modules\express\node_modules\send\lib\utils.js" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\mime.js" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\package.json" />
+    <Content Include="node_modules\express\node_modules\send\node_modules\mime\test.js" />
+    <Content Include="node_modules\express\node_modules\send\package.json" />
+    <Content Include="node_modules\express\package.json" />
+    <Content Include="node_modules\express\test.js" />
+    <Content Include="node_modules\jade\index.js" />
+    <Content Include="node_modules\jade\jade.js" />
+    <Content Include="node_modules\jade\jade.min.js" />
+    <Content Include="node_modules\jade\lib\compiler.js" />
+    <Content Include="node_modules\jade\lib\doctypes.js" />
+    <Content Include="node_modules\jade\lib\filters.js" />
+    <Content Include="node_modules\jade\lib\inline-tags.js" />
+    <Content Include="node_modules\jade\lib\jade.js" />
+    <Content Include="node_modules\jade\lib\lexer.js" />
+    <Content Include="node_modules\jade\lib\nodes\attrs.js" />
+    <Content Include="node_modules\jade\lib\nodes\block-comment.js" />
+    <Content Include="node_modules\jade\lib\nodes\block.js" />
+    <Content Include="node_modules\jade\lib\nodes\case.js" />
+    <Content Include="node_modules\jade\lib\nodes\code.js" />
+    <Content Include="node_modules\jade\lib\nodes\comment.js" />
+    <Content Include="node_modules\jade\lib\nodes\doctype.js" />
+    <Content Include="node_modules\jade\lib\nodes\each.js" />
+    <Content Include="node_modules\jade\lib\nodes\filter.js" />
+    <Content Include="node_modules\jade\lib\nodes\index.js" />
+    <Content Include="node_modules\jade\lib\nodes\literal.js" />
+    <Content Include="node_modules\jade\lib\nodes\mixin.js" />
+    <Content Include="node_modules\jade\lib\nodes\node.js" />
+    <Content Include="node_modules\jade\lib\nodes\tag.js" />
+    <Content Include="node_modules\jade\lib\nodes\text.js" />
+    <Content Include="node_modules\jade\lib\parser.js" />
+    <Content Include="node_modules\jade\lib\runtime.js" />
+    <Content Include="node_modules\jade\lib\self-closing.js" />
+    <Content Include="node_modules\jade\lib\utils.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\browser.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\cake.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\coffee-script.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\command.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\grammar.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\helpers.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\index.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\lexer.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\nodes.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\optparse.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\parser.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\repl.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\rewriter.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\scope.js" />
+    <Content Include="node_modules\jade\node_modules\coffee-script\package.json" />
+    <Content Include="node_modules\jade\node_modules\commander\index.js" />
+    <Content Include="node_modules\jade\node_modules\commander\lib\commander.js" />
+    <Content Include="node_modules\jade\node_modules\commander\package.json" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\examples\pow.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\index.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\package.json" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\chmod.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\clobber.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\mkdirp.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\perm.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\perm_sync.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\race.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\rel.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\return.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\return_sync.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\root.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\sync.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\umask.js" />
+    <Content Include="node_modules\jade\node_modules\mkdirp\test\umask_sync.js" />
+    <Content Include="node_modules\jade\package.json" />
+    <Content Include="node_modules\jade\runtime.js" />
+    <Content Include="node_modules\jade\runtime.min.js" />
+    <Content Include="node_modules\jade\testing\index.html" />
+    <Content Include="node_modules\jade\testing\layout.html" />
+    <Content Include="node_modules\jade\testing\mobile.html" />
+    <Content Include="node_modules\jade\testing\nested\something.html" />
+    <Content Include="node_modules\jade\testing\some.js" />
+    <Content Include="package.json" />
+    <Content Include="routes\index.js" />
+    <Content Include="routes\user.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="public\images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53032/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
