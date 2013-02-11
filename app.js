@@ -1,26 +1,26 @@
-var express = require('express');
+var express = require("express");
 var http = require("http");
-var ArticleProvider = require('./articleprovider-mongodb').ArticleProvider;
+var ArticleProvider = require("./articleprovider-mongodb").ArticleProvider;
 
 var app = express();
 var server = http.createServer(app);
 
 app.configure(function () {
-   app.set('views', __dirname + '/views');
-   app.set('view engine', 'jade');
-   app.set('view options', { layout: false });
+   app.set("views", __dirname + "/views");
+   app.set("view engine", "jade");
+   app.set("view options", { layout: false });
    app.use(express.bodyParser());
    app.use(express.methodOverride());
-   //app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+   //app.use(require("stylus").middleware({ src: __dirname + "/public" }));
    app.use(app.router);
-   app.use(express.static(__dirname + '/public'));
+   app.use(express.static(__dirname + "/public"));
 });
 
-app.configure('development', function () {
+app.configure("development", function () {
    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-app.configure('production', function () {
+app.configure("production", function () {
    app.use(express.errorHandler());
 });
 
@@ -28,38 +28,41 @@ var articleProvider = new ArticleProvider("localhost", 27017);
 
 
 
-app.get('/', function (req, res) {
-   articleProvider.findAll(function (error, docs) {
-      res.render('index.jade', {
+app.get("/", function (req, res) {
+   articleProvider.findTopN(6, function (error, posts) {
+      
+      res.render("index.jade", {
          session: true,
          meta: {},
-         title: 'Blog',
-         articles: docs
+         title: "Blog",
+         posts: posts
       });
    })
 });
 
-app.get('/blog/new', function (req, res) {
-   res.render('blog_new.jade', {
 
-      title: 'New Post'
+app.get("/blog/new", function (req, res) {
+   res.render("blog_new.jade", {
+
+      title: "New Post"
 
    });
 });
 
-app.post('/blog/new', function (req, res) {
+
+app.post("/blog/new", function (req, res) {
    articleProvider.save({
-      title: req.param('title'),
-      body: req.param('body')
+      title: req.param("title"),
+      body: req.param("body")
    }, function (error, docs) {
-      res.redirect('/')
+      res.redirect("/")
    });
 });
 
-app.get('/blog/:id', function (req, res) {
+
+app.get("/blog/:id", function (req, res) {
    articleProvider.findById(req.params.id, function (error, article) {
-      res.render('blog_show.jade',
-      {
+      res.render("blog_show.jade", {
          session: {},
          meta: {},
          title: article.title,
@@ -69,13 +72,14 @@ app.get('/blog/:id', function (req, res) {
 });
 
 
-app.post('/blog/addComment', function (req, res) {
-   articleProvider.addCommentToArticle(req.param('_id'), {
-      person: req.param('person'),
-      comment: req.param('comment'),
+
+app.post("/blog/addComment", function (req, res) {
+   articleProvider.addCommentToArticle(req.param("_id"), {
+      person: req.param("person"),
+      comment: req.param("comment"),
       created_at: new Date()
    }, function (error, docs) {
-      res.redirect('/blog/' + req.param('_id'))
+      res.redirect("/blog/" + req.param("_id"))
    });
 });
 

@@ -172,6 +172,8 @@
     <Content Include="node_modules\jade\testing\mobile.jade" />
     <Content Include="node_modules\jade\testing\nested\something.jade" />
     <Content Include="node_modules\jade\testing\test.md" />
+    <Content Include="public\images\loader-big.gif" />
+    <Content Include="public\images\loader.gif" />
     <Content Include="public\scripts\bootstrap-affix.js" />
     <Content Include="public\scripts\bootstrap-alert.js" />
     <Content Include="public\scripts\bootstrap-button.js" />
@@ -192,7 +194,7 @@
     <Content Include="public\stylesheets\bootstrap.css" />
     <Content Include="public\stylesheets\glyphicons-halflings-white.png" />
     <Content Include="public\stylesheets\glyphicons-halflings.png" />
-    <None Include="public\stylesheets\custom.css-maybe" />
+    <Content Include="public\stylesheets\custom.css" />
     <Content Include="public\stylesheets\docs.css" />
     <Content Include="README.md" />
     <Content Include="views\index.jade" />
@@ -634,7 +636,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
-    <Folder Include="public\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,9 +8,26 @@ html(lang="en",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#"
     link(rel="stylesheet", href="/stylesheets/bootstrap-responsive.css")
     link(rel="stylesheet", href="/stylesheets/docs.css")
     link(rel="stylesheet", href="/stylesheets/custom.css")
-    
+    style(type="text/css")
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
   
   body
+  
    div.navbar.navbar-inverse.navbar-fixed-top
             div.navbar-inner
                 div.container-fluid
@@ -32,10 +49,15 @@ html(lang="en",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#"
                             li(class=(meta.current == 'posts' ? 'active' : ''))
                                 a(href="/posts") Posts
     div.container-fluid
-       
+      div.row-fluid       
+         div.span9
+            block header
 
-    
-    block content
+            div.row-fluid    
+               block content
+         div.span3
+               a.twitter-timeline(href="https://twitter.com/tforster", data-widget-id="300633791611932672")Tweets
+               script(!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs")
     #logindata.modal.hide.fade
       .modal-header
         a.close(href="#") &times;
