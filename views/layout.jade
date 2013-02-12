@@ -25,6 +25,7 @@ html(lang="en",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#"
           padding-right: 5px;
         }
       }
+      p.content { word-break: break-all; }
   
   body
   
@@ -46,18 +47,21 @@ html(lang="en",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#"
                         ul.nav
                             li(class=(meta.current == 'home' ? 'active' : ''))
                                 a(href="/") Home
-                            li(class=(meta.current == 'posts' ? 'active' : ''))
-                                a(href="/posts") Posts
+                            li(class=(meta.current == 'blog' ? 'active' : ''))
+                                a(href="/blog/") Blog
     div.container-fluid
       div.row-fluid       
-         div.span9
-            block header
+         block header
+      div.row-fluid
+         div.span4
+            block recent-blog
+         div.span4
+            block recent-twitter
+            hr
+         div.span4
+            block recent-instagram
 
-            div.row-fluid    
-               block content
-         div.span3
-               a.twitter-timeline(href="https://twitter.com/tforster", data-widget-id="300633791611932672")Tweets
-               script(!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs")
+
     #logindata.modal.hide.fade
       .modal-header
         a.close(href="#") &times;

@@ -8,7 +8,7 @@ var server = http.createServer(app);
 app.configure(function () {
    app.set("views", __dirname + "/views");
    app.set("view engine", "jade");
-   app.set("view options", { layout: false });
+   app.set("view options", { layout: true });
    app.use(express.bodyParser());
    app.use(express.methodOverride());
    //app.use(require("stylus").middleware({ src: __dirname + "/public" }));
@@ -29,8 +29,8 @@ var articleProvider = new ArticleProvider("localhost", 27017);
 
 
 app.get("/", function (req, res) {
-   articleProvider.findTopN(6, function (error, posts) {
-      
+   articleProvider.findTopN(5, function (error, posts) {
+
       res.render("index.jade", {
          session: true,
          meta: {},
@@ -39,6 +39,28 @@ app.get("/", function (req, res) {
       });
    })
 });
+
+
+
+
+app.get("/blog/", function (req, res) {
+
+   articleProvider.findTopN(125, function (error, posts) {
+
+      res.render("blog_list.jade", {
+         session: true,
+         meta: {},
+         title: "Blog",
+         posts: posts
+      });
+   })
+});
+
+
+
+
+
+
 
 
 app.get("/blog/new", function (req, res) {

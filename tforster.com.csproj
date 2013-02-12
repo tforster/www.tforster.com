@@ -62,6 +62,10 @@
   <ItemGroup>
     <Content Include="articleprovider-memory.js" />
     <Content Include="articleprovider-mongodb.js" />
+    <Content Include="importer\make-markdown.js" />
+    <Content Include="importer\posts.json" />
+    <Content Include="importer\tumblr.json" />
+    <Content Include="importer\tumblr2json.js" />
     <Content Include="node_modules\.bin\express" />
     <Content Include="node_modules\.bin\express.cmd" />
     <Content Include="node_modules\.bin\jade" />

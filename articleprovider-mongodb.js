@@ -49,6 +49,50 @@ ArticleProvider.prototype.findAll = function (callback) {
 };
 
 
+ArticleProvider.prototype.ResultToPost = function (result) {
+   var post = {};
+   post.id = result._id;
+   post.title = result.slug;
+   post.slug = result.slug;
+   post.description = result.description;
+   post.date = result.date;
+   post.published = result.state == "published";
+   post.category = result.blog_name;
+   post.type = result.type;
+   post.tags = result.tags;
+   post.attribution = "";
+
+   switch (result.type) {
+      case "link":
+         post.title = result.title;
+         post.content = "<a href=\"" + result.url + "\">" + result.url + "</a>";
+         break;
+      case "photo":
+         post.description = result.caption;
+         var photo = result.photos[0].original_size;
+         post.content = "<a href=\"" + result.link_url + "\"><img src=\"" + photo.url + "\"/></a>";
+         break;
+      case "video":
+         var video = result.player[result.player.length - 1];
+         post.content = video.embed_code;
+         post.description = result.caption;
+         break;
+      case "quote":
+         post.content = "<blockquote><p>" + result.text + "</p><small>" + result.source + "</small></blockquote>";
+         break;
+      case "text":
+         post.title = result.title;
+         post.content = result.body;
+         break;
+      case "audio":
+         break;
+      default:
+         break;
+   }
+
+   return post;
+}
+
 //findTop n order by date desc
 ArticleProvider.prototype.findTopN = function (n, callback) {
    this.getCollection(function (error, article_collection) {
@@ -61,7 +105,16 @@ ArticleProvider.prototype.findTopN = function (n, callback) {
                callback(error);
             }
             else {
-               callback(null, result);
+               var posts = new Array();
+               if (Array.isArray(result)) {                  
+                  result.forEach(function (obj, i) {
+                     posts.push(ArticleProvider.prototype.ResultToPost(obj));
+                  });
+               }
+               else {
+                  posts.push(ArticleProvider.prototype.ResultToPost(result));
+               }
+               callback(null, posts);
             }
 
          });
