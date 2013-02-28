@@ -1,0 +1,5 @@
+c:\github\tforster.com\obj\Debug\tforster.com.csprojResolveAssemblyReference.cache
+c:\github\tforster.com\bin\tforster.com.dll
+c:\github\tforster.com\bin\tforster.com.pdb
+c:\github\tforster.com\obj\Debug\tforster.com.dll
+c:\github\tforster.com\obj\Debug\tforster.com.pdb

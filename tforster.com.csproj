@@ -57,19 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="articleprovider-memory.js" />
     <Content Include="articleprovider-mongodb.js" />
     <Content Include="importer\make-markdown.js" />
     <Content Include="importer\posts.json" />
     <Content Include="importer\tumblr.json" />
-    <Content Include="importer\tumblr2json.js" />
     <Content Include="node_modules\.bin\express" />
     <Content Include="node_modules\.bin\express.cmd" />
-    <Content Include="node_modules\.bin\jade" />
-    <Content Include="node_modules\.bin\jade.cmd" />
     <Content Include="node_modules\express\.npmignore" />
     <Content Include="node_modules\express\.travis.yml" />
     <Content Include="node_modules\express\bin\express" />
@@ -143,41 +136,10 @@
     <Content Include="node_modules\express\node_modules\send\node_modules\mime\types\node.types" />
     <Content Include="node_modules\express\node_modules\send\Readme.md" />
     <Content Include="node_modules\express\Readme.md" />
-    <Content Include="node_modules\jade\.npmignore" />
-    <Content Include="node_modules\jade\bin\jade" />
-    <Content Include="node_modules\jade\jade.md" />
-    <Content Include="node_modules\jade\LICENSE" />
-    <Content Include="node_modules\jade\node_modules\.bin\cake" />
-    <Content Include="node_modules\jade\node_modules\.bin\cake.cmd" />
-    <Content Include="node_modules\jade\node_modules\.bin\coffee" />
-    <Content Include="node_modules\jade\node_modules\.bin\coffee.cmd" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\.npmignore" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\bin\cake" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\bin\coffee" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\CNAME" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\CONTRIBUTING.md" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\extras\jsl.conf" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\LICENSE" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\Rakefile" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\README" />
-    <Content Include="node_modules\jade\node_modules\commander\.npmignore" />
-    <Content Include="node_modules\jade\node_modules\commander\.travis.yml" />
-    <Content Include="node_modules\jade\node_modules\commander\History.md" />
-    <Content Include="node_modules\jade\node_modules\commander\Makefile" />
-    <Content Include="node_modules\jade\node_modules\commander\Readme.md" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\.npmignore" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\.travis.yml" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\LICENSE" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\README.markdown" />
-    <Content Include="node_modules\jade\Readme.md" />
-    <Content Include="node_modules\jade\Readme_zh-cn.md" />
-    <Content Include="node_modules\jade\testing\index.jade" />
-    <Content Include="node_modules\jade\testing\layout.jade" />
-    <Content Include="node_modules\jade\testing\mobile.jade" />
-    <Content Include="node_modules\jade\testing\nested\something.jade" />
-    <Content Include="node_modules\jade\testing\test.md" />
+    <Content Include="BlogPostProvider.js" />
     <Content Include="public\images\loader-big.gif" />
     <Content Include="public\images\loader.gif" />
+    <Content Include="public\index.html" />
     <Content Include="public\scripts\bootstrap-affix.js" />
     <Content Include="public\scripts\bootstrap-alert.js" />
     <Content Include="public\scripts\bootstrap-button.js" />
@@ -191,9 +153,6 @@
     <Content Include="public\scripts\bootstrap-tooltip.js" />
     <Content Include="public\scripts\bootstrap-transition.js" />
     <Content Include="public\scripts\bootstrap-typeahead.js" />
-    <Content Include="public\scripts\init.js" />
-    <Content Include="public\scripts\showdown.js" />
-    <Content Include="public\scripts\timeago.js" />
     <Content Include="public\stylesheets\bootstrap-responsive.css" />
     <Content Include="public\stylesheets\bootstrap.css" />
     <Content Include="public\stylesheets\glyphicons-halflings-white.png" />
@@ -201,9 +160,9 @@
     <Content Include="public\stylesheets\custom.css" />
     <Content Include="public\stylesheets\docs.css" />
     <Content Include="README.md" />
+    <Content Include="tumblr2json.js" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
-    <Content Include="views\blog_new.jade" />
     <Content Include="views\blog_show.jade" />
   </ItemGroup>
   <ItemGroup>
@@ -564,82 +523,19 @@
     <Content Include="node_modules\express\node_modules\send\package.json" />
     <Content Include="node_modules\express\package.json" />
     <Content Include="node_modules\express\test.js" />
-    <Content Include="node_modules\jade\index.js" />
-    <Content Include="node_modules\jade\jade.js" />
-    <Content Include="node_modules\jade\jade.min.js" />
-    <Content Include="node_modules\jade\lib\compiler.js" />
-    <Content Include="node_modules\jade\lib\doctypes.js" />
-    <Content Include="node_modules\jade\lib\filters.js" />
-    <Content Include="node_modules\jade\lib\inline-tags.js" />
-    <Content Include="node_modules\jade\lib\jade.js" />
-    <Content Include="node_modules\jade\lib\lexer.js" />
-    <Content Include="node_modules\jade\lib\nodes\attrs.js" />
-    <Content Include="node_modules\jade\lib\nodes\block-comment.js" />
-    <Content Include="node_modules\jade\lib\nodes\block.js" />
-    <Content Include="node_modules\jade\lib\nodes\case.js" />
-    <Content Include="node_modules\jade\lib\nodes\code.js" />
-    <Content Include="node_modules\jade\lib\nodes\comment.js" />
-    <Content Include="node_modules\jade\lib\nodes\doctype.js" />
-    <Content Include="node_modules\jade\lib\nodes\each.js" />
-    <Content Include="node_modules\jade\lib\nodes\filter.js" />
-    <Content Include="node_modules\jade\lib\nodes\index.js" />
-    <Content Include="node_modules\jade\lib\nodes\literal.js" />
-    <Content Include="node_modules\jade\lib\nodes\mixin.js" />
-    <Content Include="node_modules\jade\lib\nodes\node.js" />
-    <Content Include="node_modules\jade\lib\nodes\tag.js" />
-    <Content Include="node_modules\jade\lib\nodes\text.js" />
-    <Content Include="node_modules\jade\lib\parser.js" />
-    <Content Include="node_modules\jade\lib\runtime.js" />
-    <Content Include="node_modules\jade\lib\self-closing.js" />
-    <Content Include="node_modules\jade\lib\utils.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\browser.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\cake.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\coffee-script.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\command.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\grammar.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\helpers.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\index.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\lexer.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\nodes.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\optparse.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\parser.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\repl.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\rewriter.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\lib\coffee-script\scope.js" />
-    <Content Include="node_modules\jade\node_modules\coffee-script\package.json" />
-    <Content Include="node_modules\jade\node_modules\commander\index.js" />
-    <Content Include="node_modules\jade\node_modules\commander\lib\commander.js" />
-    <Content Include="node_modules\jade\node_modules\commander\package.json" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\examples\pow.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\index.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\package.json" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\chmod.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\clobber.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\mkdirp.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\perm.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\perm_sync.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\race.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\rel.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\return.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\return_sync.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\root.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\sync.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\umask.js" />
-    <Content Include="node_modules\jade\node_modules\mkdirp\test\umask_sync.js" />
-    <Content Include="node_modules\jade\package.json" />
-    <Content Include="node_modules\jade\runtime.js" />
-    <Content Include="node_modules\jade\runtime.min.js" />
-    <Content Include="node_modules\jade\testing\index.html" />
-    <Content Include="node_modules\jade\testing\layout.html" />
-    <Content Include="node_modules\jade\testing\mobile.html" />
-    <Content Include="node_modules\jade\testing\nested\something.html" />
-    <Content Include="node_modules\jade\testing\some.js" />
     <Content Include="package.json" />
     <Content Include="routes\index.js" />
     <Content Include="routes\user.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\" />
+    <Folder Include="Properties\" />
+    <Folder Include="public\pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="views\blog_list.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="views\layout_inside.jade" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
