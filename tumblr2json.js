@@ -8,7 +8,7 @@ var utils = new Utils();
 
 
 var blogs = ["tforster.tumblr.com", "digitalsmarts.tumblr.com", "techsmarts.tumblr.com"];
-var apiKey = "Gd6OkMVTar81KSY76EUAoWrzN8UJbq4xyY2nonn82x7nsx5amV";
+var apiKey = "**************************************************";
 var databaseCollection = "posts";
 
 var Posts = [];
