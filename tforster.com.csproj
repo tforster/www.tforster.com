@@ -161,6 +161,7 @@
     <Content Include="public\stylesheets\docs.css" />
     <Content Include="README.md" />
     <Content Include="tumblr2json.js" />
+    <Content Include="Utils.js" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\blog_show.jade" />

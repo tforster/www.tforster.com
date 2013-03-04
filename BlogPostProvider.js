@@ -8,17 +8,15 @@ var BlogPostTypes = {
 
 var Schema = mongoose.Schema;
 var BlogPost = new Schema({
-   "type": { type: BlogPostTypes, required: false },
+   "type": { type: BlogPostTypes, required: true },
    "slug": { type: String, required: false },
-   "date": { type: Date, required: false },
-   "timestamp": { type: Number, required: false },
-   "published": { type: Boolean, required: false },
+   "date": { type: Date, required: true },
+   "published": { type: Boolean, required: true },
    "description": { type: String, required: false },
    "tags": { type: [String], required: false },
-   "category": { type: String, required: false },
+   "category": { type: String, required: true },
    "attachments": { type: [String], required: false },
-   "title": { type: String, required: false },
-   "tumblrId": { type: Number, required: false }
+   "title": { type: String, required: false }
 
 
    //"tumblr_url": { type:String, required: false},     // tumblr.post_url 
@@ -46,17 +44,17 @@ BlogPostProvider.prototype.BlogPostModel = mongoose.model("BlogPost", BlogPost);
 
 
 
-//getCollection
-BlogPostProvider.prototype.getCollection = function (callback) {
-   this.db.collection(databaseCollection, function (error, article_collection) {
-      if (error) {
-         callback(error);
-      }
-      else {
-         callback(null, article_collection);
-      }
-   });
-};
+////getCollection
+//BlogPostProvider.prototype.getCollection = function (callback) {
+//   this.db.collection(databaseCollection, function (error, article_collection) {
+//      if (error) {
+//         callback(error);
+//      }
+//      else {
+//         callback(null, article_collection);
+//      }
+//   });
+//};
 
 
 //findAll
@@ -79,49 +77,49 @@ BlogPostProvider.prototype.findAll = function (callback) {
 };
 
 
-BlogPostProvider.prototype.ResultToPost = function (result) {
-   var post = {};
-   post.id = result._id;
-   post.slug = (undefined !== result.slug) ? result.slug : "";
-   post.title = post.slug;
-   post.description = result.description;
-   post.date = result.date;
-   post.published = result.state == "published";
-   post.category = result.blog_name;
-   post.type = result.type;
-   post.tags = result.tags;
-   post.attribution = "";
+//BlogPostProvider.prototype.ResultToPost = function (result) {
+//   var post = {};
+//   post.id = result._id;
+//   post.slug = (undefined !== result.slug) ? result.slug : "";
+//   post.title = post.slug;
+//   post.description = result.description;
+//   post.date = result.date;
+//   post.published = result.state == "published";
+//   post.category = result.blog_name;
+//   post.type = result.type;
+//   post.tags = result.tags;
+//   post.attribution = "";
 
-   switch (result.type) {
-      case "link":
-         post.title = (result.title !== undefined) ? result.title : "";
-         post.content = "<a href=\"" + result.url + "\">" + result.url + "</a>";
-         break;
-      case "photo":
-         post.description = result.caption;
-         var photo = result.photos[0].original_size;
-         post.content = "<a href=\"" + result.link_url + "\"><img src=\"" + photo.url + "\"/></a>";
-         break;
-      case "video":
-         var video = result.player[result.player.length - 1];
-         post.content = video.embed_code;
-         post.description = result.caption;
-         break;
-      case "quote":
-         post.content = "<blockquote><p>" + result.text + "</p><small>" + result.source + "</small></blockquote>";
-         break;
-      case "text":
-         post.title = (result.title !== undefined) ? result.title : "";
-         post.content = result.body;
-         break;
-      case "audio":
-         break;
-      default:
-         break;
-   }
+//   switch (result.type) {
+//      case "link":
+//         post.title = (result.title !== undefined) ? result.title : "";
+//         post.content = "<a href=\"" + result.url + "\">" + result.url + "</a>";
+//         break;
+//      case "photo":
+//         post.description = result.caption;
+//         var photo = result.photos[0].original_size;
+//         post.content = "<a href=\"" + result.link_url + "\"><img src=\"" + photo.url + "\"/></a>";
+//         break;
+//      case "video":
+//         var video = result.player[result.player.length - 1];
+//         post.content = video.embed_code;
+//         post.description = result.caption;
+//         break;
+//      case "quote":
+//         post.content = "<blockquote><p>" + result.text + "</p><small>" + result.source + "</small></blockquote>";
+//         break;
+//      case "text":
+//         post.title = (result.title !== undefined) ? result.title : "";
+//         post.content = result.body;
+//         break;
+//      case "audio":
+//         break;
+//      default:
+//         break;
+//   }
 
-   return post;
-}
+//   return post;
+//}
 
 //findTop n order by date desc
 BlogPostProvider.prototype.findTopN = function (n, callback) {
@@ -172,34 +170,18 @@ BlogPostProvider.prototype.findById = function (id, callback) {
    });
 };
 
-//save
-BlogPostProvider.prototype.save = function (articles, callback) {
-   this.getCollection(function (error, article_collection) {
-      if (error) {
-         callback(error);
-      }
-      else {
-         if (typeof (articles.length) == "undefined") {
-            articles = [articles];
-         }
-         for (var i = 0; i < articles.length; i++) {
-            article = articles[i];
-            article.created_at = new Date();
-            if (article.comments === undefined) {
-               article.comments = [];
-            }
-            for (var j = 0; j < article.comments.length; j++) {
-               article.comments[j].created_at = new Date();
-            }
-         }
-
-         article_collection.insert(articles, function () {
-            callback(null, articles);
-         });
+//Save
+BlogPostProvider.prototype.Save = function (Post, Callback) {
+   var p = Post;
+   Post.save(function (err, Post) {
+      if (err) {
+         console.log("ERR:", err, p);
+         Callback(err);
+      } else {
+         Callback(Post);
       }
    });
-};
-
+}
 
 
 BlogPostProvider.prototype.addCommentToArticle = function (articleId, comment, callback) {
