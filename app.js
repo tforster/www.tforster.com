@@ -1,13 +1,39 @@
 var express = require("express");
 var http = require("http");
+var MongoStore = require("connect-mongo")(express);
 var mongoose = require("mongoose");
 var url = require("url");
 var Utils = require("./Utils").Utils;
+
+var settings = {};
 var utils = new Utils();
+var currentUser = {};
+
+var authom = require("authom");
+
+authom.createServer({
+   service: "google",
+   id: "700990748489.apps.googleusercontent.com",
+   secret: "a2K6jInOv6FWNdamRA_5ywFp",
+   scope: ""
+});
+
+authom.createServer({
+   service: "twitter",
+   id: "LwjCfHAugMghuYtHLS9Ugw",
+   secret: "etam3XHqDSDPceyHti6tRQGoywiISY0vZWfzhQUxGL4"
+});
+
+authom.createServer({
+   service: "github",
+   id: "7af1f396ab0b18268e69",
+   secret: "dc0173618ba1b54ad5a54df917699ac2eee6ccef"
+});
 
 mongoose.connect("mongodb://localhost/test001");
-BlogPostModel = function () { };
 
+BlogPostModel = function () { };
+UserModel = function () { };
 //var BlogPostTypes = {
 //   POST: 0, PHOTO: 1, TEXT: 2, VIDEO: 3, QUOTE: 4, AUDIO: 5, TWEET: 6, INSTAGRAM: 7, LINK: 8
 //}
@@ -27,23 +53,99 @@ var BlogPost = new Schema({
 BlogPostModel = mongoose.model("BlogPost", BlogPost);
 
 
+var User = new Schema({
+   "primaryEmail": { type: String },
+   "userName": { type: String },
+   "githubId": { type: Number },
+   "roles": { type: [String] }
+});
+UserModel = mongoose.model("User", User);
+
 var app = express();
 var server = http.createServer(app);
 
-app.configure(function () {
-   app.use(express.bodyParser());
-   app.use(express.methodOverride());
-   app.use(app.router);
-   app.use(express.static(__dirname + "/public"));
-});
-
 app.configure("development", function () {
+   settings.db = { db: mongoose.connections[0].db }
+   settings.session_secret = "076ee61d63aa10a125ea872411e433b9";
    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 app.configure("production", function () {
    app.use(express.errorHandler());
 });
+app.configure(function () {
+   app.use(express.bodyParser());
+   app.use(express.methodOverride());
+   app.use(express.cookieParser());
+   app.use(express.session({
+      secret: settings.session_secret,
+      expires: new Date(Date.now() + 3600000),
+      maxAge: new Date(Date.now() + 3600000),
+      store: new MongoStore(settings.db
+      )
+   }));
+   
+   app.use(app.router);
+
+   app.use(express.static(__dirname + "/public"));
+});
+
+
+
+
+
+function requireRole(role) {
+   return function (req, res, next) {
+
+      if (req.session.user && req.session.user.role === role)
+         next();
+      else
+         res.send(403);
+   }
+}
+
+
+authom.on("auth", function (req, res, data) {
+   console.log("auth:", data);
+   if (data.service === "github") {
+      var currentUser = UserModel.find({ "githubId": data.id }, function (d) {
+         if (d === null && data.data.login === "tforster") {
+            // Autocreate my account and remove this in production
+            var user = new UserModel();
+            user.primaryEmail = "troy.forster@gmail.com";
+            user.userName = "tforster";
+            user.githubId = data.id;
+            user.roles.push("administrator");
+            user.save();
+
+            var sess = new Object();
+            sess.sessionId = socket.id;
+            sess.userId = data.userId;
+            sess.username = data.username;
+            sess.role = data.role;
+            sessionMgm.add(sess);
+         }
+      });
+
+   }
+   res.send(
+   "<html>" +
+     "<body>" +
+       "<div style='font: 300% sans-serif'>You are " + data.id + " on " + data.service + ".</div>" +
+       "<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>" +
+     "</body>" +
+   "</html>"
+ )
+})
+
+authom.on("error", function (req, res, data) {
+   console.log("error:", data);
+   // called when an error occurs during authentication
+})
+
+app.get("/auth/:service", authom.app)
+
+
 
 
 // Get an array of Posts with optional paging/filtering support
@@ -78,11 +180,21 @@ app.get("/Posts", function (req, res) {
 });
 
 
-
+app.get(/Auth2/, function (req, res, data) {
+   console.log("authed");
+   res.send(
+"<html>" +
+  "<body>" +
+    "<div style='font: 300% sans-serif'>You are " + data.id + " on " + data.service + ".</div>" +
+    "<pre><code>" + JSON.stringify(data, null, 2) + "</code></pre>" +
+  "</body>" +
+"</html>"
+)
+});
 
 
 // Get a single Post by id (where MongoDB Ids are assumed to be 24 character GUIDs but haven't been able to confirm)
-app.get(/Posts\/([0-9a-fA-F]{24})/, function (req, res) {
+app.get(/Posts\/([0-9a-fA-F]{24})/, requireRole("admin"), function (req, res) {
    console.log("ID:", req.params);
    BlogPostModel.findOne({ "_id": req.params[0] }, function (err, Post) {
       if (err) {

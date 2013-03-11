@@ -8,6 +8,8 @@
    "dependencies": {
       "express": "3.1.0",
       "mongodb": "1.2.x",
-      "mongoose": "3.5.7"
+      "mongoose": "3.5.7",
+      "authom":"0.4.x",
+      "connect-mongo":"0.3.x"
    }
 }
