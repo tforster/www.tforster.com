@@ -72,11 +72,13 @@ app.configure("development", function () {
    settings.db = { db: mongoose.connections[0].db }
    settings.session_secret = "076ee61d63aa10a125ea872411e433b9";
    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+   settings.port = 80;
 });
 
 app.configure("production", function () {
    app.use(express.errorHandler());
 });
+
 app.configure(function () {
    app.use(express.bodyParser());
    app.use(express.methodOverride());
@@ -258,5 +260,5 @@ app.post("/Posts", function (req, res) {
 });
 
 
-server.listen(3000);
-console.log("Express server listening on port %d in %s mode", server.address().port, app.settings.env);
+server.listen(settings.port);
+console.log("Express server listening on port %d in %s mode", settings.port, app.settings.env);
