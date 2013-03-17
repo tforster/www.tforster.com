@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="myModule">
+<html lang="en">
 <head>
    <meta charset="utf-8">
-   <title>Troy Forster</title>
+   <title>Blog: Troy Forster</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="Troy Forster">
    <meta name="author" content="Troy Forster">
-
    <link href="stylesheets/bootstrap.css" rel="stylesheet">
    <style type="text/css">
       body { padding-top: 60px; padding-bottom: 40px; }
@@ -38,9 +37,9 @@
             <a class="brand" href="/">troy forster</a>
             <div class="nav-collapse collapse">
                <ul class="nav">
-                  <li class="active">
-                     <a href="/">Home</a></li>
                   <li>
+                     <a href="/">Home</a></li>
+                  <li class="active">
                      <a href="/blog.html">Blog Posts</a></li>
                   <li>
                      <a href="#about">About</a></li>
@@ -75,64 +74,11 @@
 
    <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-         <h1>Troy Forster</h1>
-         <p>Technology Director at TBWA\Toronto, idea factory, adventure racer, eco focused veggie animal lover, atheist, moralistic & sarcastic individual </p>
-         <!--         <p>
-            <a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a>
-         </p>
-         <div>
-            <a href='/auth/google'>Who am I on Google?</a></div>-->
-
-      </div>
+      
 
       <!-- Example row of columns -->
       <div class="row">
-         <div class="span4">
-            <h2>
-               Recent
-               <a href="/blog">Posts</a>
-            </h2>
-            <div ng-controller="DefaultCtrl">
-
-
-               <ul class="unstyled">
-                  <li ng-repeat="post in blogPosts.posts">
-                     <h3 ng-switch on="post.type">
-                        <a ng-switch-when="link" href="{{post.attachments[0]}}">{{post.title}}</a>
-                        <a ng-switch-default href="/Posts/{{post.slug}}">{{post.title}}</a>
-                     </h3>
-                     
-                     <p ng-bind-html-unsafe="post.description"></p>
-                     <p>date: {{post.date}}</p>
-                     <p>category: {{post.category}}</p>
-
-                  </li>
-               </ul>
-
-            </div>
-
-            <p>
-               <a class="btn" href="#">View details &raquo;</a>
-            </p>
-         </div>
-         <div class="span4">
-            <!--            <h2>Recent
-               <a href="http://twitter.com/tforster">Tweets</a></h2>-->
-            <div class="twitter-container">
-               <a class="twitter-timeline" href="https://twitter.com/tforster" data-widget-id="300633791611932672">Tweets by @tforster</a>
-               <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
-            </div>
-
-         </div>
-         <div class="span4">
-            <h2>
-               Recent
-               <a href="http://instagram.com/tforster">Instagrams</a>
-            </h2>
-            <iframe src="http://snapwidget.com/in/?u=dGZvcnN0ZXJ8aW58MTAwfDN8NHx8eWVzfDV8bm9uZQ==" allowtransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 345px; height: 460px"></iframe>
-         </div>
+         <p>Posts here...</p>
       </div>
 
       <hr>
@@ -145,28 +91,7 @@
    <!-- /container -->
 
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-   <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>-->
    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
-   <script src="filters.js"></script>
-   <script>
-      angular.module('myModule', ['ngResource', 'indexBlogFilters'], function ($provide) {
-         $provide.factory('blogPost', ['$resource', function ($resource) {
-            return {
-               getAll: function () {
-                  return $resource('/Posts').get({});
-               }
-            }
-         }]);
-      });
-
-      function DefaultCtrl($scope, $resource, blogPost) {
-         $scope.blogPosts = blogPost.getAll();
-
-      }
-
-
-   </script>
    <script src="scripts/bootstrap-transition.js"></script>
    <script src="scripts/bootstrap-alert.js"></script>
    <script src="scripts/bootstrap-modal.js"></script>

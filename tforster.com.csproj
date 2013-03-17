@@ -134,6 +134,7 @@
     <Content Include="node_modules\express\node_modules\send\Readme.md" />
     <Content Include="node_modules\express\Readme.md" />
     <Content Include="BlogPostProvider.js" />
+    <Content Include="oauth.js" />
     <Content Include="public\images\loader-big.gif" />
     <Content Include="public\images\loader.gif" />
     <Content Include="public\index.html" />
@@ -534,6 +535,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\layout_inside.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
