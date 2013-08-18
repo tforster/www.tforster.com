@@ -1,44 +1,580 @@
-extends layout
-block header
-   div.hero-unit
-      h1 troy forster 
-         small musings on technology, adventure and environment
-block recent-blog
-   h2 Recent Blog 
-      a(href="/blog/") Posts
+﻿!!! 5
+html
+  head
+    title Troy Forster
+    meta(name='description', content='')
+    meta(name='author', content='')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width; initial-scale=1.0; maximum-scale=1.0;')
+    link(href='css/bootstrap.css', rel='stylesheet', media='screen')
+    link(href='css/bootstrap-responsive.css', rel='stylesheet', media='screen')
+    link(href='css/font-awesome.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet', media='screen')
+    //if IE 7
+      link(href='css/font-awesome-ie7.min.css', rel='stylesheet')
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    script(type='text/javascript', src='js/instafeed.min.js')
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+    script(type='text/javascript', src='js/modernizr.js')
+    script
+      var pageData = !{pageData};
+  body
 
-   div(ng-repeat='post in posts')
-      h3 {{post.title}}
-      div {{post.text}}
-      a(href='readPost/{{post.id}}') More
-      |  - 
-      a(href='editPost/{{post.id}}') Edit
-      |  - 
-      a(href='deletePost/{{post.id}}') Delete
-block recent-blogx
-   h2 Recent Blog 
-      a(href="/blog/") Posts
-   - each post in posts
-      div.post
-         div(class=post.type)!= post.date
+    #wrapper
+      #sidebar
+        a.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        //
+           <div id="logo"> <a href="/"><img src="img/logo.svg" alt="logo" /></a> </div> 
+        nav#nav.navigation(role='navigation')
+          ul.unstyled
+            li.active(data-section='1')
+              i.icon-home
+              span Home
+            li(data-section='2')
+              i.icon-user
+              span About
+            li(data-section='3')
+              i.icon-laptop
+              span Projects
+            li(data-section='4')
+              i.icon-pencil
+              span Social
+            li.last(data-section='5')
+              i.icon-envelope
+              span Contact
+        //
+           /nav 
+      //
+         /sidebar 
+      #container
+        section#section1.section(data-section='1')
+          .container-fluid
+            .row-fluid
+              .alt-image.img-circle.thumb
+                img.img-circle(src='img/thumb.jpg', alt='Your Name')
+              .span6.intro
+                hgroup
+                  h1 Hello There!
+                  h3 I am the Director of Technology at an award winning advertising agency in Toronto, Canada.
+                button.btn-inverse(data-section='2')
+                  | Learn
+                  span More
+                  i.icon-circle-arrow-down
+              //
+                 /span6 
+            //
+               /row-fluid 
+          //
+             /container-fluid 
+        //
+           /section 
+        section#section2.section(data-section='2')
+          .container-fluid
+            .row-fluid.title
+              .span3
+                h2 About
+              //
+                 /span3 
+              .span9.hidden-phone
+                hr
+              //
+                 /span9 
+            //
+               /row-fluid 
+            .row-fluid.desc
+              .span8
+                p
+                  | I am actually an innovative thinker, way out of the box problem solver and creative technologist who currently moonlights as the Director of Technology at TBWA\Toronto. I started out in 1976 coding on a Trash80 and have only ever looked forward since.
+                p
+                  | I offer a complete web solution to my clients. I can guide you through the early stages of project planning and research, help you with information architecture and user experience, design your website, and finally build the site for you.
+              //
+                 /span8 
+            //
+               /row-fluid 
+            .row-fluid.content.hidden-tablet
+              .span12.expand
+                h4 Life Stats
+                .row-fluid
+                  .span4
+                    //
+                       CHART N 1 
+                    script
+                      jQuery(document).ready(function( $ ) {
+                      // Triggering only when it is inside viewport
+                      jQuery('.knob-4').waypoint(function(){
+                      // Triggering now
+                      jQuery('.knob-4').knob();
+                      // Animating the value
+                      if(jQuery('.knob-4').val() == 0) {
+                      jQuery({value: 0}).animate({value: jQuery('.knob-4').attr("rel")}, {
+                      duration: 5000,
+                      easing:'swing',
+                      step: function()
+                      {
+                      jQuery('.knob-4').val(Math.ceil(this.value)).trigger('change');
+                      }
+                      })
+                      }
+                      }
+                      ,{
+                      triggerOnce: true,
+                      offset: function(){
+                      return $(window).height() - $(this).outerHeight();
+                      }
+                      }
+                      );
+                      });
+                    .skill
+                      input.knob-4(data-readonly='true', data-fgcolor='#f1c40f', data-inputcolor='#333', data-width='245', data-height='122.5', rel='4', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='10')
+                      h4.visible-phone 4
+                      h6 cups of cofee per week
+                    //
+                       END CHART N 1 
+                  //
+                     /span4 
+                  .span4
+                    //
+                       CHART N 2 
+                    script
+                      jQuery(document).ready(function( $ ) {
+                      // Triggering only when it is inside viewport
+                      jQuery('.knob-65').waypoint(function(){
+                      // Triggering now
+                      jQuery('.knob-65').knob();
+                      // Animating the value
+                      if(jQuery('.knob-65').val() == 0) {
+                      jQuery({value: 0}).animate({value: jQuery('.knob-65').attr("rel")}, {
+                      duration: 5000,
+                      easing:'swing',
+                      step: function()
+                      {
+                      jQuery('.knob-65').val(Math.ceil(this.value)).trigger('change');
+                      }
+                      })
+                      }
+                      }
+                      ,{
+                      triggerOnce: true,
+                      offset: function(){
+                      return $(window).height() - $(this).outerHeight();
+                      }
+                      }
+                      );
+                      });
+                    .skill
+                      input.knob-65(data-readonly='true', data-fgcolor='#f68e51', data-inputcolor='#333', data-width='245', data-height='122.5', rel='65', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone 65
+                      h6 miles run this week
+                    //
+                       END CHART N 2 
+                  //
+                     /span4 
+                  .span4
+                    //
+                       CHART N 3 
+                    script
+                      jQuery(document).ready(function( $ ) {
+                      // Triggering only when it is inside viewport
+                      jQuery('.knob-85').waypoint(function(){
+                      // Triggering now
+                      jQuery('.knob-85').knob();
+                      // Animating the value
+                      if(jQuery('.knob-85').val() == 0) {
+                      jQuery({value: 0}).animate({value: jQuery('.knob-85').attr("rel")}, {
+                      duration: 5000,
+                      easing:'swing',
+                      step: function()
+                      {
+                      jQuery('.knob-85').val(Math.ceil(this.value)).trigger('change');
+                      }
+                      })
+                      }
+                      }
+                      ,{
+                      triggerOnce: true,
+                      offset: function(){
+                      return $(window).height() - $(this).outerHeight();
+                      }
+                      }
+                      );
+                      });
+                    .skill
+                      input.knob-85(data-readonly='true', data-fgcolor='#2c3e50', data-inputcolor='#333', data-width='245', data-height='122.5', rel='85', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone 85
+                      h6 new clients this year
+                    //
+                       END CHART N 3 
+                  //
+                     /span4 
+                //
+                   /row-fluid 
+              //
+                 /span12 
+            //
+               /row-fluid 
+          //
+             /container 
+        //
+           /section 
+        section#section3.section(data-section='3')
+          .container-fluid
+            .row-fluid.title
+              .span4
+                h2 Projects
+              //
+                 /span4 
+              .span8.hidden-phone.alt
+                hr
+              //
+                 /span8 
+            .row-fluid.desc
+              .span8
+                p
+                  | I have a network of developers and designers that I sometimes work with. If your web project is large enough, I can put together a team of expert developers and designers, to tackle the big stuff.
+              //
+                 /span8 
+            //
+               /row 
+            .row-fluid.content.slide
+              .span4
+                iframe(width='270', height='208', src='http://www.youtube.com/embed/dx2DmXKmjqA', frameborder='0', allowfullscreen='allowfullscreen')
 
-         div
-            p.title
-               strong
-                  a(href="/blog/"+post.id)!= post.title
-            p.description !{post.description}
-            p.content !{post.content}
-            p.tags
-               - each tag in post.tags
-                  span #{tag}
-         hr
-block recent-twitter
-   h2 Recent 
-      a(href="http://twitter.com/tforster") Tweets
-   a.twitter-timeline(href="https://twitter.com/tforster", data-widget-id="300633791611932672")Tweets
-   script(!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs")
-   iframe(src="http://embedagram.com/e/widget/1618422/", scrolling="no", frameborder="0", style="border:none; width:404px; height:144px; overflow:hidden;", allowTransparency="true")
-block recent-instagram
-   h2 Recent 
-      a(href="http://instagram.com/tforster") Instagrams
-   p instagram here
+                //img(src='img/project01.png', alt='Project 01')
+                h6.hidden-phone - VISIT THE PROJECT PAGE
+              //
+                 /span4     
+
+              .span4
+                iframe(width='270', height='208', src='http://www.youtube.com/embed/YgOkV0Ts9NY', frameborder='0', allowfullscreen='allowfullscreen')
+                h6.hidden-phone - VISIT THE PROJECT PAGE
+              //
+                 /span4 
+              .span4
+                img(src='img/project03.png', alt='Project 03')
+                h6.hidden-phone - VISIT THE PROJECT PAGE
+              //
+                 /span4 
+            //
+               /row-fluid 
+          //
+             /container 
+        //
+           /section 
+        section#section4.section(data-section='4')
+          .container-fluid
+            .row-fluid.title
+              .span4
+                h2 Social
+              //
+                 /span4 
+              .span8.hidden-phone
+                hr
+              //
+                 /span8 
+            //
+               /row-fluid 
+            .row-fluid.desc
+              .span8
+                p
+                  | Blogging is such an opportunity. I am sad to see people abandoning the chance to express, to connect, to build relationships. For me, the love of blogging (and what it means to me) is why I have been in the game so long. It is how I have met most of my current friends. It is how I have stayed sane when I was an employee, and how I center myself today as a creator.
+              //
+                 /span8 
+            //
+               /row-fluid 
+            .row-fluid.content
+              .span4
+                ul.article-tags
+                  li.current(data-blog='blog')
+                    i.icon-circle-arrow-right
+                    | Blog
+                  li(data-blog='twitter')
+                    i.icon-circle-arrow-right
+                    | Twitter 
+                  li(data-blog='tumblr')
+                    i.icon-circle-arrow-right
+                    | Tumblrs
+                  li(data-blog='instagram')
+                    i.icon-circle-arrow-right
+                    | Instagram Photos
+                  li(data-blog='github')
+                    i.icon-circle-arrow-right
+                    | GitHub Projects
+              //
+                 /span4 
+              - var posts = getPosts(0, 2)
+              .span8.slide.current(data-blog='blog')
+                 
+   
+                .row-fluid
+                  .span6.expand
+                    h4= posts[0].title
+                    p
+                      != posts[0].preview
+
+                    .pull-right.read-more
+                      a(href='#', rel='external')
+                        | Read More
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                  .span6.visible-desktop
+                    h4= posts[1].title
+                    p
+                      != posts[1].preview
+                    .pull-right.read-more
+                      a(href='#', rel='external')
+                        | Read More
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                //
+                   /row-fluid 
+              //
+                 /span8 
+              .span8.slide(data-blog='twitter')
+                .row-fluid
+                  .span6.expand
+                    h4 @tforster
+                    p(style='text-align: center;')
+                      a.twitter-timeline(href='https://twitter.com/tforster', data-widget-id='300633791611932672') Tweets by @tforster
+                        script
+                          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+              .span8.slide(data-blog='tumblr')
+                .row-fluid
+                  .span6.expand
+                    h4 TechSmarts
+                    p(style='text-align: left;') Curated articles and links of a technical nature intended for software engineers and developers.
+
+                    each item in pageData.tumblr.techsmarts.posts
+                      p
+                        a(href=item.url, rel="external") #{item.title}
+
+                    .pull-right.read-more
+                      a(href='http://techsmarts.tumblr.com', rel='external')
+                        | Read More on TechSmarts
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                  .span6.visible-desktop
+                    h4 DigitalSmarts
+                    p(style='text-align: left;') Curated articles and links of a less technical nature intended for digitally interested people in the account leadership and client services roles.
+                    each item in pageData.tumblr.digitalsmarts.posts
+                      p
+                        a(href=item.url, rel="external") #{item.title}
+
+                    .pull-right.read-more
+                      a(href='http://digitalsmarts.tumblr.com', rel='external')
+                        | Read More on DigitalSmarts
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                //
+                   /row-fluid 
+              //
+                 /span8 
+              .span8.slide(data-blog='instagram')
+                .row-fluid
+                  .span6.expand
+                    h4(style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;')
+                    p(style='text-align: center;')
+                      a(rel="external") 
+                        img
+                    .pull-right.read-more.hidden-desktop
+                      a(href='http://instagram.com/tforster', rel='external')
+                        | See more of my Instagrams
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                  .span6.visible-desktop
+                    h4(style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;')
+                    p(style='text-align: center;')
+                      a(rel="external") 
+                        img
+                    .pull-right.read-more
+                      a(href='http://instagram.com/tforster', rel='external')
+                        | See more of my Instagrams
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                //
+                   /row-fluid 
+              //
+                 /span8 
+              .span8.slide(data-blog='github')
+                .row-fluid
+                  .span6.expand
+                    h4 tforster.com
+                    p The source for this website
+                    .pull-right.read-more
+                      a(href='https://github.com/tforster', rel='external')
+                        | Read More
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                  .span6.visible-desktop
+                    h4 Vine Proxy
+                    p vine-proxy is a simple NodeJS/Express based proxy for Twitter Vine requests. A sort-of reverse engineered Vine API we created at TBWA\Toronto
+                    .pull-right.read-more
+                      a(href='https://github.com/TBWAToronto/vine-proxy', rel='external')
+                        | Read More
+                        i.icon-double-angle-right
+                  //
+                     /span6 
+                //
+                   /row-fluid 
+              //
+                 /span8 
+            //
+               /row-fluid 
+          //
+             /container 
+        //
+           /section 
+        section#section5.section(data-section='5')
+          .container-fluid
+            .row-fluid.title
+              .span4
+                h2 Contact
+              //
+                 /span4 
+              .span8.hidden-phone.alt
+                hr
+              //
+                 /span8 
+            //
+               /row-fluid 
+            .row-fluid.content
+              .span4
+                h4.intro Drop me a Line!
+                p
+                  | Enough about me, let s hear about you. I am currently available for projects starting in July 2013.
+                .row-fluid.alt
+                  h5 Email:
+                  span hello@yourdomain.com
+                //
+                   /row 
+                .row-fluid.alt
+                  h5 Phone:
+                  span (+34) 123-4567
+                //
+                   /row 
+                .row-fluid.alt
+                  h5 Twitter:
+                  span
+                    a(href='http://www.twitter.com/basicoh_', rel='external') @Basicoh_
+                //
+                   /row 
+              //
+                 /span4 
+              .span8
+                .row-fluid
+                  .span12
+                  //
+                     /span12 
+                //
+                   /row-fluid 
+                form(method='POST', action='#')
+                  .row-fluid
+                    .span6
+                      .control-group
+                        label.control-label(for='name') Name:
+                        .controls
+                          input#name.span12(type='text', name='contact_name')
+                        //
+                           /controls 
+                      //
+                         /control-group 
+                    //
+                       /span6 
+                    .span6
+                      .control-group
+                        label.control-label(for='email') Email:
+                        .controls
+                          input#email.span12(type='email', name='contact_email')
+                        //
+                           /controls 
+                      //
+                         /control-group 
+                    //
+                       /span6 
+                  //
+                     /row-fluid 
+                  .row-fluid
+                    .span6
+                      .control-group
+                        label.control-label(for='phone') Phone Number:
+                        .controls
+                          input#phone.span12(type='tel', name='contact_phone')
+                        //
+                           /controls 
+                      //
+                         /control-group 
+                    //
+                       /span6 
+                    .span6
+                      .control-group
+                        label.control-label(for='website') Your Website:
+                        .controls
+                          input#website.span12(type='url', name='contact_website')
+                        //
+                           /controls 
+                      //
+                         /control-group 
+                    //
+                       /span6 
+                  //
+                     /row-fluid 
+                  .row-fluid
+                    .span12
+                      .control-group
+                        label.control-label(for='message') Your Message:
+                        .controls
+                          textarea#message.span12(type='text', name='contact_message', rows='4')
+                        //
+                           /controls 
+                      //
+                         /control-group 
+                    //
+                       /span12 
+                  //
+                     /row-fluid 
+                  input(type='hidden', name='save', value='contact')
+                  button.btn-inverse.pull-right(type='submit')
+                    | Send
+                    span Message
+                    i.icon-circle-arrow-right
+                //
+                   /form 
+              //
+                 /span8 
+              #footer
+                .row-fluid
+                  .span12
+                  //
+                     /span12 
+                //
+                   /row-fluid 
+              //
+                 /footer 
+            //
+               /row-fluid 
+          //
+             /container-fluid 
+      //
+         /container 
+    //
+       /wrapper 
+    //
+       JAVASCRIPTS 
+    
+    script(type='text/javascript', src='js/waypoints.min.js')
+    script(type='text/javascript', src='js/jquery.knob.js')
+    script(type='text/javascript', src='js/jquery.easing.1.3.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/main.js')
+    

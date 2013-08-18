@@ -1,15 +1,22 @@
 {
-   "name": "application-name",
-   "version": "0.0.1",
+   "name": "tforster.com",
+   "version": "0.1.0",
    "private": true,
    "scripts": {
       "start": "node app"
    },
    "dependencies": {
       "express": "3.1.0",
-      "mongodb": "1.2.x",
-      "mongoose": "3.5.7",
-      "authom":"0.4.x",
-      "connect-mongo":"0.3.x"
-   }
+      "jade":"0.34.x",
+      "poet":"1.0.x",
+      "tumblr.js":"0.0.4"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/tforster/tforster.com.git"
+  },
+   "author": {
+    "name": "Troy Forster",
+    "url": "http://tforster.com"
+  }
 }

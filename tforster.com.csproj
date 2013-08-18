@@ -15,7 +15,7 @@
     <AssemblyName>tforster.com</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="articleprovider-mongodb.js" />
+    <Content Include="controllers.js" />
+    <Content Include="public\filters.js" />
     <Content Include="node_modules\.bin\express" />
     <Content Include="node_modules\.bin\express.cmd" />
     <Content Include="node_modules\express\.npmignore" />
@@ -135,6 +137,7 @@
     <Content Include="node_modules\express\Readme.md" />
     <Content Include="BlogPostProvider.js" />
     <Content Include="oauth.js" />
+    <Content Include="public\blog.html" />
     <Content Include="public\images\loader-big.gif" />
     <Content Include="public\images\loader.gif" />
     <Content Include="public\index.html" />
@@ -538,6 +541,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
+    <Content Include="public\stylesheets\bootstrap.min.css" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
