@@ -5,11 +5,19 @@ var express = require("express")
    , path = require('path')
    , url = require("url")
    , Poet = require("poet")
+   , Twitter = require("twitter-js-client").Twitter
    , tumblr = require("tumblr.js");
 
 var settings = {}
-   , port = parseInt(80)
+   , port = parseInt(3000)
    , app = express();
+
+
+var pageData = {};
+pageData.tumblr = {};
+pageData.twitter = {};
+
+
 
 var poet = Poet(app, {
    posts: './_posts/',
@@ -29,9 +37,9 @@ poet.addRoute('/blog/:post', function (req, res, next) {
 }).init();
 
 poet.watch(function () {
-   // watcher reloaded
+   console.log("poet watcher reloaded");
 }).init().then(function () {
-   // Ready to go!
+   console.log("poet watcher initialized");
 });
 
 app.get('/rss', function (req, res) {
@@ -42,17 +50,32 @@ app.get('/rss', function (req, res) {
 });
 
 
-/** tumblr
+var twitterCreds = {
+ 
+}
+
+var tumblrCreds = {
+ 
+}
+
+/** twitter
 */
-var client = tumblr.createClient({
-   consumer_key: 'BQGUHWL7k8KBFw6ETT3TrcOqWcJwrRDfyYNANPeYfKXatXtIf4',
-   consumer_secret: 'Uru9yB0VekFmUrzWt7pCyOHt64y3Pt7UbB0OUo2WD0twyyAmm9',
-   token: 'uSGBrRZuamsgaUgOMFsb6hpxN8cHuGR3mrfYUxSeGigbcPUI3J',
-   token_secret: 'rhW7oZTPeaohO1jXJggltBtwnNAUVsMZQkrCyAJBQDMpTwRnjr'
+var twitter = new Twitter(twitterCreds);
+var params = { screen_name: 'tforster', count: '3' };
+twitter.getUserTimeline(params, function (err) { }, function (data) {
+   pageData.twitter = data;
 });
 
-var pageData = {};
-pageData.tumblr = { };
+//twitter.getMentionsTimeline();
+//twitter.getHomeTimeline();
+//twitter.getReTweetsOfMe();
+//twitter.getTweet();
+
+/** tumblr
+*/
+var client = tumblr.createClient(tumblrCreds);
+
+
 
 client.posts('techsmarts.tumblr.com', { limit: 3 }, function (err, data) {
    pageData.tumblr.techsmarts = data;
@@ -64,7 +87,7 @@ client.posts('digitalsmarts.tumblr.com', { limit: 3 }, function (err, data) {
 
 
 poet.init().then(function () {
-   // ready to go!
+   console.log("poet initialized");
 });
 
 app.configure(function () {
@@ -87,7 +110,7 @@ app.configure('development', function () {
 
 app.get('/', function (req, res) {
    res.render('index', {
-      pageData:pageData
+      pageData: pageData
    }
 )
 });
