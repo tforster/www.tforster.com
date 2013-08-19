@@ -8,7 +8,7 @@ var express = require("express")
    , tumblr = require("tumblr.js");
 
 var settings = {}
-   , port = parseInt(3000)
+   , port = parseInt(80)
    , app = express();
 
 var poet = Poet(app, {
@@ -45,7 +45,10 @@ app.get('/rss', function (req, res) {
 /** tumblr
 */
 var client = tumblr.createClient({
-
+   consumer_key: 'BQGUHWL7k8KBFw6ETT3TrcOqWcJwrRDfyYNANPeYfKXatXtIf4',
+   consumer_secret: 'Uru9yB0VekFmUrzWt7pCyOHt64y3Pt7UbB0OUo2WD0twyyAmm9',
+   token: 'uSGBrRZuamsgaUgOMFsb6hpxN8cHuGR3mrfYUxSeGigbcPUI3J',
+   token_secret: 'rhW7oZTPeaohO1jXJggltBtwnNAUVsMZQkrCyAJBQDMpTwRnjr'
 });
 
 var pageData = {};
