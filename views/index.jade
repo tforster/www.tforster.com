@@ -14,10 +14,10 @@ html
       link(href='css/font-awesome-ie7.min.css', rel='stylesheet')
     //if lt IE 9
       script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-    script(type='text/javascript', src='js/instafeed.min.js')
-    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
-    script(type='text/javascript', src='js/modernizr.js')
-    script
+    script(src='js/instafeed.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+    script(src='js/modernizr.js')
+    script.
       var pageData = !{pageData};
   body
 
@@ -89,6 +89,7 @@ html
               .span8
                 p
                   | I am actually an innovative thinker, way out of the box problem solver and creative technologist who currently moonlights as the Director of Technology at TBWA\Toronto. I started out in 1976 coding on a Trash80 and have only ever looked forward since.
+            //
                 p
                   | I offer a complete web solution to my clients. I can guide you through the early stages of project planning and research, help you with information architecture and user experience, design your website, and finally build the site for you.
               //
@@ -102,7 +103,7 @@ html
                   .span4
                     //
                        CHART N 1 
-                    script
+                    script.
                       jQuery(document).ready(function( $ ) {
                       // Triggering only when it is inside viewport
                       jQuery('.knob-4').waypoint(function(){
@@ -129,8 +130,8 @@ html
                       );
                       });
                     .skill
-                      input.knob-4(data-readonly='true', data-fgcolor='#f1c40f', data-inputcolor='#333', data-width='245', data-height='122.5', rel='4', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='10')
-                      h4.visible-phone 4
+                      input.knob-4(data-readonly='true', data-fgcolor='#f1c40f', data-inputcolor='#333', data-width='245', data-height='122.5', rel='7', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone 7
                       h6 cups of cofee per week
                     //
                        END CHART N 1 
@@ -139,7 +140,7 @@ html
                   .span4
                     //
                        CHART N 2 
-                    script
+                    script.
                       jQuery(document).ready(function( $ ) {
                       // Triggering only when it is inside viewport
                       jQuery('.knob-65').waypoint(function(){
@@ -166,9 +167,9 @@ html
                       );
                       });
                     .skill
-                      input.knob-65(data-readonly='true', data-fgcolor='#f68e51', data-inputcolor='#333', data-width='245', data-height='122.5', rel='65', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
-                      h4.visible-phone 65
-                      h6 miles run this week
+                      input.knob-65(data-readonly='true', data-fgcolor='#f68e51', data-inputcolor='#333', data-width='245', data-height='122.5', rel='50', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone 50
+                      h6 Km Commuted by bike per week
                     //
                        END CHART N 2 
                   //
@@ -176,7 +177,7 @@ html
                   .span4
                     //
                        CHART N 3 
-                    script
+                    script.
                       jQuery(document).ready(function( $ ) {
                       // Triggering only when it is inside viewport
                       jQuery('.knob-85').waypoint(function(){
@@ -203,9 +204,9 @@ html
                       );
                       });
                     .skill
-                      input.knob-85(data-readonly='true', data-fgcolor='#2c3e50', data-inputcolor='#333', data-width='245', data-height='122.5', rel='85', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
-                      h4.visible-phone 85
-                      h6 new clients this year
+                      input.knob-85(data-readonly='true', data-fgcolor='#2c3e50', data-inputcolor='#333', data-width='245', data-height='122.5', rel='3', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone 3
+                      h6 innovative ideas per morning shower
                     //
                        END CHART N 3 
                   //
@@ -234,7 +235,11 @@ html
             .row-fluid.desc
               .span8
                 p
-                  | I have a network of developers and designers that I sometimes work with. If your web project is large enough, I can put together a team of expert developers and designers, to tackle the big stuff.
+                  | I am fortunate to work on a multitude of creative and innovative projects both for work and personal satisfaction. 
+                
+                p
+                  | This is just a random sample. To see more projects please visit my blog at 
+                  a(href="http://localhost:3000/category/projects", rel="external") http://tforster.com/category/projects
               //
                  /span8 
             //
@@ -311,7 +316,7 @@ html
    
                 .row-fluid
                   .span6.expand
-                    h4= posts[0].title
+                    h4(style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;')= posts[0].title
                     p
                       != posts[0].preview
 
@@ -322,7 +327,7 @@ html
                   //
                      /span6 
                   .span6.visible-desktop
-                    h4= posts[1].title
+                    h4(style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;')= posts[1].title
                     p
                       != posts[1].preview
                     .pull-right.read-more
@@ -341,7 +346,7 @@ html
                     h4 @tforster
                     p(style='text-align: center;')
                       a.twitter-timeline(href='https://twitter.com/tforster', data-widget-id='300633791611932672') Tweets by @tforster
-                        script
+                        script.
                           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
               .span8.slide(data-blog='tumblr')
@@ -452,21 +457,22 @@ html
               .span4
                 h4.intro Drop me a Line!
                 p
-                  | Enough about me, let s hear about you. I am currently available for projects starting in July 2013.
+                  | Enough about me, let s hear about you. 
+                //  I am currently available for projects starting in July 2013.
                 .row-fluid.alt
                   h5 Email:
-                  span hello@yourdomain.com
+                  span troy.forster@gmail.com
                 //
                    /row 
                 .row-fluid.alt
-                  h5 Phone:
-                  span (+34) 123-4567
+                  h5 SMS:
+                  span +1 (416) 617-4921
                 //
                    /row 
                 .row-fluid.alt
                   h5 Twitter:
                   span
-                    a(href='http://www.twitter.com/basicoh_', rel='external') @Basicoh_
+                    a(href='http://www.twitter.com/tforster', rel='external') @tforster
                 //
                    /row 
               //
@@ -478,78 +484,8 @@ html
                      /span12 
                 //
                    /row-fluid 
-                form(method='POST', action='#')
-                  .row-fluid
-                    .span6
-                      .control-group
-                        label.control-label(for='name') Name:
-                        .controls
-                          input#name.span12(type='text', name='contact_name')
-                        //
-                           /controls 
-                      //
-                         /control-group 
-                    //
-                       /span6 
-                    .span6
-                      .control-group
-                        label.control-label(for='email') Email:
-                        .controls
-                          input#email.span12(type='email', name='contact_email')
-                        //
-                           /controls 
-                      //
-                         /control-group 
-                    //
-                       /span6 
-                  //
-                     /row-fluid 
-                  .row-fluid
-                    .span6
-                      .control-group
-                        label.control-label(for='phone') Phone Number:
-                        .controls
-                          input#phone.span12(type='tel', name='contact_phone')
-                        //
-                           /controls 
-                      //
-                         /control-group 
-                    //
-                       /span6 
-                    .span6
-                      .control-group
-                        label.control-label(for='website') Your Website:
-                        .controls
-                          input#website.span12(type='url', name='contact_website')
-                        //
-                           /controls 
-                      //
-                         /control-group 
-                    //
-                       /span6 
-                  //
-                     /row-fluid 
-                  .row-fluid
-                    .span12
-                      .control-group
-                        label.control-label(for='message') Your Message:
-                        .controls
-                          textarea#message.span12(type='text', name='contact_message', rows='4')
-                        //
-                           /controls 
-                      //
-                         /control-group 
-                    //
-                       /span12 
-                  //
-                     /row-fluid 
-                  input(type='hidden', name='save', value='contact')
-                  button.btn-inverse.pull-right(type='submit')
-                    | Send
-                    span Message
-                    i.icon-circle-arrow-right
-                //
-                   /form 
+              
+
               //
                  /span8 
               #footer
@@ -572,9 +508,9 @@ html
     //
        JAVASCRIPTS 
     
-    script(type='text/javascript', src='js/waypoints.min.js')
-    script(type='text/javascript', src='js/jquery.knob.js')
-    script(type='text/javascript', src='js/jquery.easing.1.3.js')
-    script(type='text/javascript', src='js/bootstrap.min.js')
-    script(type='text/javascript', src='js/main.js')
+    script(src='js/waypoints.min.js')
+    script(src='js/jquery.knob.js')
+    script(src='js/jquery.easing.1.3.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/main.js')
     

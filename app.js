@@ -17,24 +17,35 @@ var poet = Poet(app, {
    metaFormat: 'json'
 });
 
-//poet.addRoute('/myposts/:post', function (req, res, next) {
-//   var post = poet.helpers.getPost(req.params.post);
-//   if (post) {
-//      // Do some fancy logging here
-//      res.render('post', { post: post });
-//   } else {
-//      res.send(404);
-//   }
-//}).init();
+
+poet.addRoute('/blog/:post', function (req, res, next) {
+   var post = poet.helpers.getPost(req.params.post);
+   if (post) {
+      // Do some fancy logging here
+      res.render('post', { post: post });
+   } else {
+      res.send(404);
+   }
+}).init();
+
+poet.watch(function () {
+   // watcher reloaded
+}).init().then(function () {
+   // Ready to go!
+});
+
+app.get('/rss', function (req, res) {
+   // Only get the latest posts
+   var posts = poet.helpers.getPosts(0, 5);
+   res.setHeader('Content-Type', 'application/rss+xml');
+   res.render('rss', { posts: posts });
+});
 
 
 /** tumblr
 */
 var client = tumblr.createClient({
-   consumer_key: 'BQGUHWL7k8KBFw6ETT3TrcOqWcJwrRDfyYNANPeYfKXatXtIf4',
-   consumer_secret: 'Uru9yB0VekFmUrzWt7pCyOHt64y3Pt7UbB0OUo2WD0twyyAmm9',
-   token: 'uSGBrRZuamsgaUgOMFsb6hpxN8cHuGR3mrfYUxSeGigbcPUI3J',
-   token_secret: 'rhW7oZTPeaohO1jXJggltBtwnNAUVsMZQkrCyAJBQDMpTwRnjr'
+
 });
 
 var pageData = {};
