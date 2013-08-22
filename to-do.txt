@@ -1,0 +1,10 @@
+﻿add support for dev, stage and prod
+figure out how to store creds out of github
+cleanup github node_modules
+hide .suo and add to .gitignore
+add timer to fetch and update server lists for the home page
+point about.me to tforster.com
+point www.tforster.com to tforster.com
+add GA
+add OpenSSL
+

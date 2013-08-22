@@ -1,0 +1,304 @@
+table
+pre, code, kbd, samp, tt
+body.nofooter
+body.session .bar, body.session #bd, body.session #ft, body.session #promo .inner
+a s
+fieldset
+fieldset legend
+input[type=text], input[type=password], textarea
+input[type=text], input[type=password], textarea
+body a.button
+small
+.clearfix
+#logged-in-status
+#signup-msg
+#signup-msg a
+#logged-in-status input
+.action-information
+h2.action-information
+#bd h3
+form.flow, form.flow div
+input.textual, button.textual
+fieldset.sign-in
+fieldset.sign-in legend
+.sign-in .row
+.sign-in .row label
+.noloki.js .sign-in .row
+.noloki.js .sign-in .row label
+.noloki.js .sign-in .content label
+.sign-in input.text
+.sign-in p
+.sign-in .error .row, #update-form div.error
+.sign-in .error input.text, #update-form .error textarea
+#login-form
+#login-form div.submit
+#login-form div.submit .button
+#promo
+#promo .inner
+#promo h2
+#promo .sign-up.button
+#promo p
+#promo.thumbnail p
+#promo.thumbnail img
+.error p, .error a, .error
+#update-form .bd
+#update-form
+#update-form textarea
+#update-form .url-tweet
+#update-form .hd label
+#update-form .ft
+#update-form .ft .btn
+#update-form .ft .btn, #update-form .ft #char-count
+#char-count
+#char-count.warn
+#char-count.superwarn
+form.indent-buttons
+form.indent-buttons .button
+.logged-in form.indent-buttons
+.logged-out #update-form fieldset.sign-in, .logged-out form.indent-buttons fieldset.sign-in
+.logged-out #update-form fieldset.sign-in input.text, .logged-out form.indent-buttons fieldset.sign-in input.text
+.logged-out #update-form fieldset.submit, .logged-out form.indent-buttons fieldset.submit
+#update-form fieldset.submit, form.indent-buttons fieldset.submit
+form.indent-buttons fieldset.submit
+form.indent-buttons fieldset.submit .button
+.logged-out #update-form fieldset.submit .button
+span.canonical-tweet-link
+.related h2
+.related ul
+.related li
+.related li p.related-description
+.user-list a
+.user-list .name
+.user-list .name-verified
+.user-list .description
+.related-users .stats
+.related-users .stats a
+.related-users .stats a.user
+.user-list img
+.user-list .follow-button
+.user-list .btn input
+.user-list .following-ctrls
+.user-list .btn-follow input
+.user-list .following-msg, .user-list .follow-pending-msg
+.user-list .following-msg
+.user-list .btn-unfollow
+.user-list .btn-unfollow input
+.user-list .btn-unfollow-hover input
+.wait-msg
+.recent-tweets .more-link, .related-tweets .more-link
+.footer
+#ft
+#ft a
+#ft a.supplemental-link
+#ft p
+#ft p a
+#toolbar
+#auto-close
+#auto-close p
+.notice
+.notice.with-action
+.notice.with-action .button
+.notice em
+.notice h2
+.notice, .notice p
+.notice a
+.notice.happy
+.notice.concerned
+.notice.error
+.notice.app
+p.notice
+p.notice a
+p.notice.happy
+p.notice.concerned
+p.notice.error
+.logged-out #update-form fieldset.submit, .logged-out form.indent-buttons fieldset.submit, .logged-out form.indent-buttons fieldset.submit .button
+.logged-out #char-count
+span.canonical-tweet-link
+#promo .inner
+#promo .sign-up.button
+#ft
+#bd h3
+.notice
+#header
+#header .bar
+#header .logo
+#header .logo a
+#session, #session h2, #session h3, #session a, #session input, #session button
+#session, #not-logged-in
+#session h2
+#session h2 a
+.js #session h2 a
+.js.rtl #session h2 a
+#session h2 img
+#session .user-menu
+#session .user-menu input
+.user-menu h3, .user-menu ul, .user-menu li
+.user-menu ul.session, .user-menu .session li.signout
+.js #session .user-menu
+.js .user-menu h3, .js .user-menu ul, .js .user-menu li
+.js #session .user-menu button, .js #session .user-menu input, .js #session .user-menu a
+.js #session .user-menu
+.js #session.show .user-menu
+.js #session .user-menu h3
+.user-menu h3.session
+.user-menu li.new, .user-menu li.settings, .user-menu li.help
+.opt .user-menu li.new, .opt .user-menu li.settings, .opt .user-menu li.help
+#session .user-menu button.switch-user
+.user-menu button.switch-user img
+hr.vr
+#not-logged-in
+#not-logged-in a.register, #not-logged-in a.sign-in
+#not-logged-in a.sign-in
+.en .blurb
+#session h2 a
+#session h2 .name
+#not-logged-in
+.blurb
+#header .logo a
+.profile .subject
+.subject h2
+.subject .nickname
+.subject h2 a
+.subject h2 .nickname
+.subject .note
+.subject .photo
+.badges
+.badges li
+.badges .verified
+.badges .protected
+.profile .follow-button
+.profile .follow-button button
+.stats
+.stats dl
+.stats dt
+.stats dd
+.stats .count
+.facepile
+.facepile li
+.facepile li img
+.profile.summary .stats
+.profile.summary .stats dl
+.protected-box
+.protected-box h2
+.protected-box p
+.protected-box img
+.profile.summary .stats dl
+.profile.summary .stats .facepile
+.button
+.tweet-button
+.button.selected
+.button.sign-up
+.button span
+.button .trashcan
+.button .checkmark
+.button .down-arrow
+.button .down-sprite
+.button .up-sprite
+.button-active
+.icon
+.delete-icon
+.person-icon
+.list-icon
+.blocking-icon
+.photo-icon
+.video-icon
+.reply-icon
+.device-notifications
+.device-notifications.notifying
+.retweet-setting
+.retweet-setting.including
+.protected-box .button
+.button.loading
+.button.loading i
+a.promotional, input.promotional
+.follow-button form.disabled
+.follow-button b
+.follow-button .blocked
+.follow-button .blocked b
+.follow-button .follow b
+.follow-button .unfollow .button, .follow-button.followed .unfollow .button
+.follow-button .cancel-request em
+.tweet-user-block-image
+.tweet-user-block-name
+.tweet-user-block-screen-name
+.tweet-user-block-full-name
+.tweet hr
+.tweet .speech-bubble
+.details-pane-tweet .tweet-timestamp
+.tweet-source, .tweet-source a
+.tweet-geo-text
+a .geo-pin
+span.geo-pin
+.tweet-meta i.at
+.favorited-icon
+.tweet-meta .reply-icon
+.retweet-icon
+.tweet-meta em, .tweet-meta i
+.tweet-meta .photo, .tweet-meta .video, .tweet-meta .song, .tweet-meta .generic
+.tweet-meta .photo
+.tweet-meta .video
+.tweet-meta .generic
+.tweet-meta .song
+.details-pane-tweet .tweet-user-block-screen-name
+.tweet-actions .delete-action span i
+.retweeted .tweet-actions a.unretweet-action
+.retweeted .tweet-actions a.retweet-action
+.favorited .tweet-actions .unfavorite-action
+.favorited .tweet-actions .favorite-action
+.favorite-icon, .retweet-icon
+.favorite-icon
+.retweet-icon
+.tweet .tweet-corner .tweet-meta .retweet-icon
+.tweet-label
+.tweet .tweet-label
+.promoted-label
+.top-tweet-label
+.simple-tweet-content.mini
+.simple-tweet-content.bigger
+.tweet-dogear-fav
+.tweet-dogear-rt
+.tweet-dogear-fav.tweet-dogear-rt
+.dogear .tweet
+.recent-tweets h2
+.auth
+.auth h2
+.app-info
+#bd .app-info h3, .app-info dl
+.app-info h3 img
+.app-info dt
+.app-info dd
+.app-info dd p
+.permissions, .return-links
+.permissions ul
+.return-links li, .permissions li
+.permissions.allow strong
+.permissions.deny
+.permissions.deny strong
+#oauth_form
+.oauth fieldset
+.oauth fieldset.buttons input, .oauth fieldset.buttons a
+.oauth fieldset.buttons
+.oauth fieldset.buttons, .oauth fieldset.buttons input[type=submit], .oauth fieldset.buttons a
+.oauth.es fieldset.buttons, .oauth.fr fieldset.buttons
+.oauth legend
+#oauth_pin p
+#oauth_pin code
+.js .notice.callback h2
+.js .notice.callback p
+.js.redirect-timeout .notice.callback h2
+.js.redirect-timeout .notice.callback p
+.oauth fieldset.buttons input, .oauth fieldset.buttons a
+.auth
+.app-info
+.oauth .sign-in input.text
+.oauth fieldset
+.auth h2
+.app-info
+.app-info h3 img
+.app-info dd p
+.app-info .durl, .app-info .notes
+.app-info.expanded dd.durl, .app-info.expanded dd.notes
+.oauth .sign-in input.text
+.oauth fieldset
+.oauth fieldset.buttons input, .oauth fieldset.buttons a
+.oauth fieldset.buttons

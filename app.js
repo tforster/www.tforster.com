@@ -50,14 +50,6 @@ app.get('/rss', function (req, res) {
 });
 
 
-var twitterCreds = {
- 
-}
-
-var tumblrCreds = {
- 
-}
-
 /** twitter
 */
 var twitter = new Twitter(twitterCreds);
