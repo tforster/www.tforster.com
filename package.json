@@ -10,7 +10,9 @@
       "jade":"0.34.x",
       "poet":"1.0.x",
       "tumblr.js":"0.0.4", 
-      "twitter-js-client":"0.0.x"
+      "twitter-js-client":"0.0.x",
+      "moves-api":"0.0.2",
+      "cron": "1.0.1"
    },
    "repository": {
       "type": "git",

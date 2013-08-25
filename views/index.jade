@@ -2,10 +2,10 @@
 html
   head
     title Troy Forster
-    meta(name='description', content='')
-    meta(name='author', content='')
+    meta(name='description', content='Troy Forster')
+    meta(name='author', content='Troy Forster')
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width; initial-scale=1.0; maximum-scale=1.0;')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
     link(href='css/bootstrap.css', rel='stylesheet', media='screen')
     link(href='css/bootstrap-responsive.css', rel='stylesheet', media='screen')
     link(href='css/font-awesome.css', rel='stylesheet')
@@ -14,8 +14,7 @@ html
       link(href='css/font-awesome-ie7.min.css', rel='stylesheet')
     //if lt IE 9
       script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-    script(src='js/instafeed.min.js')
-    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+
     script(src='js/modernizr.js')
     
     script.
@@ -89,51 +88,31 @@ html
             .row-fluid.desc
               .span8
                 p
-                  | I am actually an innovative thinker, way out of the box problem solver and creative technologist who currently moonlights as the Director of Technology at TBWA\Toronto. I started out in 1976 coding on a Trash80 and have only ever looked forward since.
-            //
-                p
-                  | I offer a complete web solution to my clients. I can guide you through the early stages of project planning and research, help you with information architecture and user experience, design your website, and finally build the site for you.
+                  | I am actually an innovative thinker, way out of the box problem solver and creative technologist who currently moonlights as the Director of Technology at 
+                  a(href="http://tbwa-toronto.com", rel="external") TBWA\Toronto. 
+                  | I started out in 1977 coding on a 
+                  a(href="http://en.wikipedia.org/wiki/TRS-80", rel="external") Trash80 
+                  | and have only ever looked forward since.
               //
                  /span8 
             //
                /row-fluid 
             .row-fluid.content.hidden-tablet
               .span12.expand
-                h4 Life Stats
+                h4 Quantitifying My Self
+                p
+                  | The following stats represent the last 7 days of activities as recorded by 
+                  a(href="http://www.moves-app.com/", rel="external") Moves 
+                  | on my iPhone.
                 .row-fluid
                   .span4
                     //
                        CHART N 1 
-                    script.
-                      jQuery(document).ready(function( $ ) {
-                      // Triggering only when it is inside viewport
-                      jQuery('.knob-4').waypoint(function(){
-                      // Triggering now
-                      jQuery('.knob-4').knob();
-                      // Animating the value
-                      if(jQuery('.knob-4').val() == 0) {
-                      jQuery({value: 0}).animate({value: jQuery('.knob-4').attr("rel")}, {
-                      duration: 5000,
-                      easing:'swing',
-                      step: function()
-                      {
-                      jQuery('.knob-4').val(Math.ceil(this.value)).trigger('change');
-                      }
-                      })
-                      }
-                      }
-                      ,{
-                      triggerOnce: true,
-                      offset: function(){
-                      return $(window).height() - $(this).outerHeight();
-                      }
-                      }
-                      );
-                      });
+            
                     .skill
-                      input.knob-4(data-readonly='true', data-fgcolor='#f1c40f', data-inputcolor='#333', data-width='245', data-height='122.5', rel='7', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
-                      h4.visible-phone 7
-                      h6 cups of cofee per week
+                      input.knob-4(data-readonly='true', data-fgcolor='#f1c40f', data-inputcolor='#333', data-width='245', data-height='122.5', rel='#{pageData.moves.cycling.distance/1000}', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone #{pageData.moves.cycling.distance/1000}
+                      h6 Km Cycled 
                     //
                        END CHART N 1 
                   //
@@ -141,36 +120,11 @@ html
                   .span4
                     //
                        CHART N 2 
-                    script.
-                      jQuery(document).ready(function( $ ) {
-                      // Triggering only when it is inside viewport
-                      jQuery('.knob-65').waypoint(function(){
-                      // Triggering now
-                      jQuery('.knob-65').knob();
-                      // Animating the value
-                      if(jQuery('.knob-65').val() == 0) {
-                      jQuery({value: 0}).animate({value: jQuery('.knob-65').attr("rel")}, {
-                      duration: 5000,
-                      easing:'swing',
-                      step: function()
-                      {
-                      jQuery('.knob-65').val(Math.ceil(this.value)).trigger('change');
-                      }
-                      })
-                      }
-                      }
-                      ,{
-                      triggerOnce: true,
-                      offset: function(){
-                      return $(window).height() - $(this).outerHeight();
-                      }
-                      }
-                      );
-                      });
+    
                     .skill
-                      input.knob-65(data-readonly='true', data-fgcolor='#f68e51', data-inputcolor='#333', data-width='245', data-height='122.5', rel='50', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
-                      h4.visible-phone 50
-                      h6 Km Commuted by bike per week
+                      input.knob-65(data-readonly='true', data-fgcolor='#f68e51', data-inputcolor='#333', data-width='245', data-height='122.5', rel='#{pageData.moves.walking.distance/1000}', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
+                      h4.visible-phone #{pageData.moves.walking.distance/1000}
+                      h6 Km Walked
                     //
                        END CHART N 2 
                   //
@@ -178,46 +132,27 @@ html
                   .span4
                     //
                        CHART N 3 
-                    script.
-                      jQuery(document).ready(function( $ ) {
-                      // Triggering only when it is inside viewport
-                      jQuery('.knob-85').waypoint(function(){
-                      // Triggering now
-                      jQuery('.knob-85').knob();
-                      // Animating the value
-                      if(jQuery('.knob-85').val() == 0) {
-                      jQuery({value: 0}).animate({value: jQuery('.knob-85').attr("rel")}, {
-                      duration: 5000,
-                      easing:'swing',
-                      step: function()
-                      {
-                      jQuery('.knob-85').val(Math.ceil(this.value)).trigger('change');
-                      }
-                      })
-                      }
-                      }
-                      ,{
-                      triggerOnce: true,
-                      offset: function(){
-                      return $(window).height() - $(this).outerHeight();
-                      }
-                      }
-                      );
-                      });
+
                     .skill
-                      input.knob-85(data-readonly='true', data-fgcolor='#2c3e50', data-inputcolor='#333', data-width='245', data-height='122.5', rel='3', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='100')
-                      h4.visible-phone 3
-                      h6 innovative ideas per morning shower
+                      input.knob-85(data-readonly='true', data-fgcolor='#2c3e50', data-inputcolor='#333', data-width='245', data-height='122.5', rel='#{(pageData.moves.cycling.calories + pageData.moves.walking.calories)}', value='0', readonly='readonly', data-anglearc='180', data-angleoffset='-90', data-max='5000')
+                      h4.visible-phone #{(pageData.moves.cycling.calories + pageData.moves.walking.calories)}
+                      h6 Calories Burned (Walking and Cycling)
                     //
                        END CHART N 3 
                   //
                      /span4 
                 //
                    /row-fluid 
+                 p
+                 |These graphs are calculated dynamically using the 
+                 a(href="https://dev.moves-app.com", rel="external") Moves API
+                 |.
               //
                  /span12 
             //
                /row-fluid 
+                 
+
           //
              /container 
         //
@@ -577,10 +512,11 @@ html
        /wrapper 
     //
        JAVASCRIPTS 
-    
+    script(src='js/instafeed.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
     script(src='js/waypoints.min.js')
     script(src='js/jquery.knob.js')
     script(src='js/jquery.easing.1.3.js')
     script(src='js/bootstrap.min.js')
-    script(src='js/main.js')
-    
+    script(src='js/main.min.js')
+    script(src="js/ga.js");
