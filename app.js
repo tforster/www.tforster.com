@@ -116,11 +116,32 @@ function FetchTumblr() {
    });
 }
 
+//GetMovesAccessToken();
+function GetMovesAccessToken(code_from_redirect) {
+   var moves = new movesApi(Config.movesCreds);
+   if (code_from_redirect === undefined) {
+      var url = moves.generateAuthUrl();
+      console.log("movesurl: ", url);
+   }
+   else {
+      moves.getAccessToken(code_from_redirect, function (err, accessToken) {
+         if (err) {
+            console.log("moves err: ", err);
+         }
+         else {
+            console.log("accessToken: ", accessToken);
+            moves.options.accessToken = accessToken;
+            moves.getProfile(function (err, profile) {
+               console.log("profile:", profile);
+            });
+         }
+      });
+   }
+}
+
 function FetchMoves() {
    var moves = new movesApi(Config.movesCreds);
-   //var url = moves.generateAuthUrl();
-   //console.log("movesurl: ", url);
-   ////moves.options.accessToken = Config.movesCreds.accessToken;
+
    moves.getProfile(function (err, profile) {
       if (err) {
          console.log("moves err: ", err);
@@ -183,21 +204,6 @@ function FetchMoves() {
          console.log("moves err: ", err)
       }
    });
-   //var code_from_redirect = "xxx";
-   //moves.getAccessToken(code_from_redirect, function (err, accessToken) {
-   //   if (err) {
-   //      console.log("moves err: ", err);
-   //   }
-   //   else {
-   //      console.log("accessToken: ", accessToken);
-
-   //      moves.options.accessToken = accessToken;
-
-   //      moves.getProfile(function (err, profile) {
-   //         console.log("profile:", profile);
-   //      });
-   //   }
-   //});
 }
 
 
