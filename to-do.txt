@@ -1,10 +1,7 @@
-﻿add support for dev, stage and prod
-
-cleanup github node_modules
-hide .suo and add to .gitignore
-
-point about.me to tforster.com
+﻿point about.me to tforster.com
 point www.tforster.com to tforster.com
-
 add OpenSSL
-
+configure Moves code to calculate current week and use it
+randomize the three featured project items
+move Twitter, Tumblr and Moves code from app.js to their own modules
+convert Instagram from client-side to server-side

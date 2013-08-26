@@ -15,13 +15,10 @@ var settings = {}
    , port = parseInt(3000)
    , app = express();
 
-
 var pageData = {};
 pageData.tumblr = {};
 pageData.twitter = {};
 pageData.moves = {};
-
-
 
 var poet = Poet(app, {
    posts: "./_posts/",
@@ -29,16 +26,19 @@ var poet = Poet(app, {
    metaFormat: "json"
 });
 
+
 // Update Twitter, Tumblr and Moves asap
 FetchTwitter();
 FetchTumblr();
 FetchMoves();
 
+
 // Poll Twitter and Tumblr every 5 minutes
-new cronJob("5 * * * * *", function () {
+new cronJob("15 * * * * *", function () {
    FetchTwitter();
    FetchTumblr();
 }, null, true, "America/Toronto");
+
 
 // Poll Moves at approximately 2am every day. Moves say they update at midnight, 2 hours earlier.
 new cronJob("59 1 * * * *", function () {
@@ -56,11 +56,13 @@ poet.addRoute("/blog/:post", function (req, res, next) {
    }
 }).init();
 
+
 poet.watch(function () {
    console.log("poet watcher reloaded");
 }).init().then(function () {
    console.log("poet watcher initialized");
 });
+
 
 app.get("/rss", function (req, res) {
    // Only get the latest posts
@@ -68,7 +70,6 @@ app.get("/rss", function (req, res) {
    res.setHeader("Content-Type", "application/rss+xml");
    res.render("rss", { posts: posts });
 });
-
 
 
 /** twitter
@@ -90,6 +91,7 @@ function FetchTwitter() {
    //twitter.getReTweetsOfMe();
    //twitter.getTweet();
 }
+
 
 function FetchTumblr() {
    var client = tumblr.createClient(Config.tumblrCreds);
@@ -116,6 +118,7 @@ function FetchTumblr() {
    });
 }
 
+
 //GetMovesAccessToken();
 function GetMovesAccessToken(code_from_redirect) {
    var moves = new movesApi(Config.movesCreds);
@@ -138,6 +141,7 @@ function GetMovesAccessToken(code_from_redirect) {
       });
    }
 }
+
 
 function FetchMoves() {
    var moves = new movesApi(Config.movesCreds);
@@ -229,12 +233,10 @@ app.configure(function () {
 });
 
 
-
 app.get("/", function (req, res) {
    res.render("index", {
       pageData: pageData
-   }
-)
+   })
 });
 
 
