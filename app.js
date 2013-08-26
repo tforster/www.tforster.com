@@ -34,7 +34,7 @@ FetchMoves();
 
 
 // Poll Twitter and Tumblr every 5 minutes
-new cronJob("15 * * * * *", function () {
+new cronJob("*/15 * * * *", function () {
    FetchTwitter();
    FetchTumblr();
 }, null, true, "America/Toronto");
