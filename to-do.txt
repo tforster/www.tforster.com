@@ -1,7 +1,9 @@
-﻿point about.me to tforster.com
+﻿blog summary on home page to pull chronological descending
+oops! forgot to use current day for pulling moves data
+point about.me to tforster.com
 point www.tforster.com to tforster.com
 add OpenSSL
-configure Moves code to calculate current week and use it
+configure Moves code to calculate current week and use it instead of date range
 randomize the three featured project items
 move Twitter, Tumblr and Moves code from app.js to their own modules
 convert Instagram from client-side to server-side
