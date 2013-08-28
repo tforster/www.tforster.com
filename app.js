@@ -143,8 +143,20 @@ function GetMovesAccessToken(code_from_redirect) {
 }
 
 
+
 function FetchMoves() {
+
    var moves = new movesApi(Config.movesCreds);
+
+   var startDate = new Date();
+   startDate.setDate(startDate.getDate() - 7);
+   startDate = startDate.getFullYear() + "" + (("0" + parseInt(startDate.getMonth() + 1).toString()).substr(0)) + startDate.getDate()
+   var endDate = new Date();
+   endDate.setDate(endDate.getDate() - 1);
+   endDate = endDate.getFullYear() + "" + (("0" + parseInt(endDate.getMonth() + 1).toString()).substr(0)) + endDate.getDate()
+
+   console.log("moves from:", startDate)
+   console.log("moves to:", endDate)
 
    moves.getProfile(function (err, profile) {
       if (err) {
@@ -153,7 +165,8 @@ function FetchMoves() {
       console.log("profile:", profile);
    });
 
-   moves.getStoryline({ from: "20130818", to: "20130824", trackPoints: false }, function (err, data) {
+  
+   moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
       var physicalActivities = {
          walking: {
             distance: 0,
