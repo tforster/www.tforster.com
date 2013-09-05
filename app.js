@@ -4,7 +4,6 @@ var express = require("express")
    , http = require("http")
    , path = require("path")
    , url = require("url")
-   , Poet = require("poet")
    , Config = require("./config.json")
    , Twitter = require("twitter-js-client").Twitter
    , tumblr = require("tumblr.js")
@@ -16,64 +15,97 @@ var settings = {}
    , app = express();
 
 var pageData = {};
-pageData.tumblr = {};
-pageData.twitter = {};
-pageData.moves = {};
-
-var poet = Poet(app, {
-   posts: "./_posts/",
-   postsPerPage: 5,
-   metaFormat: "json"
-});
+pageData = {
+   tumblr: {},
+   twitter: {},
+   moves: {},
+   blog: {}
+}
 
 
 // Update Twitter, Tumblr and Moves asap
 FetchTwitter();
 FetchTumblr();
 FetchMoves();
+FetchPosts();
+FetchProjects();
 
 
-// Poll Twitter and Tumblr every 5 minutes
+// Poll Twitter and Tumblr every 15 minutes
 new cronJob("*/15 * * * *", function () {
    FetchTwitter();
    FetchTumblr();
+   FetchPosts();
+   FetchProjects();
 }, null, true, "America/Toronto");
 
 
-// Poll Moves at approximately 2am every day. Moves say they update at midnight, 2 hours earlier.
-new cronJob("59 1 * * * *", function () {
+// Poll Moves at 2am every day. Moves say they update at midnight, 2 hours earlier.
+new cronJob("0 2 * * *", function () {
    FetchMoves();
 }, null, true, "America/Toronto");
 
 
-poet.addRoute("/blog/:post", function (req, res, next) {
-   var post = poet.helpers.getPost(req.params.post);
-   if (post) {
-      // Do some fancy logging here
-      res.render("post", { post: post });
-   } else {
-      res.send(404);
-   }
-}).init();
+function FetchPosts() {
+   pageData.blog.posts = [];
+   var options = {
+      host: 'blog.localhost',
+      port: 80,
+      path: '/json',
+      method: "GET"
+   };
+
+   var body = "";
+   var req = http.request(options, function (resp) {
+
+      resp.on('data', function (data) {
+         body += data;
+      });
+
+      resp.on("error", function (e) {
+         console.log("Got error: " + e.message);
+      });
+
+      resp.on("end", function () {
+         pageData.blog.posts = JSON.parse(body).posts;
+         console.log("Loaded: posts");
+      });
+   });
+
+   req.end();
+}
 
 
-poet.watch(function () {
-   console.log("poet watcher reloaded");
-}).init().then(function () {
-   console.log("poet watcher initialized");
-});
+function FetchProjects() {
+   pageData.blog.projects = []
+   var options = {
+      host: 'blog.localhost',
+      port: 80,
+      path: '/json/random',
+      method: "GET"
+   };
+
+   var body = "";
+   var req = http.request(options, function (resp) {
+
+      resp.on('data', function (data) {
+         body += data;
+      });
+
+      resp.on("error", function (e) {
+         console.log("Got error: " + e.message);
+      });
+
+      resp.on("end", function () {
+         pageData.blog.projects = JSON.parse(body).posts;
+         console.log("Loaded: projects");
+      });
+   });
+
+   req.end();
+}
 
 
-app.get("/rss", function (req, res) {
-   // Only get the latest posts
-   var posts = poet.helpers.getPosts(0, 5);
-   res.setHeader("Content-Type", "application/rss+xml");
-   res.render("rss", { posts: posts });
-});
-
-
-/** twitter
-*/
 function FetchTwitter() {
    var twitter = new Twitter(Config.twitterCreds);
    var params = { screen_name: "tforster", count: "3" };
@@ -85,11 +117,6 @@ function FetchTwitter() {
       pageData.twitter = data;
       console.log("Loaded: twitter");
    });
-
-   //twitter.getMentionsTimeline();
-   //twitter.getHomeTimeline();
-   //twitter.getReTweetsOfMe();
-   //twitter.getTweet();
 }
 
 
@@ -143,7 +170,6 @@ function GetMovesAccessToken(code_from_redirect) {
 }
 
 
-
 function FetchMoves() {
 
    var moves = new movesApi(Config.movesCreds);
@@ -165,7 +191,6 @@ function FetchMoves() {
       console.log("profile:", profile);
    });
 
-  
    moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
       var physicalActivities = {
          walking: {
@@ -215,20 +240,13 @@ function FetchMoves() {
             });
          });
          pageData.moves = physicalActivities;
-         console.log("Loaded: Moves");
+         console.log("Loaded: moves");
       }
       else {
          console.log("moves err: ", err)
       }
    });
 }
-
-
-/** poet
-*/
-poet.init().then(function () {
-   console.log("poet initialized");
-});
 
 
 app.configure(function () {

@@ -169,37 +169,38 @@ html
               //
                  /span8 
             .row-fluid.desc
+              - var projects = pageData.blog.projects
               .span8
                 p
                   | I am fortunate to work on a multitude of creative and innovative projects both for work and personal satisfaction. 
                 
                 p
                   | This is just a random sample. To see more projects please visit my blog at 
-                  a(href="/category/projects", rel="external") http://tforster.com/category/projects
+                  a(href="http://blog.tforster.com/category/projects", rel="external") http://blog.tforster.com
               //
                  /span8 
             //
                /row 
+
             .row-fluid.content.slide
-              .span4
-                iframe(width='270', height='208', src='http://www.youtube.com/embed/dx2DmXKmjqA', frameborder='0', allowfullscreen='allowfullscreen')
-
-                //img(src='img/project01.png', alt='Project 01')
-                h6.hidden-phone - Nissan Mobile Showroom
-              //
-                 /span4     
+              .span4                
+                h3.hidden-phone
+                  != projects[0].title
+                != projects[0].preview                
+                  
 
               .span4
-                iframe(width='270', height='208', src='http://www.youtube.com/embed/YgOkV0Ts9NY', frameborder='0', allowfullscreen='allowfullscreen')
-                h6.hidden-phone - Infiniti Performance in G
-              //
-                 /span4 
+                h3.hidden-phone 
+                  != projects[1].title
+                != projects[1].preview
+
+
               .span4
-                a(href="blog/tbwa-toronto-hackathon-2013", rel="external") 
-                  img(src='img/project05.jpg', alt='tbwa-toronto-hackathon-2013')
-                h6.hidden-phone - TBWA\Toronto Hackathon
-              //
-                 /span4 
+                h3.hidden-phone
+                  != projects[2].title
+                != projects[2].preview
+
+
             //
                /row-fluid 
           //
@@ -247,7 +248,7 @@ html
                     | GitHub Projects
               //
                  /span4 
-              - var posts = getPosts(0, 2)
+              - var posts = pageData.blog.posts
               .span8.slide.current(data-blog='blog')
                  
    
