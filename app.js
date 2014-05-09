@@ -1,276 +1,95 @@
 "strict mode"
+var path = require("path");
+var basePath = path.dirname(require.main.filename);
 
-var express = require("express")
-   , http = require("http")
-   , path = require("path")
-   , url = require("url")
-   , Config = require("./config.json")
-   , Twitter = require("twitter-js-client").Twitter
-   , tumblr = require("tumblr.js")
-   , movesApi = require("moves-api").MovesApi
-   , cronJob = require("cron").CronJob;
+var express = require("express"),
 
-var settings = {}
-   , port = parseInt(3000)
-   , app = express();
+   nconf = require("nconf"),
+   http = require("http"),
+   ejs = require("ejs");
+   
 
-var pageData = {};
-pageData = {
-   tumblr: {},
-   twitter: {},
-   moves: {},
-   blog: {}
-}
+   // Get options from config.json and command line
+nconf.file({
+   file: path.join(basePath, "config.json")
+}).file("errors", {
+   file: path.join(basePath, "config.secure.json")
+}).file("secure", {
+   file: path.join(basePath, "config.errors.json")
+}).argv();
+var options = nconf.get();
 
+var tforster = require(path.join(basePath, "/modules/tforster.js"));
+tforster.init(options);
 
-// Update Twitter, Tumblr and Moves asap
-FetchTwitter();
-FetchTumblr();
-FetchMoves();
-FetchPosts();
-FetchProjects();
+routes = require("./routes/routes.js");
 
-
-// Poll Twitter and Tumblr every 15 minutes
-new cronJob("*/15 * * * *", function () {
-   FetchTwitter();
-   FetchTumblr();
-   FetchPosts();
-   FetchProjects();
-}, null, true, "America/Toronto");
+// Express setup 
+var app = express();
+app.set("views", basePath + "/views");
+   //app.engine(".html", require("ejs").__express);
+app.engine(".jade", require("jade").__express);
+app.set("view options", { layout: false });
+   //app.set("view engine", "html");
+app.set("view engine", "jade");
+app.use(express.static(path.join(basePath, options.directories.static)));
 
 
-// Poll Moves at 2am every day. Moves say they update at midnight, 2 hours earlier.
-new cronJob("0 2 * * *", function () {
-   FetchMoves();
-}, null, true, "America/Toronto");
 
+// Most routes from routes.js
+app.use("/", routes);
 
-function FetchPosts() {
-   pageData.blog.posts = [];
-   var options = {
-      host: 'blog.localhost',
-      port: 80,
-      path: '/json',
-      method: "GET"
-   };
+// 404 route
+app.use(function (req, res, next) {
+   var err = new Error("Not Found");
+   err.status = 404;
+   next(err);
+});
 
-   var body = "";
-   var req = http.request(options, function (resp) {
+// development error handler will print stacktrace
+//if (options.debug) {
+//   app.use(function (err, req, res, next) {
+//      res.status(err.status || 500);
+//      res.render("error", {
+//         message: err.message,
+//         error: err
+//      });
+//   });
+//}
 
-      resp.on('data', function (data) {
-         body += data;
-      });
+// production error handler, no stacktraces leaked to user
+//app.use(function (err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.render("error", {
+//      message: err.message,
+//      error: {}
+//   });
+//});
 
-      resp.on("error", function (e) {
-         console.log("Got error: " + e.message);
-      });
-
-      resp.on("end", function () {
-         pageData.blog.posts = JSON.parse(body).posts;
-         console.log("Loaded: posts");
-      });
-   });
-
-   req.end();
-}
-
-
-function FetchProjects() {
-   pageData.blog.projects = []
-   var options = {
-      host: 'blog.localhost',
-      port: 80,
-      path: '/json/random',
-      method: "GET"
-   };
-
-   var body = "";
-   var req = http.request(options, function (resp) {
-
-      resp.on('data', function (data) {
-         body += data;
-      });
-
-      resp.on("error", function (e) {
-         console.log("Got error: " + e.message);
-      });
-
-      resp.on("end", function () {
-         pageData.blog.projects = JSON.parse(body).posts;
-         console.log("Loaded: projects");
-      });
-   });
-
-   req.end();
-}
-
-
-function FetchTwitter() {
-   var twitter = new Twitter(Config.twitterCreds);
-   var params = { screen_name: "tforster", count: "3" };
-   twitter.getUserTimeline(params, function (err) {
-      if (err) {
-         console.log(err);
-      }
-   }, function (data) {
-      pageData.twitter = data;
-      console.log("Loaded: twitter");
-   });
-}
-
-
-function FetchTumblr() {
-   var client = tumblr.createClient(Config.tumblrCreds);
-   client.posts("techsmarts.tumblr.com", { limit: 3 }, function (err, data) {
-      if (err) {
-         console.log("techsmarts error: ", err);
-         data = {
-            posts: []
-         };
-      }
-      pageData.tumblr.techsmarts = data;
-      console.log("Loaded: techsmarts.tumblr.com");
-   });
-
-   client.posts("digitalsmarts.tumblr.com", { limit: 3 }, function (err, data) {
-      if (err) {
-         console.log("digitalsmarts error: ", err);
-         data = {
-            posts: []
-         }
-      }
-      pageData.tumblr.digitalsmarts = data;
-      console.log("Loaded: digitalsmarts.tumblr.com");
-   });
-}
-
-
-//GetMovesAccessToken();
-function GetMovesAccessToken(code_from_redirect) {
-   var moves = new movesApi(Config.movesCreds);
-   if (code_from_redirect === undefined) {
-      var url = moves.generateAuthUrl();
-      console.log("movesurl: ", url);
-   }
-   else {
-      moves.getAccessToken(code_from_redirect, function (err, accessToken) {
-         if (err) {
-            console.log("moves err: ", err);
-         }
-         else {
-            console.log("accessToken: ", accessToken);
-            moves.options.accessToken = accessToken;
-            moves.getProfile(function (err, profile) {
-               console.log("profile:", profile);
-            });
-         }
-      });
-   }
-}
-
-
-function FetchMoves() {
-
-   var moves = new movesApi(Config.movesCreds);
-
-   var startDate = new Date();
-   startDate.setDate(startDate.getDate() - 7);
-   startDate = startDate.getFullYear() + "" + (("0" + parseInt(startDate.getMonth() + 1).toString()).substr(0)) + startDate.getDate()
-   var endDate = new Date();
-   endDate.setDate(endDate.getDate() - 1);
-   endDate = endDate.getFullYear() + "" + (("0" + parseInt(endDate.getMonth() + 1).toString()).substr(0)) + endDate.getDate()
-
-   console.log("moves from:", startDate)
-   console.log("moves to:", endDate)
-
-   moves.getProfile(function (err, profile) {
-      if (err) {
-         console.log("moves err: ", err);
-      }
-      console.log("profile:", profile);
-   });
-
-   moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
-      var physicalActivities = {
-         walking: {
-            distance: 0,
-            time: 0,
-            calories: 0
-         },
-         cycling: {
-            distance: 0,
-            time: 0,
-            calories: 0
-         },
-         running: {
-            distance: 0,
-            time: 0,
-            calories: 0
-         }
-      }
-      if (!err) {
-         data.forEach(function (movesDay, index) {
-            movesDay.segments.forEach(function (segment, index) {
-               //console.log(movesDay);
-               if (segment.activities) {
-                  segment.activities.forEach(function (activity, index) {
-                     switch (activity.activity) {
-                        case "wlk":
-                           physicalActivities.walking.distance += parseInt(activity.distance);
-                           physicalActivities.walking.time += parseInt(activity.duration);
-                           physicalActivities.walking.calories += parseInt(activity.calories);
-                           break;
-                        case "cyc":
-                           physicalActivities.cycling.distance += parseInt(activity.distance);
-                           physicalActivities.cycling.time += parseInt(activity.duration);
-                           physicalActivities.cycling.calories += parseInt(activity.calories);
-                           break;
-                        case "run":
-                           physicalActivities.running.distance += parseInt(activity.distance);
-                           physicalActivities.running.time += parseInt(activity.duration);
-                           physicalActivities.running.calories += parseInt(activity.calories);
-                           break;
-                        case "trp":
-                           break;
-                        default:
-                     }
-                  });
-               }
-            });
-         });
-         pageData.moves = physicalActivities;
-         console.log("Loaded: moves");
-      }
-      else {
-         console.log("moves err: ", err)
-      }
-   });
-}
-
-
-app.configure(function () {
-   if (Config.port) {
-      app.set("port", parseInt(Config.port));
-   }
-   app.use(express.favicon());
-   app.use(express.logger("dev"));
-   app.use(express.bodyParser());
-   app.use(express.methodOverride());
-   app.set("view engine", "jade");
-   app.set("views", __dirname + "/views");
-   app.use(app.router);
-   app.use(express.static(path.join(__dirname, "public")));
+http.createServer(app).listen(options.port, function () {
+   console.log("http://heresthework.com is listening on port %s", options.port);
 });
 
 
-app.get("/", function (req, res) {
-   res.render("index", {
-      pageData: pageData
-   })
-});
 
 
-http.createServer(app).listen(app.get("port"), function () {
-   console.log("Express server listening on port " + app.get("port"));
-});
+//app.configure(function () {
+//   if (Config.port) {
+//      app.set("port", parseInt(Config.port));
+//   }
+//   app.use(express.favicon());
+//   app.use(express.logger("dev"));
+//   app.use(express.bodyParser());
+//   app.use(express.methodOverride());
+//   app.set("view engine", "jade");
+//   app.set("views", __dirname + "/views");
+//   app.use(app.router);
+//   app.use(express.static(path.join(__dirname, "public")));
+//});
+
+
+//app.get("/", function (req, res) {
+//   res.render("index", {
+//      pageData: pageData
+//   })
+//});

@@ -1,0 +1,25 @@
+{
+   "name": "tforster.com",
+   "version": "2.0.0",
+   "private": true,
+   "scripts": {
+      "start": "node app"
+   },
+   "dependencies": {
+      "express": "4.0.x",
+      "ejs":"0.8.x",
+      "nconf":"0.6.x",
+      "tumblr.js":"0.0.4", 
+      "twitter-js-client":"0.0.x",
+      "moves-api":"0.0.2",
+      "cron": "1.0.1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/tforster/tforster.com.git"
+  },
+   "author": {
+    "name": "Troy Forster",
+    "url": "http://tforster.com"
+  }
+}

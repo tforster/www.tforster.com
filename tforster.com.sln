@@ -1,33 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "tforster.com", ".", "{5A92CB3B-A87A-40A8-A94C-2BF63A46F482}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/tforster.com"
-		Debug.AspNetCompiler.PhysicalPath = "..\tforster.com\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\tforster.com\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/tforster.com"
-		Release.AspNetCompiler.PhysicalPath = "..\tforster.com\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\tforster.com\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50582"
-	EndProjectSection
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "tforster.com", "tforster.com.njsproj", "{1F50EAE9-230E-40BD-BEF8-2D328B0883E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A92CB3B-A87A-40A8-A94C-2BF63A46F482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A92CB3B-A87A-40A8-A94C-2BF63A46F482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F50EAE9-230E-40BD-BEF8-2D328B0883E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F50EAE9-230E-40BD-BEF8-2D328B0883E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F50EAE9-230E-40BD-BEF8-2D328B0883E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F50EAE9-230E-40BD-BEF8-2D328B0883E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
