@@ -1,9 +1,0 @@
-﻿{
-   "port": 3000,
-   "debug": true,
-   "directories": {
-      "static": "/public",
-      "images": "/public/images",
-      "templates": "/public/templates"
-   }
-}
