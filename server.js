@@ -1,6 +1,5 @@
 "strict mode"
-var path = require("path");
-var basePath = path.dirname(require.main.filename);
+var path = require("path"), basePath = path.dirname(require.main.filename);
 var express = require("express"),
    nconf = require("nconf"),
    http = require("http"),

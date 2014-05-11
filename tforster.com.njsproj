@@ -16,28 +16,53 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="browser-source\stylesheets\bootstrap-responsive.css" />
+    <Content Include="browser-source\stylesheets\bootstrap-responsive.min.css" />
+    <Content Include="browser-source\stylesheets\bootstrap.css" />
+    <Content Include="browser-source\stylesheets\bootstrap.min.css" />
+    <Content Include="browser-source\stylesheets\css-rules.txt" />
+    <Content Include="browser-source\stylesheets\font-awesome-ie7.min.css" />
+    <Content Include="browser-source\stylesheets\font-awesome.css" />
+    <Content Include="browser-source\stylesheets\font-awesome.min.css" />
+    <Content Include="browser-source\stylesheets\style.css" />
+    <Content Include="browser-source\stylesheets\style.min.css" />
+    <Content Include="browser-source\stylesheets\twitter.css" />
+    <Content Include="browser-source\stylesheets\twitter.min.css" />
     <Content Include="config.errors.json" />
+    <Content Include="public\font\fontawesome-webfont.eot-" />
+    <Content Include="public\font\fontawesome-webfont.eot-v=3.0.1" />
+    <Content Include="public\font\fontawesome-webfont.ttf-v=3.0.1" />
+    <Content Include="public\font\fontawesome-webfont.woff-v=3.0.1" />
+    <Content Include="public\scripts\main.min.js.map" />
+    <Content Include="public\scripts\modernizr.min.js.map" />
+    <Content Include="public\stylesheets\font-awesome-ie7.min.css" />
+    <Content Include="public\stylesheets\main.min.css" />
     <Content Include="to-do.txt" />
     <Content Include="config.secure.json" />
     <Content Include="config.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Compile Include="browser-source\scripts\bootstrap.js" />
+    <Compile Include="browser-source\scripts\bootstrap.min.js" />
+    <Compile Include="browser-source\scripts\ga.js" />
+    <Compile Include="browser-source\scripts\ga.min.js" />
+    <Compile Include="browser-source\scripts\jquery-1.8.2.min.js" />
+    <Compile Include="browser-source\scripts\jquery.easing.1.3.js" />
+    <Compile Include="browser-source\scripts\jquery.easing.1.3.min.js" />
+    <Compile Include="browser-source\scripts\jquery.knob.js" />
+    <Compile Include="browser-source\scripts\jquery.knob.min.js" />
+    <Compile Include="browser-source\scripts\main.js" />
+    <Compile Include="browser-source\scripts\main.min.js" />
+    <Compile Include="browser-source\scripts\modernizr.js" />
+    <Compile Include="browser-source\scripts\modernizr.min.js" />
+    <Compile Include="browser-source\scripts\waypoints.js" />
+    <Compile Include="browser-source\scripts\waypoints.min.js" />
+    <Compile Include="Gruntfile.js" />
+    <Compile Include="public\scripts\main.min.js" />
     <Compile Include="server.js" />
     <Content Include="views\index.html" />
     <Compile Include="modules\tforster.js" />
     <Compile Include="routes\routes.js" />
-    <Content Include="public\css\css-rules.txt" />
-    <Content Include="public\css\bootstrap-responsive.css" />
-    <Content Include="public\css\bootstrap-responsive.min.css" />
-    <Content Include="public\css\bootstrap.css" />
-    <Content Include="public\css\bootstrap.min.css" />
-    <Content Include="public\css\font-awesome-ie7.min.css" />
-    <Content Include="public\css\font-awesome.css" />
-    <Content Include="public\css\font-awesome.min.css" />
-    <Content Include="public\css\style.css" />
-    <Content Include="public\css\style.min.css" />
-    <Content Include="public\css\twitter.css" />
-    <Content Include="public\css\twitter.min.css" />
     <Content Include="public\img\d01.png" />
     <Content Include="public\img\d02.png" />
     <Content Include="public\img\project01.png" />
@@ -53,20 +78,8 @@
     <Content Include="public\img\project05-w370.jpg" />
     <Content Include="public\img\project05.jpg" />
     <Content Include="public\img\thumb.jpg" />
-    <Compile Include="public\js\bootstrap.min.js" />
-    <Compile Include="public\js\ga.js" />
-    <Compile Include="public\js\ga.min.js" />
-    <Compile Include="public\js\instafeed.min.js" />
-    <Compile Include="public\js\jquery-1.8.2.min.js" />
-    <Compile Include="public\js\jquery.easing.1.3.js" />
-    <Compile Include="public\js\jquery.easing.1.3.min.js" />
-    <Compile Include="public\js\jquery.knob.js" />
-    <Compile Include="public\js\jquery.knob.min.js" />
-    <Compile Include="public\js\main.js" />
-    <Compile Include="public\js\main.min.js" />
-    <Compile Include="public\js\modernizr.js" />
-    <Compile Include="public\js\modernizr.min.js" />
-    <Compile Include="public\js\waypoints.min.js" />
+    <Compile Include="public\scripts\modernizr.js" />
+    <Compile Include="public\scripts\modernizr.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git" />
@@ -85,12 +98,15 @@
     <Folder Include=".git\refs\remotes" />
     <Folder Include=".git\refs\remotes\origin" />
     <Folder Include=".git\refs\tags" />
+    <Folder Include="browser-source\stylesheets\" />
+    <Folder Include="browser-source\scripts\" />
     <Folder Include="modules\" />
+    <Folder Include="browser-source\" />
     <Folder Include="public" />
-    <Folder Include="public\css" />
+    <Folder Include="public\stylesheets\" />
     <Folder Include="public\font" />
     <Folder Include="public\img" />
-    <Folder Include="public\js" />
+    <Folder Include="public\scripts\" />
     <Folder Include="routes" />
     <Folder Include="views" />
   </ItemGroup>

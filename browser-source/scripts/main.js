@@ -1,6 +1,4 @@
 $(document).ready(function ($) {
-
-
    // Triggering only when it is inside viewport
    $('.knob-4, .knob-65, .knob-85').waypoint(function () {
       var $this = $(this);
@@ -22,35 +20,25 @@ $(document).ready(function ($) {
       }
    });
 
-
-
    // Sidebar Toggle
-
    $('.btn-navbar').click(function () {
       $('html').toggleClass('expanded');
    });
 
-
    // Slide Toggles
-
    $('#section3 .button').on('click', function () {
-
       var section = $(this).parent();
-
       section.toggle();
       section.siblings(".slide").slideToggle('2000', "easeInQuart");
    });
 
    $('#section3 .read-more').on('click', function () {
-
       var section = $(this).parent();
-
       section.toggle();
       section.siblings(".slide").slideToggle('2000', "easeInQuart");
    });
 
    $('#section4 .article-tags li').on('click', function () {
-
       var section = $(this).parents('.span4');
       var category = $(this).attr('data-blog');
       var articles = section.siblings();
@@ -61,31 +49,22 @@ $(document).ready(function ($) {
 
       // Hide/Show other articles
       section.siblings('.current').removeClass('current').hide();
-
       $(articles).each(function (index) {
-
          var newCategory = $(this).attr('data-blog');
-
          if (newCategory == category) {
             $(this).slideDown('1000', "easeInQuart").addClass('current');
          }
       });
-
    });
 
-
-
    // Waypoints Scrolling
-
    var links = $('.navigation').find('li');
    var button = $('.intro button');
    var section = $('section');
    var mywindow = $(window);
    var htmlbody = $('html,body');
 
-
    section.waypoint(function (direction) {
-
       var datasection = $(this).attr('data-section');
 
       if (direction === 'down') {
@@ -95,7 +74,6 @@ $(document).ready(function ($) {
          var newsection = parseInt(datasection) - 1;
          $('.navigation li[data-section="' + newsection + '"]').addClass('active').siblings().removeClass('active');
       }
-
    });
 
    mywindow.scroll(function () {
@@ -106,7 +84,6 @@ $(document).ready(function ($) {
    });
 
    function goToByScroll(datasection) {
-
       if (datasection == 1) {
          htmlbody.animate({
             scrollTop: $('.section[data-section="' + datasection + '"]').offset().top
@@ -117,7 +94,6 @@ $(document).ready(function ($) {
             scrollTop: $('.section[data-section="' + datasection + '"]').offset().top + 70
          }, 500, 'easeOutQuart');
       }
-
    }
 
    links.click(function (e) {
@@ -132,51 +108,15 @@ $(document).ready(function ($) {
       goToByScroll(datasection);
    });
 
-   // Snap to scroll (optional)
-
-   /*
-
-   section.waypoint(function (direction) {
-
-       var nextpos = $(this).attr('data-section');
-       var prevpos = $(this).prev().attr('data-section');
-
-       if (nextpos != 1) {
-          if (direction === 'down') {
-              htmlbody.animate({
-                 scrollTop: $('.section[data-section="' + nextpos + '"]').offset().top
-             }, 750, 'easeOutQuad');
-          }
-          else {
-              htmlbody.animate({
-                 scrollTop: $('.section[data-section="' + prevpos + '"]').offset().top
-             }, 750, 'easeOutQuad');
-          }
-       }
-       
-
-   }, { offset: '60%' });	
-   
-   */
-
-
-
-
    // Redirect external links
-
    $("a[rel='external']").click(function () {
       this.target = "_blank";
    });
 
-
    // Modernizr SVG backup
-
    if (!Modernizr.svg) {
       $('img[src*="svg"]').attr('src', function () {
          return $(this).attr('src').replace('.svg', '.png');
       });
    }
-
-   
-
 });

@@ -9,10 +9,9 @@ var url = require("url"),
 
 
 tforster = function (options) {
-   
-   function tforster(options) {
-      console.log(options);
-   }
+   var thisModule = this;
+   this.options = options;
+
    this.pageData = {
       tumblr: {},
       twitter: {},
@@ -21,10 +20,6 @@ tforster = function (options) {
       instagram: {}
    }
 
-   var thisModule = this;
-   this.options = options;
-
-   // Pseudo constructor
    this.init = function (options) {
       this.options = options;
       FetchTwitter();
