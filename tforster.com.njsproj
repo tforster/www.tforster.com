@@ -22,6 +22,7 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
+    <Content Include="views\index.html" />
     <Content Include="views\index.jade" />
     <Compile Include="modules\tforster.js" />
     <Compile Include="routes\routes.js" />

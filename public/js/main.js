@@ -184,6 +184,7 @@ $(document).ready(function ($) {
 var feed = new Instafeed({
    get: 'user',
    userId: 1618422,
+   clientId: "3584b4005dcd41dbaf9a584334e08cad",
    accessToken: '1618422.467ede5.c95b7a3bd776401da3405e1eb0244466',
    link: 'false',
    limit: "2",

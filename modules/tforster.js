@@ -1,4 +1,5 @@
-﻿var url = require("url"),
+﻿var path = require("path"), basePath = path.dirname(require.main.filename);
+var url = require("url"),
    Twitter = require("twitter-js-client").Twitter,
    tumblr = require("tumblr.js"),
    movesApi = require("moves-api").MovesApi,
@@ -8,6 +9,9 @@
 
 tforster = function (options) {
    
+   function tforster(options) {
+      console.log(options);
+   }
    this.pageData = {
       tumblr: {},
       twitter: {},
@@ -15,7 +19,8 @@ tforster = function (options) {
       blog: {}
    }
 
-   var _this = this;
+   var thisModule = this;
+   this.options = options;
 
    // Pseudo constructor
    this.init = function (options) {
@@ -24,6 +29,7 @@ tforster = function (options) {
       FetchTumblr();
       FetchPosts();
       FetchMoves();
+      FetchProjects();
 
       new cronJob("*/15 * * * *", function () {
          FetchTwitter();
@@ -42,122 +48,132 @@ tforster = function (options) {
 
 
    function FetchPosts() {
-      _this.pageData.blog.posts = [];
+      thisModule.pageData.blog.posts = [];
       var options = {
-         host: 'blog.localhost',
+         host: thisModule.options.blogUrl,
          port: 80,
-         path: '/json',
+         path: "/json",
          method: "GET"
       };
 
       var body = "";
       var req = http.request(options, function (resp) {
 
-         resp.on('data', function (data) {
+         resp.on("data", function (data) {
             body += data;
          });
 
          resp.on("error", function (e) {
-            console.log("Got error: " + e.message);
+            console.error("Got error: " + e.message);
          });
 
          resp.on("end", function () {
-            _this.pageData.blog.posts = JSON.parse(body).posts;
+            thisModule.pageData.blog.posts = JSON.parse(body).posts;
             console.log("Loaded: posts");
          });
       });
-
+      req.on("error", function (err) {
+         console.error("Posts error: ", err);
+      });
       req.end();
    }
 
 
    function FetchProjects() {
-      _this.pageData.blog.projects = []
+      thisModule.pageData.blog.projects = []
       var options = {
-         host: 'blog.localhost',
+         host: thisModule.options.blogUrl,
          port: 80,
-         path: '/json/random',
+         path: "/json/random",
          method: "GET"
       };
 
       var body = "";
       var req = http.request(options, function (resp) {
 
-         resp.on('data', function (data) {
+         resp.on("data", function (data) {
             body += data;
          });
 
          resp.on("error", function (e) {
-            console.log("Got error: " + e.message);
+            console.error("Got error: " + e.message);
          });
 
          resp.on("end", function () {
-            _this.pageData.blog.projects = JSON.parse(body).posts;
+            thisModule.pageData.blog.projects = JSON.parse(body).posts;
             console.log("Loaded: projects");
          });
       });
-
+      req.on("error", function (err) {
+         console.error("Projects error: ", err);
+      });
       req.end();
    }
 
 
    function FetchTwitter() {
-      var twitter = new Twitter(_this.options.twitterCreds);
+      var twitter = new Twitter(thisModule.options.twitterCreds);
       var params = { screen_name: "tforster", count: "3" };
       twitter.getUserTimeline(params, function (err) {
          if (err) {
-            console.log(err);
+            console.error(err);
          }
       }, function (data) {
-         _this.pageData.twitter = data;
+         thisModule.pageData.twitter = data;
          console.log("Loaded: twitter");
       });
    }
 
 
    function FetchTumblr() {
-      var client = tumblr.createClient(_this.options.tumblrCreds);
+      var client = tumblr.createClient(thisModule.options.tumblrCreds);
       client.posts("techsmarts.tumblr.com", { limit: 3 }, function (err, data) {
          if (err) {
-            console.log("techsmarts error: ", err);
+            console.error("techsmarts error: ", err);
             data = {
                posts: []
             };
          }
-         _this.pageData.tumblr.techsmarts = data;
+         thisModule.pageData.tumblr.techsmarts = data;
          console.log("Loaded: techsmarts.tumblr.com");
       });
 
       client.posts("digitalsmarts.tumblr.com", { limit: 3 }, function (err, data) {
          if (err) {
-            console.log("digitalsmarts error: ", err);
+            console.error("digitalsmarts error: ", err);
             data = {
                posts: []
             }
          }
-         _this.pageData.tumblr.digitalsmarts = data;
+         thisModule.pageData.tumblr.digitalsmarts = data;
          console.log("Loaded: digitalsmarts.tumblr.com");
       });
    }
 
 
    //GetMovesAccessToken();
-   function GetMovesAccessToken(code_from_redirect) {
-      var moves = new movesApi(_this.options.movesCreds);
-      if (code_from_redirect === undefined) {
+   this.GetMovesAccessToken = function(code) {
+      var moves = new movesApi(thisModule.options.movesCreds);
+      if (code === undefined) {
          var url = moves.generateAuthUrl();
-         console.log("movesurl: ", url);
+         console.log("You need to reauthenticate Moves API:\n\n" + url + "\n\n");
       }
       else {
-         moves.getAccessToken(code_from_redirect, function (err, accessToken) {
+         moves.getAccessToken(code, function (err, accessToken) {
             if (err) {
-               console.log("moves err: ", err);
+               console.error("moves err: ", err);
             }
             else {
                console.log("accessToken: ", accessToken);
                moves.options.accessToken = accessToken;
+               var nconf = require("nconf");
+               nconf.file({file: path.join(basePath, "config.secure.json")});
+               nconf.set("movesCreds:accessToken", accessToken);
+               nconf.save();
+
                moves.getProfile(function (err, profile) {
                   console.log("profile:", profile);
+                  FetchMoves();
                });
             }
          });
@@ -166,8 +182,9 @@ tforster = function (options) {
 
 
    function FetchMoves() {
+      var moves = new movesApi(thisModule.options.movesCreds);
 
-      var moves = new movesApi(_this.options.movesCreds);
+
 
       var startDate = new Date();
       startDate.setDate(startDate.getDate() - 7);
@@ -181,7 +198,7 @@ tforster = function (options) {
 
       moves.getProfile(function (err, profile) {
          if (err) {
-            console.log("moves err: ", err);
+            thisModule.GetMovesAccessToken();
          }
          console.log("profile:", profile);
       });
@@ -234,11 +251,11 @@ tforster = function (options) {
                   }
                });
             });
-            _this.pageData.moves = physicalActivities;
+            thisModule.pageData.moves = physicalActivities;
             console.log("Loaded: moves");
          }
          else {
-            console.log("moves err: ", err)
+            console.error("moves err: ", err)
          }
       });
    }

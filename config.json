@@ -1,6 +1,8 @@
 ﻿{
+   "name":"tforster.com",
    "port": 3000,
    "debug": true,
+   "blogUrl":"blog.tforster.com",
    "directories": {
       "static": "/public",
       "images": "/public/images",

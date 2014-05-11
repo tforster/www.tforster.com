@@ -1,9 +1,7 @@
 "strict mode"
 var path = require("path");
 var basePath = path.dirname(require.main.filename);
-
 var express = require("express"),
-
    nconf = require("nconf"),
    http = require("http"),
    ejs = require("ejs");
@@ -27,24 +25,21 @@ routes = require("./routes/routes.js");
 // Express setup 
 var app = express();
 app.set("views", basePath + "/views");
-   //app.engine(".html", require("ejs").__express);
-app.engine(".jade", require("jade").__express);
+app.engine(".html", require("ejs").__express);
+//app.engine(".jade", require("jade").__express);
 app.set("view options", { layout: false });
-   //app.set("view engine", "html");
-app.set("view engine", "jade");
+app.set("view engine", "html");
+//app.set("view engine", "jade");
 app.use(express.static(path.join(basePath, options.directories.static)));
 
-
-
-// Most routes from routes.js
 app.use("/", routes);
 
 // 404 route
-app.use(function (req, res, next) {
-   var err = new Error("Not Found");
-   err.status = 404;
-   next(err);
-});
+//app.use(function (req, res, next) {
+//   var err = new Error("Not Found");
+//   err.status = 404;
+//   next(err);
+//});
 
 // development error handler will print stacktrace
 //if (options.debug) {
@@ -67,29 +62,5 @@ app.use(function (req, res, next) {
 //});
 
 http.createServer(app).listen(options.port, function () {
-   console.log("http://heresthework.com is listening on port %s", options.port);
+   console.log("%s is listening on port %s", options.name, options.port);
 });
-
-
-
-
-//app.configure(function () {
-//   if (Config.port) {
-//      app.set("port", parseInt(Config.port));
-//   }
-//   app.use(express.favicon());
-//   app.use(express.logger("dev"));
-//   app.use(express.bodyParser());
-//   app.use(express.methodOverride());
-//   app.set("view engine", "jade");
-//   app.set("views", __dirname + "/views");
-//   app.use(app.router);
-//   app.use(express.static(path.join(__dirname, "public")));
-//});
-
-
-//app.get("/", function (req, res) {
-//   res.render("index", {
-//      pageData: pageData
-//   })
-//});

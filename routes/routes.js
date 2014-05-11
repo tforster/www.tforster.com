@@ -10,6 +10,14 @@ byDefault = function (req, res) {
    })
 }
 
+updateMoves = function (req, res) {
+   var code = req.query.code;
+   console.log(code);
+   tforster.GetMovesAccessToken(code);
+   res.json("{'moves':" + code + "}");
+}
+
 router.get("/", byDefault);
+router.get("/moves/auth", updateMoves);
 
 module.exports = router;
