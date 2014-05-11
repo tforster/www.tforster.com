@@ -4,7 +4,8 @@ var url = require("url"),
    tumblr = require("tumblr.js"),
    movesApi = require("moves-api").MovesApi,
    cronJob = require("cron").CronJob,
-   http = require("http");
+   http = require("http"),
+   https = require("https");
 
 
 tforster = function (options) {
@@ -16,7 +17,8 @@ tforster = function (options) {
       tumblr: {},
       twitter: {},
       moves: {},
-      blog: {}
+      blog: {},
+      instagram: {}
    }
 
    var thisModule = this;
@@ -30,12 +32,14 @@ tforster = function (options) {
       FetchPosts();
       FetchMoves();
       FetchProjects();
+      FetchInstagram();
 
       new cronJob("*/15 * * * *", function () {
          FetchTwitter();
          FetchTumblr();
          FetchPosts();
          FetchProjects();
+         FetchInstagram();
       }, null, true);
 
       // Poll Moves at 2am every day. Moves say they update at midnight, 2 hours earlier.
@@ -45,7 +49,32 @@ tforster = function (options) {
    }
 
 
+   function FetchInstagram() {
+      thisModule.pageData.instagram.posts = [];
 
+      var options = {
+         hostname: "api.instagram.com",
+         port: 443,
+         path: "/v1/users/" + thisModule.options.instagramCreds.userId + "/media/recent/?client_id=" + thisModule.options.instagramCreds.clientId,
+         method: "GET"
+      };
+      var data = "";
+      var req = https.request(options, function (res) {
+         res.on("data", function (d) {
+            data += d;
+         });
+
+         res.on("end", function () {
+            thisModule.pageData.instagram.posts = JSON.parse(data).data.slice(0, 2);
+            console.log("instagram: loaded");
+         });
+      });
+      req.end();
+
+      req.on("error", function (err) {
+         console.error("instagram: error", err);
+      });
+   }
 
    function FetchPosts() {
       thisModule.pageData.blog.posts = [];
@@ -69,11 +98,11 @@ tforster = function (options) {
 
          resp.on("end", function () {
             thisModule.pageData.blog.posts = JSON.parse(body).posts;
-            console.log("Loaded: posts");
+            console.log("posts: loaded");
          });
       });
       req.on("error", function (err) {
-         console.error("Posts error: ", err);
+         console.error("posts: error", err);
       });
       req.end();
    }
@@ -101,11 +130,11 @@ tforster = function (options) {
 
          resp.on("end", function () {
             thisModule.pageData.blog.projects = JSON.parse(body).posts;
-            console.log("Loaded: projects");
+            console.log("projects: loaded");
          });
       });
       req.on("error", function (err) {
-         console.error("Projects error: ", err);
+         console.error("projects: error", err);
       });
       req.end();
    }
@@ -116,11 +145,11 @@ tforster = function (options) {
       var params = { screen_name: "tforster", count: "3" };
       twitter.getUserTimeline(params, function (err) {
          if (err) {
-            console.error(err);
+            console.error("twitter: error", err);
          }
       }, function (data) {
          thisModule.pageData.twitter = data;
-         console.log("Loaded: twitter");
+         console.log("twitter: loaded");
       });
    }
 
@@ -129,24 +158,24 @@ tforster = function (options) {
       var client = tumblr.createClient(thisModule.options.tumblrCreds);
       client.posts("techsmarts.tumblr.com", { limit: 3 }, function (err, data) {
          if (err) {
-            console.error("techsmarts error: ", err);
+            console.error("techsmarts: error", err);
             data = {
                posts: []
             };
          }
          thisModule.pageData.tumblr.techsmarts = data;
-         console.log("Loaded: techsmarts.tumblr.com");
+         console.log("techsmarts: loaded");
       });
 
       client.posts("digitalsmarts.tumblr.com", { limit: 3 }, function (err, data) {
          if (err) {
-            console.error("digitalsmarts error: ", err);
+            console.error("digitalsmarts: error", err);
             data = {
                posts: []
             }
          }
          thisModule.pageData.tumblr.digitalsmarts = data;
-         console.log("Loaded: digitalsmarts.tumblr.com");
+         console.log("digitalsmarts: loaded");
       });
    }
 
@@ -156,12 +185,12 @@ tforster = function (options) {
       var moves = new movesApi(thisModule.options.movesCreds);
       if (code === undefined) {
          var url = moves.generateAuthUrl();
-         console.log("You need to reauthenticate Moves API:\n\n" + url + "\n\n");
+         console.log("Moves: You need to reauthenticate Moves API:\n\n" + url + "\n\n");
       }
       else {
          moves.getAccessToken(code, function (err, accessToken) {
             if (err) {
-               console.error("moves err: ", err);
+               console.error("Moves: Error (token receipt)", err);
             }
             else {
                console.log("accessToken: ", accessToken);
@@ -172,7 +201,6 @@ tforster = function (options) {
                nconf.save();
 
                moves.getProfile(function (err, profile) {
-                  console.log("profile:", profile);
                   FetchMoves();
                });
             }
@@ -183,9 +211,6 @@ tforster = function (options) {
 
    function FetchMoves() {
       var moves = new movesApi(thisModule.options.movesCreds);
-
-
-
       var startDate = new Date();
       startDate.setDate(startDate.getDate() - 7);
       startDate = startDate.getFullYear() + "" + (("0" + parseInt(startDate.getMonth() + 1).toString()).substr(0)) + startDate.getDate()
@@ -193,14 +218,10 @@ tforster = function (options) {
       endDate.setDate(endDate.getDate() - 1);
       endDate = endDate.getFullYear() + "" + (("0" + parseInt(endDate.getMonth() + 1).toString()).substr(0)) + endDate.getDate()
 
-      console.log("moves from:", startDate)
-      console.log("moves to:", endDate)
-
       moves.getProfile(function (err, profile) {
          if (err) {
             thisModule.GetMovesAccessToken();
          }
-         console.log("profile:", profile);
       });
 
       moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
@@ -252,10 +273,10 @@ tforster = function (options) {
                });
             });
             thisModule.pageData.moves = physicalActivities;
-            console.log("Loaded: moves");
+            console.log("moves: loaded");
          }
          else {
-            console.error("moves err: ", err)
+            console.error("moves: error", err)
          }
       });
    }

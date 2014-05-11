@@ -177,26 +177,6 @@ $(document).ready(function ($) {
       });
    }
 
-   feed.run();
+   
 
-});
-
-var feed = new Instafeed({
-   get: 'user',
-   userId: 1618422,
-   clientId: "3584b4005dcd41dbaf9a584334e08cad",
-   accessToken: '1618422.467ede5.c95b7a3bd776401da3405e1eb0244466',
-   link: 'false',
-   limit: "2",
-
-   success: function (data) {
-      $(".span8[data-blog='instagram'] a")[0].href = data.data[0].link;
-      $(".span8[data-blog='instagram'] img")[0].src = data.data[0].images.low_resolution.url;
-      $(".span8[data-blog='instagram'] a")[1].href = data.data[1].link;
-      $(".span8[data-blog='instagram'] img")[1].src = data.data[1].images.low_resolution.url;
-      $(".span8[data-blog='instagram'] h4")[0].innerHTML = data.data[0].caption.text;
-      $(".span8[data-blog='instagram'] h4")[1].innerHTML = data.data[1].caption.text;
-   },
-
-   mock: true
 });

@@ -6,8 +6,7 @@ var express = require("express"),
    http = require("http"),
    ejs = require("ejs");
    
-
-   // Get options from config.json and command line
+// Get options from config.json and command line
 nconf.file({
    file: path.join(basePath, "config.json")
 }).file("errors", {
@@ -26,10 +25,8 @@ routes = require("./routes/routes.js");
 var app = express();
 app.set("views", basePath + "/views");
 app.engine(".html", require("ejs").__express);
-//app.engine(".jade", require("jade").__express);
 app.set("view options", { layout: false });
 app.set("view engine", "html");
-//app.set("view engine", "jade");
 app.use(express.static(path.join(basePath, options.directories.static)));
 
 app.use("/", routes);
