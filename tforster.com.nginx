@@ -1,0 +1,28 @@
+server {
+   server_name www.tforster.com;
+   rewrite ^ http://tforster.com$request_uri? permanent;
+}
+
+
+server {
+    listen 80;
+    server_name blog.tforster.com;
+
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://localhost:3000;
+    }
+}
+
+
+server {
+    listen 80;
+    server_name tforster.com;
+
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://localhost:3000;
+    }
+}

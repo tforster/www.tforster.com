@@ -1,0 +1,204 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Ecko - Documentation</title>
+		<!-- CSS -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather|Source+Code+Pro:400' rel='stylesheet prefetch'>
+		<link href="docs.css" rel="stylesheet" type="text/css">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<img src="img/title.jpg" class="header" alt="Ecko Themes"/>
+				<h1>Astro Theme</h1>
+				<p>Astro is a content focused responsive theme for the Ghost blogging platform. Designed from the bottom up to be high performance, user friendly, and accessible on all platforms. Astro adapts to the users device, so it looks great on smartphones, tablets, TVs, and even the latest 4K monitors. Taking advantage of the ghost platform, Astro has two different post styles. The standard style is great for update posts and short articles, while featured posts have full page titles with image backdrops, and work great with large articles, tutorials and other documentation.</p>
+				<hr/>
+				<ul class="features">
+					<li>
+						<span><i class="fa fa-arrows-h"></i>Fully Responsive</span>
+						<p>Optimized for Mobile, Tablets, Notebooks, and Desktop Devices. Developed on iPhone, iPad, and Desktop.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-expand"></i>High Resolution Support</span>
+						<p>CSS3 elements &amp; SVG icons scale perfectly on all resolutions, including high resolution devices such mobile phones, retina displays, and 4K monitors.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-cog"></i>Customization Options</span>
+						<p>Enable/disable theme features by editing a simple configuration file.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-picture-o"></i>Featured Posts</span>
+						<p>Feature posts have a full page title design with customizable image header. Make your articles and guides stand out.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-code"></i>Code Syntax Highlighting</span>
+						<p>Posts containing code are styled and highlighted with the Google Prettify plugin.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-twitter"></i>Social Profiles</span>
+						<p>Author description includes editable social profile links for major platforms.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-comments"></i>Disqus Comments</span>
+						<p>Allows user comments and administration on individual posts via Disqus.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-bar-chart-o"></i>Google Analytics</span>
+						<p>Integrated support for the Googles Analytics platform.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-spinner"></i>High Performance</span>
+						<p>Optimized for fast page load times, completely imageless layout, javascript degrading, and CSS3 styling. Google Speed Test score of 94.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-sort-amount-desc"></i>Article Flow Bar</span>
+						<p>Navigating large articles is made simple with the floating article bar which activates as you scroll down the post. It will update to show the current header section.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-arrow-circle-o-down"></i>Simple Install &amp; Detailed Documentation</span>
+						<p>Installation takes just a few minutes. Email support available.</p>
+					</li>
+					<li>
+						<span><i class="fa fa-check-circle-o"></i>Major Browser Support</span>
+						<p>Fully tested &amp; confirmed working on all major browsers. IE9+, Firefox, Chrome, Safari and Opera.</p>
+					</li>
+				</ul>
+				<a href="mailto:support@ecko.me" class="bluebar">
+					<span class="left"><i class="fa fa-question-circle fa-large"></i>Have a question? Email us...</span>
+					<span class="right">support@ecko.me</span>
+				</a>
+				<hr/>
+				<h2>Installation</h2>
+				<ul class="guide">
+					<li><span>1</span><p>Locate the theme directory within the download files, it can be found at <strong>theme/Astrotheme</strong>.</p></li>
+					<li><span>2</span><p>Login to FTP/SFTP of your blog, or the file browser of your provided hosting service.</p></li>
+					<li><span>3</span><p>Navigate to the <strong>/content/theme</strong> directory within your ghost installation.</p></li>
+					<li><span>4</span><p>Upload the <strong>Astrotheme</strong> directory found in step one into the remote <strong>/content/theme</strong> directory.</p></li>
+					<li><span>5</span><p>Restart your Ghost service. The process for this will change dependent on your provider. If you are unaware how to restart the service please raise a support issue with your host.</p></li>
+					<li><span>6</span><p>Login to your Ghost admin panel. This can be found at <strong>yourdomain.com/ghost</strong>.</p></li>
+					<li><span>7</span><p>Navigate to the <strong>Settings > General</strong> tab.</p></li>
+					<li><span>8</span><p>In the <strong>Theme</strong> drop down, select the newly installed Astro Theme. Click <strong>Save</strong> to save the theme changes.</p></li>
+				</ul>
+				<hr/>
+				<h2>Customization</h2>
+				<h3>Blog Options</h3>
+				<ul class="themeoptions">
+					<li>
+						<div class="option">Featured Post Images</div>
+						<div class="description">Each featured post can have a feature image which is displayed within the header of the post page. More information on this feature and how to use it can be found below in the <strong>'Features'</strong> section.</div>
+					</li>
+					<li>
+						<div class="option">Posts Per Page</div>
+						<div class="description">For best theme visuals we recommend setting this to any odd number above 5.</div>
+					</li>
+				</ul>
+				<h3>Theme Options</h3>
+				<p>These options can be found within the file <strong>/assets/js/global.min.js</strong> with included documentation. These are all located on the first line of the file. Replace the current values with your required settings.</p>
+				<ul class="themeoptions">
+					<li>
+						<div class="option">Disqus Shortname</div>
+						<div class="description">Enter your Disqus account shortname here to enable Disqus comments for blog posts. Requires an account, which can be obtained for free at <a href="http://disqus.com">http://disqus.com</a>. More information can be found below.</div>
+					</li>
+					<li>
+						<div class="option">Google Analytics ID</div>
+						<div class="description">Enter your Google Analytics ID here to enable analytic service. Requires an account, which can be obtained for free at <a href="http://analytics.google.com">http://analytics.google.com</a>. More information can be found below.</div>
+					</li>
+					<li>
+						<div class="option">Enable Syntax Highlighting</div>
+						<div class="description">If true, will enable syntax highlighting of code blocks automatically within posts. Disable by settings value to false.</div>
+					</li>
+				</ul>
+				<div class="bluebar">
+					<span class="left"><i class="fa fa-question-circle fa-large"></i>If you misconfigure you can replace the <strong>/assets/js/global.min.js</strong> with the original file to restore defaults.</span>
+				</div>
+				<hr/>
+				<h2>Feature Configuration &amp; Use</h2>
+				<h3>Featured Posts</h3>
+				<p>Astro has two different post styles, its standard minimal post style which is great for smaller blog posts, and its Featured post style which is aimed at large articles, guides, and other documents. Featured blog posts have an adjusted header, which displays a large cover image and the title of the post. This image can be customized by the user, or left blank for the default gradient background.</p>
+				<p>Creating a featured post is simple, first create your standard blog post and add your content. Within the post markdown editor add the following code at the top <strong>![featureimage]</strong>. This will create an image upload area in the live preview section of the editor. Upload the image you wish to use as the featured background. For improved performance its recommended that any large images are reduced in size (1680 width is recommended) and compressed. Below is an example of how the code might look in your editor.</p>
+				<pre class="prettyprint">This is my first paragraph of text.
+![featureimage]</pre>
+				<p>Once you have added content to your post, and a feature image, publish the post. Return back to the posts index, and click the star on the submitted blog post. The post is now featured and will contain a full page header. Previous posts can by also clicking the star icon, and adding an image.</p>
+				<h3>Social Network Profiles</h3>
+				<p>Within each blog post is an author section which contains the posters information (this can be set in the user settings of the ghost admin dashboard). Astro includes support for linking to social platforms such as facebook, twitter, github etc. within this section. Configure your social links by editing the file <strong>Astrotheme/post.hbs</strong>, and locate the code which is shown below.</p>
+				<pre class="prettyprint">{{! ADD AUTHOR SOCIAL LINKS HERE }}
+{{! REMOVE ANY UNWATED LINKS }}
+{{! ADD AUTHOR SOCIAL LINKS HERE }}
+{{! TWITTER }}&lt;li&gt;&lt;a href=&quot;http://twitter.com/&quot; class=&quot;twitter&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! FACEBOOK }}&lt;li&gt;&lt;a href=&quot;http://facebook.com/&quot; class=&quot;facebook&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! GITHUB }}&lt;li&gt;&lt;a href=&quot;http://github.com/&quot; class=&quot;github&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-github-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! RSS - LEAVE DEFAULT}}&lt;li&gt;&lt;a href=&quot;{{@blog.url}}/rss/&quot; class=&quot;rss&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-rss&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! YOUTUBE }}&lt;li&gt;&lt;a href=&quot;http://youtube.com/&quot; class=&quot;youtube&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! DRIBBBLE }}&lt;li&gt;&lt;a href=&quot;http://dribbble.com/&quot; class=&quot;dribbble&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-dribbble&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! GOOGLE+ }}&lt;li&gt;&lt;a href=&quot;http://plus.google.com/&quot; class=&quot;googleplus&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-google-plus&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! INSTAGRAM }}&lt;li&gt;&lt;a href=&quot;http://instagram.com/&quot; class=&quot;instagram&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-instagram&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+{{! LINKEDIN }}&lt;li&gt;&lt;a href=&quot;http://linkedin.com/&quot; class=&quot;linkedin&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</pre>
+				<p>Edit each lines href="" value, including your profile link for that particular platform. Delete any lines for platforms which are not wanted. They can be added again later at any time by copying them from the original source file. Astro contains 2 sets of social network links, both of these need to edited, or removed if unwanted.</p>
+				<h3>Static Pages</h3>
+				<p>Ghost release 0.4.0 added support for static pages which can be added to your blogs navigation. In order to create a static page create a new blog post with the pages content and header. Once created click the post settings icon and tick to enable the <strong>Static Page</strong> option. Copy the post <strong>URL</strong> which is shown in the same window. This URL needs to be added to the navigation section of the theme files. Open up <strong>Astrotheme/default.hbs</strong> and edit the navigation sections to include the link to your page and a desired name. Below is an example of the navigation section. Reference Lines 30 &amp; 44.</p>
+				<pre class="prettyprint">{{! ADD STATIC PAGE LINKS HERE }}
+{{! REMOVE THE THREE DEFAULT LINKS BELOW IF NOT USED }}
+{{! REPEAT BY ADDING LINKS TO THE FOOTER BELOW AS COMMENTED}}
+&lt;li&gt;&lt;a href=&quot;/about/&quot;&gt;About&lt;/a&gt;&lt;/li&gt;<br/>&lt;li&gt;&lt;a href=&quot;/portfolio/&quot;&gt;Portfolio&lt;/a&gt;&lt;/li&gt;<br/>&lt;li&gt;&lt;a href=&quot;/contact/&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;</pre>
+				<h3>Disqus Comments</h3>
+				<p>Setting up Discus comments for individual posts is simple. Firstly you will need an Disqus account, which can be obtained freely at <a href="http://disqus.com">http://disqus.com</a>. Once you have created an account and setup your shortname, enter it into the theme configuration which can be found within the <strong>/assets/js/global.min.js</strong> file.</p>
+				<p>Once you have setup and enabled comments, all administration for comments can be done via the Disqus control panel. To access this admin panel navigate to <a href="http://disqus.com">Disqus</a>, and select <strong>'Admin'</strong> located in the header of the page. If at any time you wish to disable comments, you can do this by deselecting the <strong>'Use Disqus Comments'</strong> theme option.</p>
+				<h3>Google Comments</h3>
+				<p>If you prefer, you can enable Google Plus comments to replace Disqus comments. To do this enable the setting in the configuration file located at <strong>/assets/js/global.min.js</strong>. If a Disqus shortname is set, this will override Google Comments, so set Disqus to blank <strong>''</strong>. Please note, Google Plus Comments are unsupported by Google, and I recommend that Disqus is used instead. The implementation used to integrate Google Comments is not documented or supported by them, and may stop working without notice at any time.</p>
+				<h3>Google Prettify</h3>
+				<p>Astro comes with the Google Prettify plugin preinstalled. This plugin will syntax highlight and format any code which you post in your blog. A code block can be created by tabing in a section of code twice in the markdown editor, or by 4 spaces. Too disable this feature edit the theme configuration file located at <strong>/assets/js/global.min.js</strong>.</p>
+				<pre class="prettyprint">// THIS IS AN EXAMPLE OF JS SYNTAX HIGHLIGHTING
+var server = net.createServer(function (socket) {
+  socket.write('Echo server\r\n');
+  socket.pipe(socket);
+});
+server.listen(1337, '127.0.0.1');</pre>
+				<h3>Post Annotations</h3>
+				<p>Within your blog posts you can include annotations for paragraphs of text, images, and code. To do this requires using some <strong>HTML</strong> markup inside the post editor. You can copy and paste the section of code below into your editor and replace the comments with the desired content. If you are annotating code sections, you may need to wrap the code in &lt;code&gt; and &lt;pre&gt; tags.</p>
+				<pre class="prettyprint">&lt;div class=&quot;container&quot;&gt;
+ADD YOUR MAIN CONTENT HERE E.G. Image, Code.
+&lt;div class=&quot;reference&quot;&gt;
+&lt;strong&gt;Annotation Title Here&lt;/strong&gt;
+&lt;p&gt;Annotation text here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+				<h3>Google Analytics</h3>
+				<p>Astro supports Google Analytics on all pages. Enabling this feature requires an active account with the Google Analytics service (<a href="http://analytics.google.com">http://analytics.google.com</a>). Once an account is created, and website registered, the UID code is required which is a similar format to the following: <strong>UA-28282324-1</strong>. Copy this code into the configuration file which can be found at <strong>assets/js/global.min.js</strong>.</p>
+				<hr/>
+				<h2>Support</h2>
+				<p>The documentation included provides all the information needed to get the theme installed and customized. However, if you have any questions you can email <a href="mailto:support@ecko.me">support@ecko.me</a>, and we will be happy to help.</p>
+				<p>If you have any bug reports, or feature requests, please let us know!</p>
+				<hr/>
+				<h2>Credits</h2>
+				<ul>
+					<li>Unsplash - <a href="http://unsplash.com/">http://unsplash.com/</a></li>
+					<li>Font Awesome - <a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></li>
+					<li>FitVids - <a href="http://fitvidsjs.com/">http://fitvidsjs.com/</a></li>
+					<li>Google Prettify - <a href="https://code.google.com/p/google-code-prettify/">https://code.google.com/p/google-code-prettify/</a></li>
+					<li>jQuery Waypoints - <a href="http://imakewebthings.com/jquery-waypoints/">http://imakewebthings.com/jquery-waypoints/</a></li>
+					<li>jQuery Reading Time - <a href="https://github.com/themeskult/jquery-reading-time">https://github.com/themeskult/jquery-reading-time</a></li>
+				</ul>
+			</div>
+		</div>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<style>
+		.str{color:#ec7600}.kwd{color:#93c763}.com{color:#66747b}.typ{color:#678cb1}.lit{color:#facd22}.pun{color:#f1f2f3}.pln{color:#f1f2f3}.tag{color:#8ac763}.atn{color:#e0e2e4}.atv{color:#ec7600}.dec{color:purple}ol.linenums{margin-top:0;margin-bottom:0}.prettyprint{background:#000}li.L0,li.L1,li.L2,li.L3,li.L4,li.L5,li.L6,li.L7,li.L8,li.L9{color:#555;list-style-type:decimal}li.L1,li.L3,li.L5,li.L7,li.L9{background:#111}@media print{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun{color:#440}.pln{color:#000}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}
+		pre.prettyprint{
+			background:#313339;
+			border:0;
+			font:400 15px 'Source Code Pro','Arial','Courier New';
+			line-height:36px;
+			padding:20px 35px;
+			margin-bottom:20px;
+			-webkit-font-smoothing:subpixel-antialiased;
+			overflow-x:auto;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+	</style>
+	</body>
+</html>
