@@ -25,7 +25,7 @@ tforster = function (options) {
       FetchTwitter();
       FetchTumblr();
       FetchPosts();
-      FetchMoves();
+      //FetchMoves();
       FetchProjects();
       FetchInstagram();
 
@@ -38,9 +38,9 @@ tforster = function (options) {
       }, null, true);
 
       // Poll Moves at 2am every day. Moves say they update at midnight, 2 hours earlier.
-      new cronJob("0 2 * * *", function () {
-         FetchMoves();
-      }, null, true);
+      //new cronJob("0 2 * * *", function () {
+      //   FetchMoves();
+      //}, null, true);
    }
 
 
@@ -70,7 +70,8 @@ tforster = function (options) {
          console.error("instagram: error", err);
       });
    }
-
+   
+   // Blog
    function FetchPosts() {
       thisModule.pageData.blog.posts = [];
       var options = {
@@ -175,12 +176,12 @@ tforster = function (options) {
    }
 
 
-   //GetMovesAccessToken();
+   
    this.GetMovesAccessToken = function(code) {
       var moves = new movesApi(thisModule.options.movesCreds);
       if (code === undefined) {
-         var url = moves.generateAuthUrl();
-         console.log("Moves: You need to reauthenticate Moves API:\n\n" + url + "\n\n");
+         var url = moves.generateAuthUrl(["activity", "location"]);
+         console.log("Moves: You need to reauthenticate Moves API:\n\n" + url + "\n\n");         
       }
       else {
          moves.getAccessToken(code, function (err, accessToken) {
@@ -203,7 +204,7 @@ tforster = function (options) {
       }
    }
 
-
+   
    function FetchMoves() {
       var moves = new movesApi(thisModule.options.movesCreds);
       var startDate = new Date();
@@ -217,63 +218,66 @@ tforster = function (options) {
          if (err) {
             thisModule.GetMovesAccessToken();
          }
-      });
-
-      moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
-         var physicalActivities = {
-            walking: {
-               distance: 0,
-               time: 0,
-               calories: 0
-            },
-            cycling: {
-               distance: 0,
-               time: 0,
-               calories: 0
-            },
-            running: {
-               distance: 0,
-               time: 0,
-               calories: 0
-            }
-         }
-         if (!err) {
-            data.forEach(function (movesDay, index) {
-               movesDay.segments.forEach(function (segment, index) {
-                  //console.log(movesDay);
-                  if (segment.activities) {
-                     segment.activities.forEach(function (activity, index) {
-                        switch (activity.activity) {
-                           case "wlk":
-                              physicalActivities.walking.distance += parseInt(activity.distance);
-                              physicalActivities.walking.time += parseInt(activity.duration);
-                              physicalActivities.walking.calories += parseInt(activity.calories);
-                              break;
-                           case "cyc":
-                              physicalActivities.cycling.distance += parseInt(activity.distance);
-                              physicalActivities.cycling.time += parseInt(activity.duration);
-                              physicalActivities.cycling.calories += parseInt(activity.calories);
-                              break;
-                           case "run":
-                              physicalActivities.running.distance += parseInt(activity.distance);
-                              physicalActivities.running.time += parseInt(activity.duration);
-                              physicalActivities.running.calories += parseInt(activity.calories);
-                              break;
-                           case "trp":
-                              break;
-                           default:
+         else { 
+            moves.getStoryline({ from: startDate, to: endDate, trackPoints: false }, function (err, data) {
+               var physicalActivities = {
+                  walking: {
+                     distance: 0,
+                     time: 0,
+                     calories: 0
+                  },
+                  cycling: {
+                     distance: 0,
+                     time: 0,
+                     calories: 0
+                  },
+                  running: {
+                     distance: 0,
+                     time: 0,
+                     calories: 0
+                  }
+               }
+               if (!err) {
+                  data.forEach(function (movesDay, index) {
+                     movesDay.segments.forEach(function (segment, index) {
+                        //console.log(movesDay);
+                        if (segment.activities) {
+                           segment.activities.forEach(function (activity, index) {
+                              switch (activity.activity) {
+                                 case "wlk":
+                                    physicalActivities.walking.distance += parseInt(activity.distance);
+                                    physicalActivities.walking.time += parseInt(activity.duration);
+                                    physicalActivities.walking.calories += parseInt(activity.calories);
+                                    break;
+                                 case "cyc":
+                                    physicalActivities.cycling.distance += parseInt(activity.distance);
+                                    physicalActivities.cycling.time += parseInt(activity.duration);
+                                    physicalActivities.cycling.calories += parseInt(activity.calories);
+                                    break;
+                                 case "run":
+                                    physicalActivities.running.distance += parseInt(activity.distance);
+                                    physicalActivities.running.time += parseInt(activity.duration);
+                                    physicalActivities.running.calories += parseInt(activity.calories);
+                                    break;
+                                 case "trp":
+                                    break;
+                                 default:
+                              }
+                           });
                         }
                      });
-                  }
-               });
-            });
-            thisModule.pageData.moves = physicalActivities;
-            console.log("moves: loaded");
-         }
-         else {
-            console.error("moves: error", err)
+                  });
+                  thisModule.pageData.moves = physicalActivities;
+                  console.log("moves: loaded");
+               }
+               else {
+                  console.error("moves: error", err)
+               }
+            });   
          }
       });
+
+      
    }
 
 }
