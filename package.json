@@ -1,34 +1,42 @@
 {
-   "name": "tforster.com",
-   "version": "2.0.0",
-   "private": true,
-   "scripts": {
-      "start": "node server"
-   },
-   "dependencies": {
-      "express": "4.0.x",
-      "ejs":"0.8.x",
-      "nconf":"0.6.x",
-      "tumblr.js":"0.0.4", 
-      "twitter-js-client":"0.0.x",
-      "moves-api":"0.0.4",
-      "cron": "1.0.1"
-   },
-   "devDependencies": {
-      "grunt": "~0.4.2",
-      "grunt-contrib-jshint": "~0.6.3",
-      "grunt-contrib-nodeunit": "~0.2.0",
-      "grunt-contrib-uglify": "~0.4.0",
-      "grunt-contrib-cssmin": "^0.9.0",
-      "grunt-contrib-watch": "^0.6.1",
-      "grunt-cache-breaker": "^1.0.1"
-   },
-   "repository": {
-      "type": "git",
-      "url": "https://github.com/tforster/tforster.com.git"
+  "name": "tforster.com",
+  "description": "The official website of Troy Forster",
+  "version": "3.0.0",
+  "private": false,
+  "scripts": {},
+  "dependencies": {
+    "contentful": "^4.3.0",
+    "marked": "^0.3.6"
   },
-   "author": {
-    "name": "Troy Forster",
-    "url": "http://tforster.com"
-  }
+  "devDependencies": {
+    "aws-sdk": "^2.43.0",
+    "concurrent-transform": "^1.0.0",
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.3.0",
+    "gulp-debug": "^3.1.0",
+    "gulp-ejs": "^3.0.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-slack": "^0.1.2",
+    "gulp-uglify": "^2.1.2",
+    "gulp-usemin": "^0.3.28",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11"
+  },
+  "repository": "git+https://github.com/tforster/tforster.com.git",
+  "author": "Troy Forster (http://tforster.com)",
+  "bugs": {
+    "url": "https://github.com/tforster/tforster.com/issues"
+  },
+  "homepage": "https://github.com/tforster/tforster.com#readme",
+  "main": "gulpfile.js",
+  "keywords": [
+    "Troy",
+    "Forster"
+  ],
+  "license": "MIT"
 }

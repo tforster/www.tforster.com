@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Troy Forster</title>
+  <meta name="description" content="Troy Forster">
+  <meta name="keywords" content="">
+  <% include partials/head.ejs %>
+</head>
+
+<body cz-shortcut-listen="true">
+  <% include partials/header.ejs %>
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+      <!--<video autoplay="" loop="" muted="" class="fullvideo">
+				<source src="https://d32ujqjov16ho0.cloudfront.net/direct_uploads/1473692861_Skyline.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+			</video>-->
+      <!--<div class="video-background">
+      <div class="video-foreground">
+        <iframe src="https://www.youtube.com/embed/BvSOTjJWX8k?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>-->
+
+      <!--<div id="vidtop-content">
+      <div class="vid-info">
+        <h1>YouTube Fullscreen Background Demo</h1>
+        <p>The International Space Station orbits the Earth every 92 minutes, with its crew seeing a sunrise 15 times a day.
+          It exists as a scientific, educational, and engineering platform in low orbit, 330 to 435 kilometres above the
+          Earth.
+          <p>Original timelapse by Riccardo Rossi (ISAA), used under a Creative Commons Attribution-NonCommercial-ShareAlike
+            4.0 International License. Raw photos courtesy of http://eol.jsc.nasa.gov/
+            <a href="/500/Use-YouTube-Videos-as-Fullscreen-Web-Page-Backgrounds">Full article</a>
+      </div>
+    </div>-->
+      <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Troy Forster</span>
+      </div>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+      <h3 class="w3-center">ABOUT ME</h3>
+      <p class="w3-center"><em>I love technology</em></p>
+      <p>Summary blah blah blah goes here, followed by some highlights
+      </p>
+      <ul>
+        <li>Built a hidden crystal radio into my school desk in grade 6</li>
+        <li>Hacked a VAX VMS 11/750 in grade 10</li>
+        <li>Published first code article in a British magazine in 1987</li>
+        <li>Pioneered worlds first managed desktop environment in 1992</li>
+        <li>Wrote a low-level Y2K checker in 1998 with more than 50,000 installations worldwide</li>
+        <li>Created post 9/11 compliance middleware that parsed 100's of millions of dollars of foreign exchange transactions
+          daily
+        </li>
+        <li>Launched a Pinterest-like social network in 2007</li>
+        <li>Architected the worlds first light activated digital coupon (and it was 100% W3C compliant)</li>
+        <li>Built an autonomous flying web-server, high precision linear clock and numourous other micro-electronic gadgets</li>
+      </ul>
+      <div class="w3-row">
+        <div class="w3-col m6 w3-center w3-padding-large">
+          <p><b><i class="fa fa-user w3-margin-right"></i>Troy Forster</b></p><br>
+          <img src="./img/troy-forster.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500"
+            height="333">
+        </div>
+
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          <p>Mention I like running, hiking, adventure racing, food, wine, etc. Had a kidney transplant in 2005. Born in the
+            UK. What other stuff? </p>
+        </div>
+
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          Factoids
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">14+</span><br> Partners
+        </div>
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">55+</span><br> Projects Done
+        </div>
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">89+</span><br> Happy Clients
+        </div>
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">150+</span><br> Meetings
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+      <h3 class="w3-center">WHERE I WORK</h3>
+      <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+      <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-col m4 w3-container">
+          <!-- Add Google Maps -->
+
+        </div>
+        <div class="w3-col m8 w3-panel">
+          <div class="w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Toronto, Canada<br>
+            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> SMS: <a href="sms:+14166174921">+1 416-617-4921</a><br>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: <a href="mailto:troy.forster@gmail.com">troy.forster@gmail.com</a><br>
+          </div>
+          <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+          <form action="https://www.w3schools.com/action_page.php" target="_blank">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Name" required="" name="Name">
+              </div>
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Email" required="" name="Email">
+              </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required="" name="Message">
+            <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <% include partials/footer.ejs %>
+
+</body>
+
+</html>
