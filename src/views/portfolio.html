@@ -4,6 +4,7 @@
 <head>
   <title>Portfolio for Troy Forster</title>
   <meta name="description" content="Portfolio for Troy Forster">
+  <meta name="view" content="/portfolio.html" />
   <meta name="keywords" content="">
   <% include partials/head.ejs %>
 </head>
@@ -11,115 +12,24 @@
 <body cz-shortcut-listen="true">
   <% include partials/header.ejs %>
 
-    <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-2 w3-display-container w3-opacity-min" id="home">
       <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">My Work</span>
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Portfolio</span>
       </div>
     </div>
 
-    <!-- Container (Portfolio Section) -->
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
       <h3 class="w3-center">MY WORK</h3>
-      <p class="w3-center"><em>Here are some of my work and personal projects.<br> Click on the images to make them bigger</em></p><br>
+      <p class="w3-center"><em>A sample of personal and non-proprietary work projects</em></p>
 
-      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-      <div class="w3-row-padding w3-center" id="thumbViewPortfolio">
-        <!--<div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e35/13827434_1733880903550727_914138091_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Double Adirondack chairs for the cottage.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/10683888_705924706156180_742209216_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Hacked tool to measure efficiency of a heat sink.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/10522784_557003061088467_1661095738_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Bear closeup">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/915608_292521030926357_1733005308_n.jpg" style="width:100%" class="w3-hover-opacity"
-            alt="Screenshot from personal UV checker.">
-        </div>-->
-      </div>
-
-      <!--<div class="w3-row-padding w3-center w3-section">
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/11258929_1589090318039069_1558743942_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Homemade 3D Printer nearing completion.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/927546_1412847352301410_438899249_n.jpg" style="width:100%" class="w3-hover-opacity"
-            alt="Custom TBWA watchface I created for first generation Pebble smart watch.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/1739944_615636835168731_771804883_n.jpg" style="width:100%" class="w3-hover-opacity"
-            alt="A two wheel self-balancing robot.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/1742674_1426214824289822_877772184_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Driver circuit for a high precision GPS derived linear clock.">
-        </div>
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/11311450_1607137702877462_362746433_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="Hacked together a capacitive touch Tetris game with people as the controllers. The player had to 'high-five' four others to get up, down, left and right. ">
-        </div>
-
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/11282636_372211012971546_1225316990_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="I made a very successful hackathon for TBWA\Toronto.">
-        </div>
-
-
-        <div class="w3-col m3">
-          <img src="https://scontent.cdninstagram.com/t51.2885-15/e15/11084872_783047981812619_156138269_n.jpg" style="width:100%"
-            class="w3-hover-opacity" alt="I made a bad moustache for Movember.">
-        </div>
-
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/10683907_1536218486612600_1040528242_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/10701443_1469547466658381_393467642_n.mp4" type="video/mp4"></video>
-
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/10691729_710826375651987_645133883_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/10679248_1533395506897136_978733441_n.mp4" type="video/mp4"></video>
-
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/10518018_752489371458914_1095899106_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/10568295_1443692935906196_11923714_n.mp4" type="video/mp4"></video>
-
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/10401857_653833698037160_64721608_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/10507190_867070229988023_1489798932_n.mp4" type="video/mp4"></video>
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/10401757_1431299203809749_901528631_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/10476707_1465494897022975_1543498215_n.mp4" type="video/mp4"
-          loop=""></video>
-
-        <video class="w3-col m3" playsinline="" poster="https://scontent.cdninstagram.com/t51.2885-15/e15/11349171_1645234145714075_1331480564_n.jpg"
-          preload="none" src="https://scontent.cdninstagram.com/t50.2886-16/11670236_706889216089334_181584610_n.mp4" type="video/mp4"></video>-->
-
-        <button class="w3-button w3-padding-large" style="margin-top:64px">LOAD MORE</button>
-      </div>
-    </div>
-
-    <!-- Modal for full size images on click-->
-    <div id="modal01" class="w3-modal w3-black">
-      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-        <img id="img01" class="w3-image">
-        <p id="caption" class="w3-opacity w3-large"></p>
-      </div>
+      <div class="w3-row-padding w3-center" id="thumbViewPortfolio"></div>
     </div>
 
     <% include partials/footer.ejs %>
       <template id="productThumbnail">
         <div class="w3-col m3">
-          <img src="{{$thumbnailUrl}}" style="width:100%"
-            class="w3-hover-opacity" alt="{{$teaser}}">
+          <a href="/portfolio/{{$slug}}"><img src="{{$thumbnailUrl}}" style="width:100%"
+            class="w3-hover-opacity" alt="{{$teaser}}" title="{{$teaser}}"/></a>
         </div>
       </template>
 </body>

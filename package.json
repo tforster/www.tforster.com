@@ -1,18 +1,21 @@
 {
-  "name": "tforster.com",
+  "name": "www.tforster.com",
   "description": "The official website of Troy Forster",
   "version": "3.0.0",
   "private": false,
-  "scripts": {},
+  "scripts": {
+    "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html &"
+  },
   "dependencies": {
     "contentful": "^4.3.0",
     "marked": "^0.3.6"
   },
   "devDependencies": {
     "aws-sdk": "^2.43.0",
+    "babel-eslint": "^7.2.3",
     "concurrent-transform": "^1.0.0",
     "del": "^2.2.2",
-    "eslint": "^3.19.0",
+    "eslint": "3.6.0",
     "gulp": "^3.9.1",
     "gulp-awspublish": "^3.3.0",
     "gulp-debug": "^3.1.0",
