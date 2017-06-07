@@ -146,7 +146,7 @@ let build = async () => {
   await compileViews();
   let c = await copyResources([
     {
-      glob: ['./favicon*.*'],
+      glob: ['./src/img/favicon.ico'],
       dest: '/'
     },
     {
@@ -156,10 +156,6 @@ let build = async () => {
     {
       glob: ['./src/fonts/**/*'],
       dest: '/fonts/'
-    },
-    {
-      glob: ['./src/favicon.ico'],
-      dest: ''
     },
     {
       glob: ['./src/js/**/*.js'],

@@ -7,12 +7,6 @@ var config = {
   }
 }
 
-// window.onpopstate = function (e) {
-//   if (e.state) {
-//     document.getElementById("content").innerHTML = e.state.html;
-//     document.title = e.state.pageTitle;
-//   }
-// };
 
 /**
  * CONSTRUCTOR
@@ -24,9 +18,7 @@ function Tforster(config) {
   self.config = config;
   self.routes = [];
 
-  self.use('/', '/index.html', function () {
-
-  });
+  self.use('/', '/index.html', function () { });
 
   self.use('/portfolio', '/portfolio.html', function () {
     var contentType = 'product';
@@ -51,10 +43,7 @@ function Tforster(config) {
       })
   });
 
-
-  self.use('/portfolio/:id', '/portfolio-product.html', function () {
-  });
-
+  self.use('/portfolio/:id', '/portfolio-product.html', function () { });
 
   self.use('/portfolio-product', '/portfolio-product.html', function (params) {
     var contentType = 'product';
@@ -81,28 +70,20 @@ function Tforster(config) {
         } else {
           console.error(params.id, 'not found');
         }
-
       });
-
   });
 
+  self.use('/hire-me', '/hire-me.html', function () { });
 
-  self.use('/hire-me', '/hire-me.html', function () {
-  });
-
-
-  self.use('/404', '/404.html', function () {
-  });
-
-
-  // // Add "selected" class to correct nav item
-  // self.toggleNav();
+  self.use('/404', '/404.html', function () { });
 
   self.route(window.location);
 }
 
+
 /**
- * Pushes a new route method onto the routes array
+ * USE
+ * - Pushes a new route method onto the routes array
  * 
  */
 Tforster.prototype.use = function (path, view, cb) {
@@ -113,8 +94,10 @@ Tforster.prototype.use = function (path, view, cb) {
   });
 }
 
+
 /**
- * The router for both virual and physical pages
+ * ROUTE
+ * - The router for both virual and physical pages
  * 
  */
 Tforster.prototype.route = function (windowLocation) {
@@ -172,6 +155,11 @@ Tforster.prototype.route = function (windowLocation) {
 }
 
 
+/**
+ * GLOBALBINDINGS
+ * - Some bindings common to all pages
+ * 
+ */
 Tforster.prototype.globalBindings = function () {
 
   // Micro-interaction: menu bar when scrolling
@@ -212,81 +200,39 @@ Tforster.prototype.toggleNav = function () {
 }
 
 
-
-
-
-
-// var tforster = function () { };
-// MICROTEMPLATE: Simple template system that parses {{$some-var}}. Use $$ to force processng of markdown.
+/**
+ * MICROTEMPLATE
+ * - Simple template system that parses {{$some-var}}. Use $$ to force processng of markdown.
+ * 
+ */
 Tforster.prototype.microTemplate = function (templateSelector, data) {
   var squiggies = /{{\$(\$)?([0-9a-zA-Z_\-\.]*)}}/mig;
   var template = document.querySelector(templateSelector);
-  var clone;
 
   if (template.content) {
-    // Returns a #document-fragment containing a NodeList of typically [text, div.row.section, text]
-    clone = document.importNode(template.content, true);
+    var s = template.content.querySelector('*').outerHTML;
+    s = s.replace(squiggies, function (match, $1, $2, offset, original) {
+      if ($2) {
+        var content = $2.split('.').reduce(function (obj, i) { return obj[i] }, data);
+        if ($1 && content) {
+          content = marked(content);
+        }
+        return content ? content : '';
+      }
+      else {
+        return original;
+      }
+    });
+
+    var tmp = document.createElement('div');
+    tmp.innerHTML = s;
+    return tmp.childNodes[0];
   }
   else {
-    // IE does not support template.content so we have to manually build it
-    clone = document.createElement('div');
-    clone.innerHTML = template.innerHTML;
+    console.warn('This browser does not support template.content');
+    return document.createElement('div').innerHTML = '<p>template.content is not supported</p>';
   }
-
-  var index = function (obj, i) { return obj[i] };
-
-  for (var c = 0; c < clone.childNodes.length; c++) {
-    var child = clone.childNodes[c];
-    if (child.innerHTML) {
-      child.innerHTML = child.innerHTML.replace(squiggies, function (match, $1, $2, offset, original) {
-        if ($2) {
-          var content = $2.split('.').reduce(index, data);
-          if ($1 && content) {
-            content = marked(content);
-          }
-          return content ? content : '';
-        }
-        else {
-          return original;
-        }
-      });
-    }
-    clone.childNodes[c] = child;
-  }
-
-
-  return clone;
 }
-
-
-  // // POPULATEBIOS: Populates the #bios div on the about page
-  // tforster.populateBios = function () {
-  //   var bios = document.querySelector('#bios');
-  //   tforster.contentfulClient.getEntries({ content_type: 'bio', order: 'fields.orderBy' })
-  //     .then(function (bioEntries) {
-  //       bioEntries.items.forEach(function (bio) {
-  //         bios.appendChild(tforster.microTemplate('#bio', bio.fields));
-  //       });
-  //     });
-  // }
-
-
-
-
-  // // VIDEOCONTROLS: Adds play/pause via click/tap to our simple video elements
-  // tforster.videoControls = function () {
-  //   document.querySelectorAll('video').forEach(function (video) {
-  //     console.log(video);
-  //     video.addEventListener('click', function (e) {
-  //       if (e.target.paused) {
-  //         e.target.play();
-  //       }
-  //       else {
-  //         e.target.pause();
-  //       }
-  //     });
-  //   });
-  // };
 
   ;
 (function () {

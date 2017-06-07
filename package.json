@@ -7,7 +7,6 @@
     "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html &"
   },
   "dependencies": {
-    "contentful": "^4.3.0",
     "marked": "^0.3.6"
   },
   "devDependencies": {
