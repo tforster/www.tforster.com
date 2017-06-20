@@ -1,12 +1,13 @@
 {
   "name": "www.tforster.com",
   "description": "The official website of Troy Forster",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": false,
   "scripts": {
-    "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html &"
+    "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html & gulp watch"
   },
   "dependencies": {
+    "gulp-babili": "^0.1.2",
     "marked": "^0.3.6"
   },
   "devDependencies": {
@@ -24,7 +25,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.1.2",
     "gulp-slack": "^0.1.2",
-    "gulp-uglify": "^2.1.2",
+    "gulp-tinypng": "^1.0.2",
     "gulp-usemin": "^0.3.28",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11"

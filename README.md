@@ -12,10 +12,12 @@ _The official website of Troy Forster_
 * [Contentful](http://contentful.com)
 * [Gulp](http://gulpjs.com/)
 * [s3rver](https://github.com/jamhall/s3rver)
-* [Coffee](https://en.wikipedia.org/wiki/Coffee)
-* [Cloudinary](http://cloudinary.com)
-* [babel-eslint](https://github.com/babel/babel-eslint). This parser currently handles ES2017 features like arrow functions inside classes better than the default Espree parser.
-* [AWS-SDK](https://aws.amazon.com/sdk-for-node-js/)
+* [Coffee](https://en.wikipedia.org/wiki/Coffee): A good source of [C8H10N4O2](https://pubchem.ncbi.nlm.nih.gov/compound/caffeine)
+* [Cloudinary](http://cloudinary.com): Use as a CLI (via query string) to crop and resize images
+* [babel-eslint](https://github.com/babel/babel-eslint): Handles ES2017 features like arrow functions inside classes better than the default Espree parser.
+* [AWS-SDK](https://aws.amazon.com/sdk-for-node-js/): Deploy to S3 filesystem
+* [TinyPNG](https://tinypng.com/developers): PNG and JPG minification
+* [Babili](https://github.com/babel/babili): ES6 minification
 
 # Developer Setup
 
@@ -38,6 +40,21 @@ _The official website of Troy Forster_
 Wes Bos for contributing the Docker SVG icon https://github.com/wesbos/Font-Awesome-Docker-Icon
 
 # Change Log
+
+v3.1.0 Feature iteration and bug fixes (2017-06-20)
+
+* .gitignore: Now includes yarn error logs
+* gulpfile.js: Switched from UglifyJS to [Babili](https://github.com/babel/babili) for ES6 minification. Also added TinyPNG support for crushing
+.png and .jpg images
+* package.json: NPM script `s3-server` launches both s3-server and gulp watch (and should be renamed more appropriately in next release)
+* app.js:
+  * Started migration to native ES6 following decision to not support IE
+  * Moved render functions outside of main class. More refactoring to come to gain complete separation of router logic from site specific implementation.
+  * Improved error handling when loading physical .html template files
+  * Removed deprecated event listener on scroll
+  * Added renderPortfolioItem
+  * Added normalizeLinkedItems to better handle Contentful responses. Later release might see a standalone Contentful client
+* *.html: numerous tweaks and cosmetic improvments
 
 v3.0.0 Replatformed using a serverless architecture (2017-05-07)
 
@@ -66,8 +83,3 @@ v2.0.0 Now a NodeJS/Express App
 v1.0.0
 
 * ASP.NET
-
-# S3 Clones
-
-https://cloudian.com: Free 45 day trial
-

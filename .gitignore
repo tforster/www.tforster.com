@@ -1,6 +1,11 @@
 ### Project ###
 build
 
+### Misc. Tooling ###
+
+.gulp
+yarn-error.log
+
 ### OSX and Windows ###
 
 .DS_Store

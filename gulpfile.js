@@ -1,4 +1,4 @@
-var AWS = require('aws-sdk'),
+const AWS = require('aws-sdk'),
   del = require('del'),
   gulp = require('gulp'),
   debug = require('gulp-debug'),
@@ -7,18 +7,22 @@ var AWS = require('aws-sdk'),
   minifyCss = require('gulp-minify-css'),
   rename = require('gulp-rename'),
   rev = require('gulp-rev'),
-  uglify = require('gulp-uglify'),
   usemin = require('gulp-usemin'),
   util = require('gulp-util'),
   watch = require('gulp-watch'),
   marked = require('marked'),
-  S3 = require('./S3Class.js');
+  S3 = require('./S3Class.js'),
+  babili = require('gulp-babili'),
+  tinypng = require('gulp-tinypng');
 
 /**
  * CONFIG
  * - General configuration for this project
  */
 let config = {
+  tinypng: {
+    apikey: 'fGe2JxyVjUw2Uw27WAXd3R9Xj_t1T61v'
+  },
   slack: {
     url: 'https://hooks.slack.com/services/slack/hook/here',
     channel: '#dev',
@@ -127,8 +131,18 @@ let minh = () => {
       .pipe(usemin({
         css: [function () { return minifyCss(); }, function () { return rev(); }],
         html: [function () { return htmlmin({ collapseWhitespace: true, removeComments: true }); }],
-        js: [function () { return uglify({ 'negate_iife': false }); }, function () { return rev(); }],
-        inlinejs: [uglify()],
+        js: [function () {
+          return babili({
+            mangle: {
+              keepClassNames: true
+            }
+          });
+        }, function () { return rev(); }],
+        inlinejs: [babili({
+          mangle: {
+            keepClassNames: true
+          }
+        })],
         inlinecss: [minifyCss(), 'concat']
       }))
       .pipe(gulp.dest(config.buildPath))
@@ -175,6 +189,16 @@ let build = async () => {
   return c;
 }
 
+
+/**
+ * Compress png and jpgs. Calling manually for now until I can figure the optimal way to ensure I 
+ * stay below 500 calls per month
+ */
+gulp.task('tinypng', () => {
+  gulp.src(['./src/img/**/*.jpg','./src/img/**/*.png'])
+    .pipe(tinypng(config.tinypng.apikey))
+    .pipe(gulp.dest(config.buildPath + '/img'));
+});
 
 /**
  * TEST
@@ -253,7 +277,7 @@ gulp.task('watch', function () {
   // Some hacky sh!t for build and deploy needs to be cleaned up a bit
   return watch('src/**/*', function () {
     build()
-      .then(result => {
+      .then(() => {
         gulp.start('deploy');
       })
   });

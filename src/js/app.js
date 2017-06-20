@@ -1,11 +1,13 @@
 'use strict'
 
-var config = {
+const config = {
   contentful: {
     accessToken: 'ebfa99618c6da4ae410dd709ec1b7b9c515cbf0cae711b3f78cb67dbea029b61',
     space: 'xyov37w0wvhz'
   }
 }
+
+let app;
 
 
 /**
@@ -14,67 +16,15 @@ var config = {
  * @param {object} config 
  */
 function Tforster(config) {
-  var self = this;
+  let self = this;
   self.config = config;
   self.routes = [];
 
   self.use('/', '/index.html', function () { });
-
-  self.use('/portfolio', '/portfolio.html', function () {
-    var contentType = 'product';
-    // minifier does not like template literals
-    //var url = `https://cdn.contentful.com/spaces/${config.contentful.space}/entries?access_token=${config.contentful.accessToken}&content_type=${contentType}&include=2`;
-    var url = 'https://cdn.contentful.com/spaces/' + config.contentful.space + '/entries?access_token=' + config.contentful.accessToken + '&content_type=' + contentType + '&include=2';
-    var request = new Request(url, {
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    });
-
-    fetch(request)
-      .then(function (response) {
-        return response.json();
-      })
-
-      .then(function (data) {
-        data.items.forEach(function (product) {
-          document.querySelector('#thumbViewPortfolio').appendChild(self.microTemplate('#productThumbnail', product.fields));
-        });
-      })
-  });
-
+  self.use('/portfolio', '/portfolio.html', renderPortfolio);
   self.use('/portfolio/:id', '/portfolio-product.html', function () { });
-
-  self.use('/portfolio-product', '/portfolio-product.html', function (params) {
-    var contentType = 'product';
-    history.replaceState({}, null, '/portfolio/' + params.id);
-    var url = 'https://cdn.contentful.com/spaces/' + config.contentful.space + '/entries?access_token=' + config.contentful.accessToken + '&content_type=' + contentType + '&include=2';
-    var request = new Request(url, {
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    });
-
-    fetch(request)
-      .then(function (response) {
-        return response.json();
-      })
-
-      .then(function (data) {
-        var products = data.items.filter(function (obj) {
-          return obj.fields.slug == params.id;
-        });
-        if (products) {
-          var product = products[0];
-          document.querySelector('#product').appendChild(self.microTemplate('#productTemplate', product.fields));
-        } else {
-          console.error(params.id, 'not found');
-        }
-      });
-  });
-
+  self.use('/portfolio-product', '/portfolio-product.html', renderPortfolioItem);
   self.use('/hire-me', '/hire-me.html', function () { });
-
   self.use('/404', '/404.html', function () { });
 
   self.route(window.location);
@@ -94,6 +44,12 @@ Tforster.prototype.use = function (path, view, cb) {
   });
 }
 
+/**
+ * Placeholder method for in-page search that will be implemented in the future
+ */
+Tforster.prototype.search = function () {
+  console.warn('search() not implemented yet.');
+}
 
 /**
  * ROUTE
@@ -101,24 +57,24 @@ Tforster.prototype.use = function (path, view, cb) {
  * 
  */
 Tforster.prototype.route = function (windowLocation) {
-  var self = this;
+  let self = this;
 
-  var location = windowLocation.pathname.replace('.html', '');
-  var locationSegments = location.split('/').slice(1);
-  var routes = this.routes;
-  var params = {};
+  let location = windowLocation.pathname.replace('.html', '');
+  let locationSegments = location.split('/').slice(1);
+  let routes = this.routes;
+  let params = {};
   if (window.location.hash) {
     params = JSON.parse(window.location.hash.replace('#!/', ''));
   }
 
   // Compares path and location returning true if they match along with any param values
-  var processPath = function (pathSegments, locationSegments, params) {
+  let processPath = function (pathSegments, locationSegments, params) {
     if (pathSegments.length !== locationSegments.length) {
       return false;
     }
 
-    for (var l = 0; l < pathSegments.length; l++) {
-      var isParam = pathSegments[l].match(/^:([\w-]+)/);
+    for (let l = 0; l < pathSegments.length; l++) {
+      let isParam = pathSegments[l].match(/^:([\w-]+)/);
 
       if (!isParam && (pathSegments[l] != locationSegments[l])) {
         return false;
@@ -133,16 +89,20 @@ Tforster.prototype.route = function (windowLocation) {
   }
 
   // Iterate the routes looking for a match
-  for (var r = 0; r < routes.length; r++) {
-    var xparams = params || {}
-    var pathSegments = routes[r].path.split('/').slice(1);
+  for (let r = 0; r < routes.length; r++) {
+    let xparams = params || {}
+    let pathSegments = routes[r].path.split('/').slice(1);
 
     // Look for a match. If we are not already on that view (.html) then redirect to it
     if (processPath(pathSegments, locationSegments, xparams)) {
-      var viewMeta = document.querySelector('meta[name="view"]');
+      let viewMeta = document.querySelector('meta[name="view"]');
       if (viewMeta && viewMeta.content !== routes[r].view) {
         // Load the named view
-        window.location.href = routes[r].view + '#!/' + JSON.stringify(xparams);
+        if (Object.keys(xparams).length === 0 && xparams.constructor === Object) {
+          window.location = routes[r].view;
+        } else {
+          window.location = routes[r].view + '#!/' + JSON.stringify(xparams);
+        }
       } else {
         // In the named view so start processing view specific Javascript
         history.replaceState({}, null, location);
@@ -161,24 +121,13 @@ Tforster.prototype.route = function (windowLocation) {
  * 
  */
 Tforster.prototype.globalBindings = function () {
-
-  // Micro-interaction: menu bar when scrolling
-  window.addEventListener('scroll', function () {
-    var navbar = document.getElementById("myNavbar");
-    // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    //   navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
-    // } else {
-    //   navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
-    // }
-  });
-
   // Toggle dropdown from hamburger icon
   document.querySelector('.w3-top i.fa-bars').addEventListener('click', function () {
     document.querySelector('#hamburgerMenu').classList.toggle('w3-show');
   });
 
   // Micro-interaction: hide hamburger menu on menu click before navigating away
-  document.querySelectorAll('#hamburgerMenu a').forEach(function (a, i) {
+  document.querySelectorAll('#hamburgerMenu a').forEach(function (a) {
     a.addEventListener('click', function () {
       document.querySelector('#hamburgerMenu').classList.remove('w3-show');
     });
@@ -192,9 +141,9 @@ Tforster.prototype.globalBindings = function () {
  * 
  */
 Tforster.prototype.toggleNav = function () {
-  var bodyClassList = document.querySelector('body').classList;
+  let bodyClassList = document.querySelector('body').classList;
   if (bodyClassList.length > 0) {
-    var bodyClass = bodyClassList[0];
+    let bodyClass = bodyClassList[0];
     document.querySelector('.pi-mega-fw a[href="' + bodyClass + '.html"]').parentNode.classList.add('current-menu-item');
   }
 }
@@ -206,14 +155,14 @@ Tforster.prototype.toggleNav = function () {
  * 
  */
 Tforster.prototype.microTemplate = function (templateSelector, data) {
-  var squiggies = /{{\$(\$)?([0-9a-zA-Z_\-\.]*)}}/mig;
-  var template = document.querySelector(templateSelector);
+  let squiggies = /{{\$(\$)?([0-9a-zA-Z_\-\.]*)}}/mig;
+  let template = document.querySelector(templateSelector);
 
   if (template.content) {
-    var s = template.content.querySelector('*').outerHTML;
+    let s = template.content.querySelector('*').outerHTML;
     s = s.replace(squiggies, function (match, $1, $2, offset, original) {
       if ($2) {
-        var content = $2.split('.').reduce(function (obj, i) { return obj[i] }, data);
+        let content = $2.split('.').reduce(function (obj, i) { return obj[i] || '' }, data);
         if ($1 && content) {
           content = marked(content);
         }
@@ -224,7 +173,7 @@ Tforster.prototype.microTemplate = function (templateSelector, data) {
       }
     });
 
-    var tmp = document.createElement('div');
+    let tmp = document.createElement('div');
     tmp.innerHTML = s;
     return tmp.childNodes[0];
   }
@@ -234,11 +183,71 @@ Tforster.prototype.microTemplate = function (templateSelector, data) {
   }
 }
 
+let renderPortfolio = () => {
+
+  const contentType = 'product';
+  const url = `https://cdn.contentful.com/spaces/${config.contentful.space}/entries?access_token=${config.contentful.accessToken}&content_type=${contentType}&include=0`;
+  const request = new Request(url, {
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  });
+
+  fetch(request)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      data.items.forEach((product) => {
+        document.querySelector('#thumbViewPortfolio').appendChild(app.microTemplate('#productThumbnail', product.fields));
+      });
+    })
+}
+
+let renderPortfolioItem = (params) => {
+  const contentType = 'product';
+  history.replaceState({}, null, '/portfolio/' + params.id);
+  const url = 'https://cdn.contentful.com/spaces/' + config.contentful.space + '/entries?access_token=' + config.contentful.accessToken + '&content_type=' + contentType + '&fields.slug=' + params.id + '&include=10';
+
+  const request = new Request(url, {
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  });
+
+  fetch(request)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      normalizeLinkedItems(data);
+      document.querySelector('#product').appendChild(app.microTemplate('#productTemplate', data.items[0].fields));
+    });
+}
+
+
   ;
 (function () {
   if (document.readyState != 'loading') {
-    new Tforster(config);
+    app = new Tforster(config);
   } else {
-    document.addEventListener('DOMContentLoaded', function () { new Tforster(config) });
+    document.addEventListener('DOMContentLoaded', function () { app = new Tforster(config) });
   }
 }());
+
+let normalizeLinkedItems = (obj) => {
+  obj.items.forEach((item) => {
+    let f = item.fields;
+    for (let p in f) {
+      if (typeof (f[p]) === 'object' && f[p].sys) {
+        let o = obj.includes.Entry.filter((e) => {
+          return e.sys.id === f[p].sys.id;
+        });
+        if (o) {
+          f[p] = o[0];
+        }
+      }
+    }
+  })
+}
+
