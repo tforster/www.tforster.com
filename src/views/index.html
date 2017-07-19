@@ -11,87 +11,72 @@
 
 <body cz-shortcut-listen="true">
   <% include partials/header.ejs %>
-
-    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Troy Forster</span>
-      </div>
-    </div>
-
-    <div class="w3-content w3-container w3-padding-64" id="about">
-      <h3 class="w3-center">ABOUT ME</h3>
-      <p class="w3-center"><em>Creative Technology Director, idea factory, tinkerer, cyclist, hiker, vegetarian living in the wilds of downtown Toronto</em></p>
-      <ul>
-        <li>Born in London, England and emigrated to Canada with my parents at the age of 10.</li>
-        <li>Vegetarian since I was 20 (and no, I have never missed meat)</li>
-        <li>Love human-powered outdoor sports</li>
-        <li>Successful kidney transplant in 2005</li>
-        <li>Had a paper route at 11</li>
-        <li>Had a neighbourhood grass cutting business at 13</li>
-        <li>Worked in a children's zoo at 15 feeding bears, beavers, lemurs, otters, pigs and squirrel monkies</li>
-        <li>Have waited tables, landscaped and laboured on construction sites</li>
-        <li>Spent the last 30+ years in the technology world. I started as a developer and have been a technical director since
-          2010.</li>
-        <li>Roadtripped across Canada to both West and East coasts</li>
-        <li>Spent time in Colombia, France, Greece, Mexico and Switzerland</li>
-        <li>Love cooking and trying new foods. Indian is still one of my all-time favourites.</li>
-        <li>Played the keyboardist for boy band "The Pragmatic Virgins" in 1992's <a href="http://www.imdb.com/title/tt0104465/"
-            target="_blank">Hurt Penguins</a></li>
-        <li>And yes ladies, I am single</li>
-
-      </ul>
-
-      <div class="w3-row">
-        <div class="w3-col m6 w3-center w3-padding-large">
-          <p><b><i class="fa fa-user w3-margin-right"></i>Troy Forster</b></p><br>
-          <img src="./img/troy-forster.jpg" class="w3-round w3-image " alt="Photo of Me" width="500"
-            height="333">
-        </div>
-
-        <!-- Hide this text on small devices -->
-        <div class="w3-col m6 w3-hide-small w3-padding-large">
-          <h4>Outdoor Sports and Achievements</h4>
-          <ul>
-            <li>Rock climbing</li>
-            <li>Ice climbing</li>
-            <li>Cycling</li>
-            <li>Mountain biking</li>
-            <li>Cross-country skiing</li>
-            <li>Snowshoeing</li>
-            <li>Running</li>
-            <li>Trail running</li>
-            <li>Hiking</li>
-            <li>Canoe/Kayaking</li>
-            <li>Sailing</li>
-            <li>Co-founder of The Screaming Carrots race team</li>
-            <li>Competed in dozens of 24 hour mountain bike relay races, 100Km enduros as well as 8 hour, 12 hour and multi-day
-              <a href="https://www.youtube.com/watch?v=occW94DgWT4" target="_blank">adventure races</a></li>
-            <li>Created the exclusive SCAR (Screaming Carrots Adventure Race) series</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-        <div class="w3-quarter w3-section">
-          <span class="w3-xlarge">70</span><br> % of Bruce Trail Hiked
-        </div>
-        <div class="w3-quarter w3-section">
-          <span class="w3-xlarge">3</span><br> Movies/TV Show Appearances
-        </div>
-        <div class="w3-quarter w3-section">
-          <span class="w3-xlarge">1</span><br> Kidney Transplant
-        </div>
-        <div class="w3-quarter w3-section">
-          <span class="w3-xlarge">3</span><br> Decades as a Tech Pro
-        </div>
-      </div>
-    </div>
+    <% include home.ejs %>
+      <% include portfolio.ejs %>
+        <% include portfolio--id.ejs %>
+          <% include hire-me.ejs %>
+            <% include uses.ejs %>
 
 
+              <% include partials/footer.ejs %>
+                <template id="productThumbnail">
+                  <div class="w3-third" style="margin-bottom:15px">
+                    <div class="w3-card-2">
+                      <a href="/portfolio/{{$slug}}" class="thumbnailAnchor"><img src="{{$thumbnailUrl}}" style="width:100%;height:294px" class="w3-hover-opacity w3-image" alt="{{$teaser}}" title="{{$teaser}}"/></a>
+                      <div class="w3-container" style="height:75px">
+                        <p>{{$title}}</p>
 
+                      </div>
+                    </div>
+                  </div>
+                </template>
 
-    <% include partials/footer.ejs %>
+                <template id="productTemplate">
+                  <div>
+                    <h3 class="w3-center">{{$title}}</h3>
+                    <p class="w3-center"><em>{{$teaser}}</em></p>
+                    <div class="w3-row">
+                      <div class="w3-col m6 w3-center w3-padding-large">
+                        <img src="{{$thumbnailUrl}}" class="w3-round w3-image " alt="{{$teaser}}" title="{{$teaser}}" width="500" />
+                      </div>
 
+                      <!-- Hide this text on small devices -->
+                      <div class="w3-col m6 w3-hide-small w3-padding-large">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
+                          <tbody>
+                            <tr>
+                              <td>Employer</td>
+                              <td>{{$employer.fields.company}}</td>
+                            </tr>
+                            <tr>
+                              <td>Company/Client</td>
+                              <td>{{$company.fields.name}}</td>
+                            </tr>
+                            <tr>
+                              <td>Year created</td>
+                              <td>{{$yearCreated}}</td>
+                            </tr>
+                            <tr>
+                              <td>Live URL</td>
+                              <td>{{$liveUrl}}</td>
+                            </tr>
+                            <tr>
+                              <td>Github URL</td>
+                              <td>{{$gitHubUrl}}</td>
+                            </tr>
+                            <tr>
+                              <td>Tags</td>
+                              <td>{{$tags}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="w3-col m6 w3-padding-large">
+                        <p>{{$$description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </template>
 </body>
 
 </html>

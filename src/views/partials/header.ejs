@@ -1,25 +1,39 @@
+<!-- Warning banner for incompatible browsers. Relies on classes injected into 
+     the <html> element via the separated supports.js ES5 script. -->
+<div class="w3-container evergreen w3-orange">
+  <p><strong>Potentially incompatible browser detected</strong></p>
+  <p>This is a modern website that utilizes features found in evergreen browsers that may not be available your current browser. If you 
+  can see this banner then you are probably not experiencing the full site. If possible please upgrade to a modern browser such 
+  as <a href="https://www.google.com/chrome/index.html">Google Chrome</a> which is available for most operating systems.</p>
+  <p>Details for nerds (the following ES6+ features were tested for but not found):</p>
+    <ul>
+      <li id="no-let"><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let">let</a></li>
+      <li id="no-const"><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const">const</a></li>
+      <li id="no-class"><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/class">class</a></li>
+      <li id="no-templateLiteral"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">template literal</a></li>
+      <li id="no-arrow"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a></li>
+    </ul>
+</div>
+
 <div class="w3-top">
   <div class="w3-bar w3-card-2 w3-animate-top w3-white" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
-      title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="/" class="w3-bar-item w3-button">HOME</a>
-    <a href="/portfolio.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="/hire-me.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-hire-me"></i> HIRE ME!</a>
+    <a href="/portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="/hire-me" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-hire-me"></i> HIRE ME!</a>
     <a href="https://medium.com/@tforster" class="w3-bar-item w3-button w3-hide-small" target="_blank"><i class="fa fa-medium"></i> BLOG</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
+    <a href="/uses" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-desktop"></i> USES</a>    
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red"><i class="fa fa-search"></i></a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="hamburgerMenu" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-
-    <a href="/portfolio.html" class="w3-bar-item w3-button" >PORTFOLIO</a>
-    <a href="/hire-me.html" class="w3-bar-item w3-button" >HIRE ME!</a>
+    <a href="/portfolio" class="w3-bar-item w3-button" >PORTFOLIO</a>
+    <a href="/hire-me" class="w3-bar-item w3-button" >HIRE ME!</a>
     <a href="https://medium.com/@tforster" class="w3-bar-item w3-button" target="_blank"> BLOG (Medium)</a>
-
+    <a href="/uses" class="w3-bar-item w3-button" >USES</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
   </div>
+
+  
 </div>

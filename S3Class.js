@@ -113,7 +113,7 @@ class S3 {
       let publisher = awspublish.create(AwsConfig);
 
       const headers = {
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'max-age=60'
       };
 
       gulp.src(Glob)

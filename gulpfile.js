@@ -184,7 +184,7 @@ let build = async () => {
   // Stage and Prod have single JS and CSS so we can clean up the unminified files
   if (config.target !== 'dev') {
     await minh();
-    c = await del([config.buildPath + '/js', config.buildPath + '/css']);
+    //c = await del([config.buildPath + '/js', config.buildPath + '/css']);
   }
   return c;
 }
@@ -207,11 +207,11 @@ gulp.task('tinypng', () => {
 gulp.task('test', function () {
   let awsConfig = {
     credentials: new AWS.SharedIniFileCredentials({ profile: config.aws.profile }),
-    //  endpoint: new AWS.Endpoint(config.aws.s3.fakeS3Endpoint)
+      endpoint: new AWS.Endpoint(config.aws.s3.fakeS3Endpoint)
   };
   let bucket = config.aws.s3.buckets[config.target];
 
-  //S3.createNewWebBucket(awsConfig, bucket);
+  S3.createNewWebBucket(awsConfig, bucket);
   S3.makeWebBucketServable(awsConfig, bucket);
   // S3.syncGlobToBucket(awsConfig, bucket, 'build/dev/**/*');
   // // .then(result => {

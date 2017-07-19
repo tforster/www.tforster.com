@@ -1,25 +1,29 @@
 # www.tforster.com
 
-_The official website of Troy Forster_
+The official website of Troy Forster
 
-# Built With
+[![CircleCI](https://circleci.com/gh/tforster/tforster.com.svg?style=svg)](https://circleci.com/gh/tforster/tforster.com)
 
-* [Visual Studio Code](https://code.visualstudio.com/) on Windows 10
-* [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh) on Bash on Ubuntu on [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
-* [NodeJS](https://nodejs.org/en/) 7.8.0
-* ~~NPM 4.2.0~~ [Yarn](https://yarnpkg.com/lang/en/) 0.2.34
-* [Git](https://git-scm.com/) 2.7.4
-* [Contentful](http://contentful.com)
-* [Gulp](http://gulpjs.com/)
-* [s3rver](https://github.com/jamhall/s3rver)
-* [Coffee](https://en.wikipedia.org/wiki/Coffee): A good source of [C8H10N4O2](https://pubchem.ncbi.nlm.nih.gov/compound/caffeine)
-* [Cloudinary](http://cloudinary.com): Use as a CLI (via query string) to crop and resize images
-* [babel-eslint](https://github.com/babel/babel-eslint): Handles ES2017 features like arrow functions inside classes better than the default Espree parser.
+## Built With
+
 * [AWS-SDK](https://aws.amazon.com/sdk-for-node-js/): Deploy to S3 filesystem
-* [TinyPNG](https://tinypng.com/developers): PNG and JPG minification
+* [babel-eslint](https://github.com/babel/babel-eslint): Handles ES2017 features like arrow functions inside classes better than the default Espree parser.
 * [Babili](https://github.com/babel/babili): ES6 minification
+* [CircleCI](https://circleci.com): Continuous Integration and Deployment
+* [Cloudinary](http://cloudinary.com): Use as a CLI (via query string) to crop and resize images
+* [Coffee](https://en.wikipedia.org/wiki/Coffee): A good source of [C8H10N4O2](https://pubchem.ncbi.nlm.nih.gov/compound/caffeine)
+* [Contentful](http://contentful.com)
+* [Git 2.7.4](https://git-scm.com/)
+* [Gulp](http://gulpjs.com/)
+* [iOS Webkit Debug Proxy](https://github.com/google/ios-webkit-debug-proxy)
+* [NodeJS 7.8.0](https://nodejs.org/en/)
+* [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh) on Bash on Ubuntu on [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
+* [s3rver](https://github.com/jamhall/s3rver)
+* [TinyPNG](https://tinypng.com/developers): PNG and JPG minification
+* [Visual Studio Code 1.14.1](https://code.visualstudio.com/) on Windows 10
+* ~~NPM 4.2.0~~ ~~[Yarn](https://yarnpkg.com/lang/en/) 0.2.34~~ [NPM 5.3.0](https://www.npmjs.com/package/npm)
 
-# Developer Setup
+## Developer Setup
 
 1. Ensure all dependencies are installed (see Built With above)
 1. Ensure AWS credentials are properly configured in ~/.aws/credentials and ~/.aws/config
@@ -31,15 +35,35 @@ _The official website of Troy Forster_
 1. Run `gulp build --target stage` to build a stage release. 
 1. Deploy to S3 with `gulp deploy --target {stage | prod}`
 
-## Yarn Scripts
+### Yarn Scripts
 
-* s3-server: Launch s3Server
+* dev: Launch s3Server and run gulp watch 
+* deploy: Build, minify, crush, concatenate and synchronize to S3 bucket
+* test: Execute unit tests
 
-# Special Thanks
+## Special Thanks
 
 Wes Bos for contributing the Docker SVG icon https://github.com/wesbos/Font-Awesome-Docker-Icon
 
-# Change Log
+## Change Log
+
+v3.2.1 Cross browser bug fixes
+
+* Works on Chrome for Windows 59.0.3071.115 (Official Build) (64-bit)
+* Works on Chrome Canary for Android 61.0.3160.0
+* Works on Mobile Safari 10.3.2
+* Works on Microsoft Edge 41.16193.1001.0
+* Works on Firefox for Windows 54.0.1 (64-bit)
+
+v3.2.0 Jest unit tests and modules (2017-07-03)
+
+* Refactored the HTML full page views into EJS partial views and converted the site to a SPA
+* Broke app into LRT and the actual app
+* Added Jest for unit testing
+* Added wrapped call to module.exports so that Jest (via NodeJS) can require classes but classes still work without throwing errors in the browser (which does not support modules and the requires keyword).
+* Created unit tests for Contentful and LRT classes
+* Added CircleCI for continuous integration
+* Added SVG icons for Wordpress and Tumblr
 
 v3.1.0 Feature iteration and bug fixes (2017-06-20)
 
@@ -83,3 +107,15 @@ v2.0.0 Now a NodeJS/Express App
 v1.0.0
 
 * ASP.NET
+
+## Running Notes 
+
+Cloudfront has this awesome feature of creating path based behaviours which can be made to point to different origins. With such a setup, I could have just pointed the /static path to an s3 origin and /api to gateway and no problem of CORS which is currently a pain,
+
+## Useful Resources
+
+* https://www.reddit.com/r/aws/comments/4sosk4/api_gateway_tight_coupling_with_cloudfront_is/?st=j471fuqe&sh=b7bbf6f9
+* https://www.codeengine.com/articles/process-form-aws-api-gateway-lambda/
+* https://medium.com/@nikoloza/how-to-debug-remote-ios-device-using-chrome-devtools-f44d697003a7
+
+

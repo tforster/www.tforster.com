@@ -31,7 +31,7 @@ body, html {
 
 /* Create a Parallax Effect */
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-hire-me, .bgimg-uses {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,19 +46,18 @@ body, html {
   min-height: 400px;
 }
 
-
-/* Second image (Portfolio) */
-
 .bgimg-2 {
   background-image: url("/img/code-background.jpg");
   min-height: 400px;
 }
 
+.bgimg-hire-me {
+  background-image: url("/img/hire-me-cropped.jpg");
+  min-height: 400px;
+}
 
-/* Third image (Contact) */
-
-.bgimg-3 {
-  background-image: url("/img/parallax3.jpg");
+.bgimg-uses {
+  background-image: url("/img/uses-cropped.jpg");
   min-height: 400px;
 }
 
@@ -88,16 +87,7 @@ body, html {
   max-width: none;
 }
 
-.taglist {
-  display: flex;
-  list-style: none;
-}
-
-.taglist li {
-  padding: 5px;
-}
-
-.taglist {
+.taglist ul {
   margin-left: 0;
   padding-left: 0;
   display: inline;
@@ -116,4 +106,59 @@ body, html {
   border-radius: 3px;
   border: 1px solid #f0f0f0;
   padding: 5px 10px;
+}
+
+.vpage {
+  display: none;
+}
+
+.vpage.current {
+  display: block;
+}
+
+
+/* Evergreen Browser warning banner 
+ * - (mostly) CSS only solution must use basic CSS to work on old browsers
+**/
+
+
+/* Hide the banner and all detail li elements by default */
+
+.evergreen {
+  margin-top: 43px;
+  display: none;
+}
+
+.evergreen li {
+  display: none;
+}
+
+
+/* Show the banner if at least one of the supports.js tests failed */
+
+.no-let .evergreen, .no-const .evergreen, .no-class .evergreen, .no-templateLiteral .evergreen, .no-arrow .evergreen {
+  display: block;
+}
+
+
+/* Show only the failing test detail li elements */
+
+.no-let #no-let {
+  display: block;
+}
+
+.no-const #no-const {
+  display: block;
+}
+
+.no-class #no-class {
+  display: block;
+}
+
+.no-arrow #no-arrow {
+  display: block;
+}
+
+.no-templateLiteral #no-templateLiteral {
+  display: block;
 }
