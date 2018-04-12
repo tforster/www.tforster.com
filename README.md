@@ -1,8 +1,10 @@
 # www.tforster.com
 
-_The official website of Troy Forster_
+The official website of Troy Forster
 
-# Built With
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/tforster/www-tforster-com)
+
+## Built With
 
 * [Visual Studio Code](https://code.visualstudio.com/) on Windows 10
 * [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh) on Bash on Ubuntu on [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
@@ -19,7 +21,7 @@ _The official website of Troy Forster_
 * [TinyPNG](https://tinypng.com/developers): PNG and JPG minification
 * [Babili](https://github.com/babel/babili): ES6 minification
 
-# Developer Setup
+## Developer Setup
 
 1. Ensure all dependencies are installed (see Built With above)
 1. Ensure AWS credentials are properly configured in ~/.aws/credentials and ~/.aws/config
@@ -31,21 +33,20 @@ _The official website of Troy Forster_
 1. Run `gulp build --target stage` to build a stage release. 
 1. Deploy to S3 with `gulp deploy --target {stage | prod}`
 
-## Yarn Scripts
+### Yarn Scripts
 
 * s3-server: Launch s3Server
 
-# Special Thanks
+## Special Thanks
 
 Wes Bos for contributing the Docker SVG icon https://github.com/wesbos/Font-Awesome-Docker-Icon
 
-# Change Log
+## Change Log
 
-v3.1.0 Feature iteration and bug fixes (2017-06-20)
+v3.1.0 **Feature iteration and bug fixes** (2017-06-20)
 
 * .gitignore: Now includes yarn error logs
-* gulpfile.js: Switched from UglifyJS to [Babili](https://github.com/babel/babili) for ES6 minification. Also added TinyPNG support for crushing
-.png and .jpg images
+* gulpfile.js: Switched from UglifyJS to [Babili](https://github.com/babel/babili) for ES6 minification. Also added TinyPNG support for crushing .png and .jpg images
 * package.json: NPM script `s3-server` launches both s3-server and gulp watch (and should be renamed more appropriately in next release)
 * app.js:
   * Started migration to native ES6 following decision to not support IE
@@ -56,7 +57,7 @@ v3.1.0 Feature iteration and bug fixes (2017-06-20)
   * Added normalizeLinkedItems to better handle Contentful responses. Later release might see a standalone Contentful client
 * *.html: numerous tweaks and cosmetic improvments
 
-v3.0.0 Replatformed using a serverless architecture (2017-05-07)
+v3.0.0 **Replatformed using a serverless architecture** (2017-05-07)
 
 * Migrated from NodeJS/ExpressJS hosted on Digital Ocean to Serverless architecture on AWS S3 with AWS Lambda support
 * Added a completely overhauled gulpfile automating the build process
@@ -76,7 +77,7 @@ v3.0.0 Replatformed using a serverless architecture (2017-05-07)
   * By not relying on frameworks as a default behaviour the entire JS footprint is under 5kb including a custom router, view manager, cms, etc.
   * P.s. I speak fluent ES6 when targeting NodeJS and AWS Lambda 
 
-v2.0.0 Now a NodeJS/Express App
+v2.0.0 **Now a NodeJS/Express App**
 
 * Migrated from ASP.NET on GoDaddy to NodeJS/ExpressJS on Digital Ocean
 
