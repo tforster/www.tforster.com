@@ -1,0 +1,12 @@
+ [{
+   "slug": "slugsrus",
+   "thumbnailUrl": "mythumb.jpg",
+   "teaser": "tease me",
+   "title": "my title"
+ },
+ {
+  "slug": "Slugme twice",
+  "thumbnailUrl": "mythumb.jpg",
+  "teaser": "tease me",
+  "title": "my title"
+}]

@@ -3,8 +3,10 @@ const AWS = require('aws-sdk'),
   gulp = require('gulp'),
   debug = require('gulp-debug'),
   ejs = require('gulp-ejs'),
+  fs = require('fs'),
   htmlmin = require('gulp-htmlmin'),
   minifyCss = require('gulp-minify-css'),
+  path=require('path'),
   rename = require('gulp-rename'),
   rev = require('gulp-rev'),
   usemin = require('gulp-usemin'),
@@ -96,7 +98,9 @@ let compileViews = () => {
     gulp.src('./src/views/*.html', pageData)
       .on('error', reject)
       .pipe(ejs({}))
-      .pipe(rename({ extname: '.html' }))
+      .pipe(rename({
+        extname: '.html'
+      }))
       .pipe(gulp.dest(config.buildPath))
       .on('end', resolve);
   });
@@ -129,15 +133,26 @@ let minh = () => {
       .on('error', reject)
       .pipe(debug())
       .pipe(usemin({
-        css: [function () { return minifyCss(); }, function () { return rev(); }],
-        html: [function () { return htmlmin({ collapseWhitespace: true, removeComments: true }); }],
+        css: [function () {
+          return minifyCss();
+        }, function () {
+          return rev();
+        }],
+        html: [function () {
+          return htmlmin({
+            collapseWhitespace: true,
+            removeComments: true
+          });
+        }],
         js: [function () {
           return babili({
             mangle: {
               keepClassNames: true
             }
           });
-        }, function () { return rev(); }],
+        }, function () {
+          return rev();
+        }],
         inlinejs: [babili({
           mangle: {
             keepClassNames: true
@@ -158,8 +173,7 @@ let minh = () => {
 let build = async () => {
   await del([config.buildPath + '**/*']);
   await compileViews();
-  let c = await copyResources([
-    {
+  let c = await copyResources([{
       glob: ['./src/img/favicon.ico'],
       dest: '/'
     },
@@ -195,7 +209,7 @@ let build = async () => {
  * stay below 500 calls per month
  */
 gulp.task('tinypng', () => {
-  gulp.src(['./src/img/**/*.jpg','./src/img/**/*.png'])
+  gulp.src(['./src/img/**/*.jpg', './src/img/**/*.png'])
     .pipe(tinypng(config.tinypng.apikey))
     .pipe(gulp.dest(config.buildPath + '/img'));
 });
@@ -206,7 +220,9 @@ gulp.task('tinypng', () => {
  */
 gulp.task('test', function () {
   let awsConfig = {
-    credentials: new AWS.SharedIniFileCredentials({ profile: config.aws.profile }),
+    credentials: new AWS.SharedIniFileCredentials({
+      profile: config.aws.profile
+    }),
     //  endpoint: new AWS.Endpoint(config.aws.s3.fakeS3Endpoint)
   };
   let bucket = config.aws.s3.buckets[config.target];
@@ -234,7 +250,9 @@ gulp.task('test', function () {
  */
 gulp.task('deploy', function () {
   let awsConfig = {
-    credentials: new AWS.SharedIniFileCredentials({ profile: config.aws.profile })
+    credentials: new AWS.SharedIniFileCredentials({
+      profile: config.aws.profile
+    })
   };
 
   if (config.target === 'dev') {
@@ -259,7 +277,9 @@ gulp.task('build', function () {
  */
 gulp.task('createBucket', function () {
   let awsConfig = {
-    credentials: new AWS.SharedIniFileCredentials({ profile: config.aws.profile })
+    credentials: new AWS.SharedIniFileCredentials({
+      profile: config.aws.profile
+    })
   };
 
   if (config.target === 'dev') {
@@ -302,6 +322,21 @@ gulp.task('help', function () {
   
   `)
 });
+
+gulp.task('e', () => {
+  const root = fs.readdirSync(path.join(__dirname,'www'),{withFileTypes :true});
+  
+
+  const iter=(dir)=>{
+    for(o in dir){
+      console.log(o);
+    }
+  } 
+
+  iter(root);
+
+  
+})
 
 /**
  * DEFAULT

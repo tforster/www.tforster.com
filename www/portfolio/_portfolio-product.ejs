@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%=title%></title>
+  <meta name="description" content="Portfolio for Troy Forster" />
+  <meta name="keywords" content="" />
+  <meta name="view" content="/portfolio-product.html" />
+  <% include ../_includes/head.ejs %>
+</head>
+
+<body cz-shortcut-listen="true">
+  <% include ../_includes/header.ejs %>
+
+    <div class="w3-content w3-container w3-padding-64" id="product">
+     <%
+            const product ={};
+              product.src= src;
+              product.dest=dest;
+              product.template='/_portfolio-product.ejs';
+              product.fileName = product.slug;
+            
+
+          %>
+
+          <%- include('_product.ejs',product) %>  
+    </div>
+
+    <% include ../_includes/footer.ejs %>
+
+ 
+</body>
+
+</html>
