@@ -1,5 +1,9 @@
 ### Project ###
 build
+dist
+docker/app
+docker/db
+.vscode
 
 ### Misc. Tooling ###
 

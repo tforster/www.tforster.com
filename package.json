@@ -1,34 +1,14 @@
 {
   "name": "www.tforster.com",
   "description": "The official website of Troy Forster",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "private": false,
   "scripts": {
-    "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html & gulp watch"
-  },
-  "dependencies": {
-    "gulp-babili": "^0.1.2",
-    "marked": "^0.3.6"
+    "dev": "static-server dist"
   },
   "devDependencies": {
-    "aws-sdk": "^2.43.0",
-    "babel-eslint": "^7.2.3",
-    "concurrent-transform": "^1.0.0",
-    "del": "^2.2.2",
-    "eslint": "3.6.0",
-    "gulp": "^3.9.1",
-    "gulp-awspublish": "^3.3.0",
-    "gulp-debug": "^3.1.0",
-    "gulp-ejs": "^3.0.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.2",
-    "gulp-slack": "^0.1.2",
-    "gulp-tinypng": "^1.0.2",
-    "gulp-usemin": "^0.3.28",
-    "gulp-util": "^3.0.8",
-    "gulp-watch": "^4.3.11"
+    "handlebars": "^4.5.3",
+    "node-fetch": "^2.6.0"
   },
   "repository": "git+https://github.com/tforster/tforster.com.git",
   "author": "Troy Forster (http://tforster.com)",
@@ -36,10 +16,11 @@
     "url": "https://github.com/tforster/tforster.com/issues"
   },
   "homepage": "https://github.com/tforster/tforster.com#readme",
-  "main": "gulpfile.js",
+  "main": "buildfile.js",
   "keywords": [
     "Troy",
     "Forster"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }

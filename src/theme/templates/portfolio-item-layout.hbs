@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta {{that}}>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Troy Forster" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <!-- build:css /stylesheet.css -->
+  <link rel="stylesheet" href="/css/w3.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/icons.css" />
+  <!-- endbuild -->
+
+  {{#> head-block}}
+  {{!-- Custom <head> content per page could be added. --}}
+  {{/head-block}}
+</head>
+
+<body cz-shortcut-listen="true">
+  {{#> header-block}}
+  {{!-- Custom <head> content per page could be added. --}}
+  {{>header.hbs}}
+  {{/header-block}}
+
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">{{title}}</span>
+    </div>
+  </div>
+
+  {{#> body-block}}{{/body-block}}
+
+
+  <div>
+    <h3 class="w3-center">{{contentTypesData.0.fields.slug}}</h3>
+    <p class="w3-center"><em>{{contentTypesData.0.fields.teaser}}</em></p>
+    <div class="w3-row">
+      <div class="w3-col m6 w3-center w3-padding-large">
+        <img src="{{contentTypesData.0.fields.thumbnail}}" class="w3-round w3-image "
+          alt="{{contentTypesData.0.fields.teaser}}" title="{{contentTypesData.0.fields.teaser}}" width="500" />
+      </div>
+
+      <!-- Hide this text on small devices -->
+      <div class="w3-col m6 w3-hide-small w3-padding-large">
+        <table class="w3-table w3-striped w3-bordered w3-border">
+          <tbody>
+            <tr>
+              <td>Employer</td>
+              <td>{{$employer.fields.company}}</td>
+            </tr>
+            <tr>
+              <td>Company/Client</td>
+              <td>{{$company.fields.name}}</td>
+            </tr>
+            <tr>
+              <td>Year created</td>
+              <td>{{$yearCreated}}</td>
+            </tr>
+            <tr>
+              <td>Live URL</td>
+              <td>{{$liveUrl}}</td>
+            </tr>
+            <tr>
+              <td>Github URL</td>
+              <td>{{$gitHubUrl}}</td>
+            </tr>
+            <tr>
+              <td>Tags</td>
+              <td>{{$tags}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w3-col m6 w3-padding-large">
+        <p>{{contentTypesData.0.fields.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  {{#> footer-block}}
+  {{!-- Custom <foot> content per page could be added. --}}
+  {{>footer.hbs}}
+  {{/footer-block}}
+
+</body>
+
+</html>
