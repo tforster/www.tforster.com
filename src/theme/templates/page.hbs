@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{#> head-block}}
+  {{>head.hbs}}
+  {{/head-block}}
+</head>
+
+<body cz-shortcut-listen="true">
+  {{#> header-block}}
+  {{>header.hbs}}
+  {{/header-block}}
+
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">{{title}}</span>
+    </div>
+  </div>
+
+  {{#> body-block}}{{body}}{{/body-block}}
+
+  {{#> footer-block}}
+  {{!-- Custom <head> content per page could be added. --}}
+  {{>footer.hbs}}
+  {{/footer-block}}
+
+</body>
+
+</html>

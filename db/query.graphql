@@ -1,0 +1,70 @@
+query dump {
+  homePage {
+    body(markdown: true)
+    key
+    pageCaption(markdown: true)
+    pageHeading
+    seo {
+      description
+      title
+      twitterCard
+    }
+    _modelApiKey
+  }
+  portfolioLandingPage {
+    body(markdown: true)
+    key
+    pageCaption
+    pageHeading
+    seo {
+      description
+      title
+      twitterCard
+    }
+    portfolioItems {
+      key
+      pageCaption(markdown: false)
+      pageHeading
+      images {
+        url
+      }
+    }
+    _modelApiKey
+  }
+  allPages {
+    key
+    pageCaption(markdown: true)
+    pageHeading
+    seo {
+      description
+      title
+      twitterCard
+    }
+    body(markdown: false)
+    _modelApiKey
+  }
+  allPortfolioItems {
+    seo {
+      description
+      title
+    }
+    _modelApiKey
+    pageHeading
+    pageCaption(markdown: false)
+    liveUrl
+    key
+    githubUrl
+    employer {
+      jobTitle
+      yearFrom
+      yearTo
+    }
+    client {
+      url
+      teaser(markdown: false)
+      name
+      logo
+    }
+    body(markdown: false)
+  }
+}

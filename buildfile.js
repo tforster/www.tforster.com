@@ -1,58 +1,57 @@
-const handlebars = require("handlebars");
-const fetch = require('node-fetch');
-
+/* eslint-disable no-restricted-syntax */
 const fs = require("fs").promises;
 const path = require("path");
+
+const fetch = require("node-fetch");
+const handlebars = require("handlebars");
+const vfs = require("vinyl-fs");
 
 class Build {
   constructor(stage) {
     this.stage = stage;
-    this.contentful = {
-      accessToken: "ebfa99618c6da4ae410dd709ec1b7b9c515cbf0cae711b3f78cb67dbea029b61",
-      space: "xyov37w0wvhz"
-    }
+    // ToDo: Even though this token grants read-only and is client-side safe, it should be passed in externally for better practice
+    this.token = "9cfbc892f6eba7abc41914504e714c";
   }
-
 
   /**
-   * Required for use with Contentful/REST APIs so that the data can be shaped to fit the templates. This is
-   * not needed when using GraphQL since the shape can be achieved by the query
+   * Fetches data from the CMS with a GraphQL query
+   * ToDO: Variabalise the URL and/or make it an external parameter
    *
-   * @param {*} allData
+   * @param {*} query
+   * @param {*} transform
+   * @returns
    * @memberof Build
    */
-  async _getShapedData() {
-    const url = `https://cdn.contentful.com/spaces/${this.contentful.space}/entries?access_token=${this.contentful.accessToken}&include=10`;
-    const options = {
-      method: "GET",
+  async _fetchCMSData(query, transform) {
+    const response = await fetch("https://graphql.datocms.com/", {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${this.token}`,
+      },
+      body: JSON.stringify({
+        query: query,
+      }),
+    });
+    let data = (await response.json()).data;
+
+    if (transform) {
+      data = transform(data);
     }
-    const response = await fetch(url, options);
-    let data = await response.json();
 
-
-    return Promise.resolve(data.items.map(item => {
-      const temp = { fields: item.fields, type: item.sys.contentType.sys.id, id: item.sys.id }
-
-      // Check to see if this page references additional queries, fetch, and merge them
-      if (temp.fields.queries) {
-        temp.fields.queryData = data.items.filter((item) => {
-          return item.sys.contentType.sys.id === temp.fields.queries[0]
-        });
-      }
-      // Check to see if this page references additional contentTypes, fetch, and merge them
-      if (temp.fields.contentTypes) {
-        temp.fields.contentTypesData = data.items.filter(item => {
-          return item.sys.id === temp.fields.contentTypes[0].sys.id
-        });
-      }
-
-      return temp;
-    }))
+    return data;
   }
 
+  /**
+   * Copies files and folders from resources to root of dist. Uses an external dependency but we will
+   * likely be expanding this build script to use streams and vinyl files elsewhere
+   *
+   * @memberof Build
+   */
+  _copyResources() {
+    vfs.src("./src/resources/**/*.*").pipe(vfs.dest("dist"));
+  }
 
   /**
    *
@@ -61,52 +60,82 @@ class Build {
    * @memberof Build
    */
   async buildSite() {
+    // 1. Clear the dist folder
+    const emptyDist = fs.rmdir("dist", { recursive: true });
 
-    // 1. Get data from our data provider, currently Contenful, but Strapi/GraphQL is being actively developed
-    const data = await this._getShapedData();
+    // Fetch graphQL query from external file
+    const query = await fs.readFile("./query.graphql", { encoding: "utf8" });
 
-    // 2. Register ebs files
-    // !: NPM Glob has 6 deps; a recursive function is more complex to debug and maintain; we KNOW the folder paths we need; Therefore an iterable array is the way to go
-    const handlebarsFolders = ["src/theme/organisms", "src/theme/templates"]
-    await Promise.all(handlebarsFolders.map(async folder => {
-      const entries = await fs.readdir(folder, { withFileTypes: true });
-      for (let entry of entries) {
-        if (entry.isFile()) {
-          const source = (await fs.readFile(path.join(folder, (entry.name)))).toString();
-          handlebars.registerPartial(entry.name, source);
+    // Custom transform to get query results into an object of keys
+    const transform = (data) => {
+      const retVal = {};
+      for (const obj in data) {
+        if (Array.isArray(data[obj])) {
+          data[obj].forEach((o) => {
+            retVal[o.key] = o;
+          });
+        } else {
+          retVal[data[obj].key] = data[obj];
         }
       }
-    }));
+      return retVal;
+    };
+
+    // Get, and transform, the site data
+    const data = await this._fetchCMSData(query, transform);
+
+    // 2. Register .hbs files
+    // !: NPM Glob has 6 deps; a recursive function is more complex to debug and maintain; we KNOW the folder paths we need; Therefore an iterable array is the way to go
+    // ToDo: Since we use vfs in _copyResources, consider refactoring this method to use vinyl streams too
+    const handlebarsFolders = ["src/theme/organisms", "src/theme/templates"];
+    await Promise.all(
+      handlebarsFolders.map(async (folder) => {
+        const entries = await fs.readdir(folder, { withFileTypes: true });
+        for (const entry of entries) {
+          if (entry.isFile()) {
+            const source = (await fs.readFile(path.join(folder, entry.name))).toString();
+            handlebars.registerPartial(entry.name, source);
+          }
+        }
+      })
+    );
+
+    // Ensure the dist directory was emptied before continuing
+    await emptyDist;
 
     // ToDo: Precompile the partials for added performance. See https://stackoverflow.com/questions/12014547/how-do-i-precompile-partials-for-handlebars-js
-    // Iterate entries, looking for and rendering type=page
-    data.forEach(async entry => {
-      if (entry.type !== "page") {
-        return;
-      }
-
-      const source = handlebars.partials[`${entry.fields.template}-layout.hbs`].toString()
+    // Iterate entries, rendering each entry and writing to the local filesystem
+    // ToDo: Since we use vfs in _copyResources, consider refactoring this method to use vinyl streams too
+    for (const key in data) {
+      // Determine the correct handlebars template to load, compile and render
+      const fields = data[key];
+      const source = handlebars.partials[`${fields._modelApiKey}.hbs`].toString();
       const template = handlebars.compile(source);
+      const result = template(fields);
 
-      const result = template(entry.fields);
-      // Write the rendered file to dist, naming it via the key 
-      // ToDo: keys with separators need to be expanded into subdirectories still! (manually create the dist/portfolio folder for now)
-      await fs.writeFile(path.join('dist', entry.fields.key), result, { encoding: "utf8" });
-    })
+      // Calculate the full relative path to the output file
+      const filePath = path.join("dist", key);
+
+      // Ensure the calculated path exists by force creating it. Nb: Cheaper to force it each time than to cycle through {fs.exists, then, fs.mkdir}
+      await fs.mkdir(path.parse(filePath).dir, { recursive: true });
+
+      // Write the result to the filesystem at the filePath
+      await fs.writeFile(filePath, result, { encoding: "utf8" });
+    }
+
     return Promise.resolve("ok");
   }
 }
-
-
 
 (async () => {
   const build = new Build("dev");
   const args = process.argv.slice(2);
   if (args && args[0] === "buildSite") {
-    const r = await build.buildSite();
+    await build.buildSite();
+    build._copyResources();
     return 0;
   } else {
-    console.error('not implemented');
+    console.error("not implemented");
     return;
   }
 })();
