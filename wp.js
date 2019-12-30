@@ -6,14 +6,21 @@ const fs = require("fs").promises;
 const path = require("path");
 
 // Third party dependencies (Typically found in public NPM packages)
+const AWS = require("aws-sdk");
 const fetch = require("node-fetch");
 const handlebars = require("handlebars");
 const minifyCss = require("gulp-minify-css");
 const minifyHtml = require("gulp-htmlmin");
 const minifyJs = require("gulp-terser");
 const rev = require("gulp-rev");
+const through = require("through2");
 const usemin = require("gulp-usemin");
 const vfs = require("vinyl-fs");
+
+// Project deps
+const Amplify = require("./Amplify");
+const vs3 = require("./Vinyl-s3");
+const vzip = require("./Vinyl-zip");
 
 // ToDo: Error handling
 // ToDo: Take better advantage of vinyl files, through2 and streaming to improve performance
@@ -22,13 +29,13 @@ const vfs = require("vinyl-fs");
 /**
  * Website and web-app agnostic class implementing a "build" process that handlebars templates with GraphQL data to produce static
  * output.
- * @class Build
+ * @class WebProducer
  */
-class Build {
+class WebProducer {
   /**
    *Creates an instance of Build.
    * @param {symbol} stage: The stage { dev | stage | prod }
-   * @memberof Build
+   * @memberof WebProducer
    */
   constructor(options) {
     this.stage = options.stage || "dev";
@@ -36,6 +43,11 @@ class Build {
     this.build = options.build || "./build";
     this.dest = options.dest || "./dest";
     this.transformFunction = options.transformFunction;
+
+    this.amplifyBucket = "wp.tforster.com";
+    this.aws = {
+      profile: "tforsterAmplify",
+    };
 
     // ToDo: Even though this token grants read-only and is client-side safe, it should be passed in externally for better practice
     this.token = process.env["DATOCMS_TOKEN"];
@@ -47,7 +59,7 @@ class Build {
    * @param {*} query
    * @param {*} transform
    * @returns
-   * @memberof Build
+   * @memberof WebProducer
    */
   async _fetchCMSData(query, transform) {
     const response = await fetch("https://graphql.datocms.com/", {
@@ -74,7 +86,7 @@ class Build {
    * Copies files and folders from resources to root of dist. Uses an external dependency but we will
    * likely be expanding this build script to use streams and vinyl files elsewhere
    *
-   * @memberof Build
+   * @memberof WebProducer
    */
   _copyResources() {
     return new Promise((resolve, reject) => {
@@ -91,10 +103,11 @@ class Build {
 
   /**
    * Minifies and concatenates HTML, CSS and JavaScript. Also cache busts the minified CSS and JS files
-   * @memberof Build
+   * ToDo: Add parameters to support choice of raw files or zipped output and whether to go local, or S3 or both
+   * @memberof WebProducer
    */
-  async _minifCatenate() {
-    new Promise((resolve, reject) => {
+  async _createDistribution() {
+    return new Promise((resolve, reject) => {
       vfs
         .src(`${this.build}/**/*.html`)
         .on("error", (e) => {
@@ -110,15 +123,27 @@ class Build {
             js: [() => minifyJs(), () => rev()],
           })
         )
-        .pipe(vfs.dest("./dist"))
-        .on("end", resolve);
+        .pipe(vzip.zip("archive.zip"))
+        .pipe(
+          vs3.dest(null, { aws: { bucket: "wp.tforster.com", key: "archive.zip", profile: "tforster", region: "ca-central-1" } })
+        )
+        .on("finish", () => {
+          resolve("mini done");
+        });
     });
   }
 
   async buildF() {
+    // Process handlebars templates with retrieved content into build directory
     await this._buildSite();
+    // Copy static files to build directory
     await this._copyResources(this.src, this.build);
-    await this._minifCatenate(this.build, this.dist);
+    // Concat, minify then zip into a single distribution file
+    console.log(await this._createDistribution());
+    // Deploy distribution to AWS Amplify
+    console.log(
+      await Amplify.deploy({ aws: { bucket: "wp.tforster.com", key: "archive.zip", profile: "tforster", region: "ca-central-1" } })
+    );
   }
 
   /**
@@ -127,7 +152,7 @@ class Build {
    * ToDo: Split up into smaller functions
    * @param {function} transform: An optional function to further shape retrieved data
    * @returns Promise
-   * @memberof Build
+   * @memberof WebProducer
    */
   async _buildSite() {
     // 1. Clear the dist folder
@@ -209,12 +234,14 @@ const transformFunction = (data) => {
     transformFunction,
     stage: "dev",
   };
-  const build = new Build(options);
+  const build = new WebProducer(options);
 
   const args = process.argv.slice(2);
   if (args && args[0] === "buildSite") {
-    await build.buildF();
-    console.log(`elapsed time ${new Date() - appStart}ms`);
+    // true creates a zip
+    // ToDo: Make this a callable parameter
+    await build.buildF(true);
+    console.log(`elapsed time to end of build ${new Date() - appStart}ms`);
     return 0;
   } else {
     console.error("not implemented");
