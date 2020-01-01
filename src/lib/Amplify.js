@@ -1,3 +1,5 @@
+("use strict");
+
 // Third party dependencies (Typically found in public NPM packages)
 const AWS = require("aws-sdk");
 
@@ -16,8 +18,8 @@ class Amplify {
 
     // Create new Amplify client plus some other miscellany
     const amplify = new AWS.Amplify(amplifyOptions);
-    const appId = "d2utysu4n92dgy";
-    const branchName = "stage";
+    const appId = options.appId;
+    const branchName = options.stage;
 
     // Deploy a previously copied zip from S3
     // ! Amplify deploys only changed files from the zip and does garbage collection on redundant files "later"

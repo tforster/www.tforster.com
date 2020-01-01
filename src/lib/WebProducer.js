@@ -1,19 +1,17 @@
 /* eslint-disable no-restricted-syntax */
-"use strict";
+("use strict");
 
 // System dependencies (Built in modules)
 const fs = require("fs").promises;
 const path = require("path");
 
 // Third party dependencies (Typically found in public NPM packages)
-const AWS = require("aws-sdk");
 const fetch = require("node-fetch");
 const handlebars = require("handlebars");
 const minifyCss = require("gulp-minify-css");
 const minifyHtml = require("gulp-htmlmin");
 const minifyJs = require("gulp-terser");
 const rev = require("gulp-rev");
-const through = require("through2");
 const usemin = require("gulp-usemin");
 const vfs = require("vinyl-fs");
 
@@ -23,75 +21,86 @@ const vs3 = require("./Vinyl-s3");
 const vzip = require("./Vinyl-zip");
 
 // ToDo: Error handling
-// ToDo: Take better advantage of vinyl files, through2 and streaming to improve performance
+// ToDo: Apply streaming approach to reading and processing .hbs files
+// ToDo: Replace verbose timestamps with a logging function that can be toggled for dev vs prod
 // ToDo: Refactor some property and method names as we have build, buildF, buildSite, etc and its confusing
+// ToDo: Did I say error handling?
+// ToDo: Performance tuning
+// ToDo: Replace antiquated usemin() structure with Jake's modern process
+// *NB:  User bucket in this example is ca-central-1 but AWS Amplify region is us-east-1 since Amplify is not in ca-central-1 yet
 
 /**
- * Website and web-app agnostic class implementing a "build" process that handlebars templates with GraphQL data to produce static
- * output.
+ * Website and web-app agnostic class implementing a "build" process that merges handlebars templates with GraphQL data to produce
+ * static output.
  * @class WebProducer
  */
 class WebProducer {
   /**
    *Creates an instance of Build.
-   * @param {symbol} stage: The stage { dev | stage | prod }
+   * @param {object} options: Runtime options passed in from project implementation
    * @memberof WebProducer
    */
   constructor(options) {
+    // Stage as in AWS Lambda definition of stage
     this.stage = options.stage || "dev";
-    this.src = options.src || "./src";
-    this.build = options.build || "./build";
-    this.dest = options.dest || "./dest";
+    // Temporary path to contain build artifacts in progress
+    this.build = "./build";
+    // Temporary path to contain final output of this.build
+    this.dest = "./dist";
+    // Optional user function to further shape data retrieved from CMS source
     this.transformFunction = options.transformFunction;
-
-    this.amplifyBucket = "wp.tforster.com";
-    this.aws = {
-      profile: "tforsterAmplify",
-    };
-
-    // ToDo: Even though this token grants read-only and is client-side safe, it should be passed in externally for better practice
-    this.token = process.env["DATOCMS_TOKEN"];
+    // Name of S3 bucket to upload this.dist contents to
+    this.amplifyBucket = options.amplifyBucket;
+    // Additional AWS options, including ./aws/credentials profile
+    this.aws = options.aws;
+    // READ-ONLY token to access CMS
+    this.datoCMSToken = options.datoCMSToken;
+    // Amplify appId
+    this.appId = options.appId;
   }
 
   /**
-   * Fetches data from the CMS with a GraphQL query
+   * Fetches data from DatoCMS with a GraphQL query
    * ToDO: Variabalise the URL and/or make it an external parameter
-   * @param {*} query
-   * @param {*} transform
-   * @returns
+   * @param {string} query:       The GraphQL query to execute
+   * @param {function} transform: An optional, developer supplied function to further shape query results
+   * @returns                     JSON object
    * @memberof WebProducer
    */
   async _fetchCMSData(query, transform) {
-    const response = await fetch("https://graphql.datocms.com/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${this.token}`,
-      },
-      body: JSON.stringify({
-        query: query,
-      }),
-    });
-    let data = (await response.json()).data;
+    const fnStart = new Date();
+    try {
+      const response = await fetch("https://graphql.datocms.com/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${this.datoCMSToken}`,
+        },
+        body: JSON.stringify({
+          query: query,
+        }),
+      });
+      let data = (await response.json()).data;
 
-    if (transform) {
-      data = transform(data);
+      if (transform) {
+        data = transform(data);
+      }
+      console.log(`Data fetched from DatoCMS and transformed in ${new Date() - fnStart}ms`);
+      return Promise.resolve(data);
+    } catch (reason) {
+      return Promise.reject(reason);
     }
-
-    return data;
   }
 
   /**
-   * Copies files and folders from resources to root of dist. Uses an external dependency but we will
-   * likely be expanding this build script to use streams and vinyl files elsewhere
-   *
+   * Copies static files and folders, including images, scripts, css, etc, from resources to root of dist.
    * @memberof WebProducer
    */
   _copyResources() {
     return new Promise((resolve, reject) => {
       vfs
-        .src(`${this.src}/resources/**/*.*`)
+        .src(`./resources/**/*.*`)
         .pipe(vfs.dest(this.build))
         .on("error", (err) => {
           console.log(err);
@@ -102,11 +111,14 @@ class WebProducer {
   }
 
   /**
-   * Minifies and concatenates HTML, CSS and JavaScript. Also cache busts the minified CSS and JS files
+   * Minifies and concatenates HTML, CSS and JavaScript. Also cache busts the minified CSS and JS files before creating and
+   * uploading a zip file to AWS S3.
    * ToDo: Add parameters to support choice of raw files or zipped output and whether to go local, or S3 or both
    * @memberof WebProducer
    */
   async _createDistribution() {
+    const fnStart = new Date();
+    const aws = this.aws;
     return new Promise((resolve, reject) => {
       vfs
         .src(`${this.build}/**/*.html`)
@@ -124,25 +136,34 @@ class WebProducer {
           })
         )
         .pipe(vzip.zip("archive.zip"))
-        .pipe(
-          vs3.dest(null, { aws: { bucket: "wp.tforster.com", key: "archive.zip", profile: "tforster", region: "ca-central-1" } })
-        )
+        .pipe(vs3.dest(null, { aws: { bucket: aws.bucket, key: aws.key, profile: "tforster", region: aws.region } }))
         .on("finish", () => {
-          resolve("mini done");
+          resolve(`Distribution created and uploaded to S3 in ${new Date() - fnStart}ms`);
         });
     });
   }
 
+  /**
+   * Wrapper for all the sub functions
+   * @memberof WebProducer
+   */
   async buildF() {
+    const aws = this.aws;
+    const appId = this.appId;
+    const stage = this.stage;
     // Process handlebars templates with retrieved content into build directory
-    await this._buildSite();
+    console.log(await this._buildSite());
     // Copy static files to build directory
-    await this._copyResources(this.src, this.build);
+    await this._copyResources();
     // Concat, minify then zip into a single distribution file
     console.log(await this._createDistribution());
     // Deploy distribution to AWS Amplify
     console.log(
-      await Amplify.deploy({ aws: { bucket: "wp.tforster.com", key: "archive.zip", profile: "tforster", region: "ca-central-1" } })
+      await Amplify.deploy({
+        appId,
+        stage,
+        aws: { bucket: aws.bucket, key: aws.key, profile: "tforster", region: aws.region },
+      })
     );
   }
 
@@ -155,6 +176,7 @@ class WebProducer {
    * @memberof WebProducer
    */
   async _buildSite() {
+    const fnStart = new Date();
     // 1. Clear the dist folder
     await fs.rmdir(this.build, { recursive: true });
     await fs.rmdir(this.dest, { recursive: true });
@@ -171,7 +193,7 @@ class WebProducer {
     // 2. Register .hbs files
     // !: NPM Glob has 6 deps; a recursive function is more complex to debug and maintain; we KNOW the folder paths we need; Therefore an iterable array is the way to go
     // ToDo: Since we use vfs in _copyResources, consider refactoring this method to use vinyl streams too
-    const handlebarsFolders = ["src/theme/organisms", "src/theme/templates"];
+    const handlebarsFolders = ["./theme/organisms", "./theme/templates"];
     await Promise.all(
       handlebarsFolders.map(async (folder) => {
         const entries = await fs.readdir(folder, { withFileTypes: true });
@@ -204,47 +226,8 @@ class WebProducer {
       await fs.writeFile(filePath, result, { encoding: "utf8" });
     }
 
-    return Promise.resolve("ok");
+    return Promise.resolve(`Site contents generated in ${new Date() - fnStart}ms`);
   }
 }
 
-// Custom transform to get query results into an object of keys
-
-const transformFunction = (data) => {
-  const retVal = {};
-  for (const obj in data) {
-    if (Array.isArray(data[obj])) {
-      data[obj].forEach((o) => {
-        retVal[o.key] = o;
-      });
-    } else {
-      retVal[data[obj].key] = data[obj];
-    }
-  }
-  return retVal;
-};
-
-// Anonymous asynchronous immediately invoked function that kicks off the build process
-(async () => {
-  const appStart = new Date();
-  const options = {
-    src: "./src",
-    build: "./build",
-    dest: "./dist",
-    transformFunction,
-    stage: "dev",
-  };
-  const build = new WebProducer(options);
-
-  const args = process.argv.slice(2);
-  if (args && args[0] === "buildSite") {
-    // true creates a zip
-    // ToDo: Make this a callable parameter
-    await build.buildF(true);
-    console.log(`elapsed time to end of build ${new Date() - appStart}ms`);
-    return 0;
-  } else {
-    console.error("not implemented");
-    return;
-  }
-})();
+module.exports = WebProducer;

@@ -1,8 +1,12 @@
+("use strict");
+
 // System dependencies (Built in modules)
 const { Writable } = require("stream");
 
 // Third party dependencies (Typically found in public NPM packages)
 const AWS = require("aws-sdk");
+
+// ToDo: Create bucket if it does not exist yet (e.g. first time use)
 
 /**
  * Implements Gulp-like dest() function to terminate a piped process by uploading the supplied Vinyl file to AWS S3

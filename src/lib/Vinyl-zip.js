@@ -1,3 +1,5 @@
+("use strict");
+
 // Third party dependencies (Typically found in public NPM packages)
 const through = require("through2");
 const Vinyl = require("vinyl");
