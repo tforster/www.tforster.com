@@ -1,0 +1,36 @@
+service: webProducer
+org: tforster
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+        - "s3:PutObjectAcl"
+      Resource:
+        - arn:aws:s3:::wp.tforster.com/*
+    - Effect: "Allow"
+      Action:
+        - "amplify:StartDeployment"
+      # ToDo: Tighten resource from all (*) to just specific resources
+      Resource: "*"
+
+environment:
+  DATOCMS_TOKEN: ${env:DATOCMS_TOKEN}
+  AMPLIFY_APP_ID: ${env:AMPLIFY_APP_ID}
+
+functions:
+  build:
+    handler: handler.build
+    # ToDo: Add and expose a URL endpoint that can be used as a webhook by the CMS
+#    events:
+#      - http:
+#          path: users/create
+#          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
