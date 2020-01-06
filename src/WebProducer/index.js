@@ -32,6 +32,7 @@ const vzip = require("./Vinyl-zip");
 /**
  * Website and web-app agnostic class implementing a "build" process that merges handlebars templates with GraphQL data to produce
  * static output.
+ * Note that the Lambda runtime filesystem is read-only with the exception of the /tmp directory..
  * @class WebProducer
  */
 class WebProducer {
@@ -44,9 +45,9 @@ class WebProducer {
     // Stage as in AWS Lambda definition of stage
     this.stage = options.stage || "dev";
     // Temporary path to contain build artifacts in progress
-    this.build = "./build";
+    this.build = "/tmp/build";
     // Temporary path to contain final output of this.build
-    this.dest = "./dist";
+    this.dest = "/tmp/dist";
     // Optional user function to further shape data retrieved from CMS source
     this.transformFunction = options.transformFunction;
     // Name of S3 bucket to upload this.dist contents to
@@ -98,12 +99,13 @@ class WebProducer {
    * @memberof WebProducer
    */
   _copyResources() {
+    console.log("Starting _copyResources()");
     return new Promise((resolve, reject) => {
       vfs
         .src(`./resources/**/*.*`)
         .pipe(vfs.dest(this.build))
         .on("error", (err) => {
-          console.log(err);
+          console.log("_copyResources:", err);
           reject(err);
         })
         .on("end", resolve);
@@ -119,6 +121,7 @@ class WebProducer {
   async _createDistribution() {
     const fnStart = new Date();
     const aws = this.aws;
+    console.log("Starting _createDistribution()");
     return new Promise((resolve, reject) => {
       vfs
         .src(`${this.build}/**/*.html`)
@@ -136,7 +139,7 @@ class WebProducer {
           })
         )
         .pipe(vzip.zip("archive.zip"))
-        .pipe(vs3.dest(null, { aws: { bucket: aws.bucket, key: aws.key, profile: "tforster", region: aws.region } }))
+        .pipe(vs3.dest(null, { aws: { bucket: aws.bucket, key: aws.key, region: aws.region } }))
         .on("finish", () => {
           resolve(`Distribution created and uploaded to S3 in ${new Date() - fnStart}ms`);
         });
@@ -162,7 +165,8 @@ class WebProducer {
       await Amplify.deploy({
         appId,
         stage,
-        aws: { bucket: aws.bucket, key: aws.key, profile: "tforster", region: aws.region },
+        // Note that Amplify is not available in all regions yet, including ca-central-1. Force to us-east-1 for now.
+        aws: { bucket: aws.bucket, key: aws.key, bucketRegion: aws.region, amplifyRegion: "us-east-1" },
       })
     );
   }
@@ -191,7 +195,6 @@ class WebProducer {
     const siteData = await this._fetchCMSData(query, this.transformFunction);
 
     // 2. Register .hbs files
-    // !: NPM Glob has 6 deps; a recursive function is more complex to debug and maintain; we KNOW the folder paths we need; Therefore an iterable array is the way to go
     // ToDo: Since we use vfs in _copyResources, consider refactoring this method to use vinyl streams too
     const handlebarsFolders = ["./theme/organisms", "./theme/templates"];
     await Promise.all(

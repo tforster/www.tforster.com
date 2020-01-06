@@ -10,26 +10,24 @@ const AWS = require("aws-sdk");
 
 /**
  * Implements Gulp-like dest() function to terminate a piped process by uploading the supplied Vinyl file to AWS S3
- *
  * @class VinylS3
  */
 class VinylS3 {
   static dest(_, options) {
+    console.log("vinylS3.options:", options);
     const writable = new Writable({
       objectMode: true,
       write(file, _, done) {
-        const s3Options = {
-          credentials: new AWS.SharedIniFileCredentials({ profile: options.aws.profile }),
-        };
-        AWS.config.update({ region: options.aws.region });
-
-        const s3 = new AWS.S3(s3Options);
+        // Setup AWS S3 API
+        const s3 = new AWS.S3({ region: options.aws.region });
         const params = {
           Bucket: options.aws.bucket,
           Key: options.aws.key || file.basename,
           Body: file.contents,
           ACL: "public-read",
         };
+
+        // Stream the provided file to the S3 bucket and key
         s3.upload(params)
           .promise()
           .then((result) => {
@@ -37,13 +35,14 @@ class VinylS3 {
             done();
           })
           .catch((reason) => {
-            console.error(reason);
+            console.error("vinylS3.dest:", reason);
+            done();
           });
       },
     });
 
     writable.on("error", (reason) => {
-      console.error(reason);
+      console.error("vinylS3.dest:", reason);
     });
 
     return writable;

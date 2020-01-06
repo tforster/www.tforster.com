@@ -3,6 +3,7 @@ build
 dist
 .vscode
 .env
+.serverless
 
 ### Misc. Tooling ###
 

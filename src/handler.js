@@ -1,10 +1,14 @@
 /* eslint-disable no-restricted-syntax */
 ("use strict");
 
-const WebProducer = require("./lib/WebProducer");
+// Third party dependencies (Typically found in public NPM packages)
+const WebProducer = require("./WebProducer");
 
 // Custom transform to get query results into an object of keys
 
+/**
+ * Custom transform function to get query results into an object of keys
+ */
 const transformFunction = (data) => {
   const retVal = {};
   for (const obj in data) {
@@ -19,14 +23,16 @@ const transformFunction = (data) => {
   return retVal;
 };
 
+/**
+ * All the code needed to create a Lambda managed webhook to build Troy's personal website in the cloud
+ */
 module.exports.build = async (event) => {
+  // Capture the time for reporting purposes. Not required in real-world usecases
   const appStart = new Date();
+
   const options = {
-    //src: "./src",
-    build: "./build",
-    dest: "./dist",
     transformFunction,
-    stage: "dev",
+    stage: "stage",
     datoCMSToken: process.env["DATOCMS_TOKEN"],
     amplifyBucket: "wp.tforster.com",
     appId: process.env["AMPLIFY_APP_ID"],
@@ -34,13 +40,21 @@ module.exports.build = async (event) => {
       bucket: "wp.tforster.com",
       key: "archive.zip",
       region: "ca-central-1",
-      profile: "tforster",
+      accessKey: process.env["AWS_ACCESS_KEY_ID"],
+      secretKey: process.env["AWS_SECRET_ACCESS_KEY"],
     },
   };
+
+  // Create an instance of the WebProducer class
   const build = new WebProducer(options);
-  await build.buildF(true);
+  // Call the public buildF() method
+  await build.buildF();
+
+  // Calculate the total time it took to fetch CMS data, merge with templates, concat, minify, zip, send to S3 and finally invoke
+  // the Amplify Deploy method
   const retVal = `elapsed time to end of build ${new Date() - appStart}ms`;
 
+  // Return a response to the caller
   return {
     statusCode: 200,
     body: JSON.stringify(
