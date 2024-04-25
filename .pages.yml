@@ -14,7 +14,7 @@ content:
       - name: webProducerKey
         label: webProducerKey (template to use)
         options:
-          values: [404, home, portfolio, hire-me, uses, simple]
+          values: ["404", home, portfolio, hire-me, uses, simple]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
@@ -49,7 +49,7 @@ content:
       - name: webProducerKey
         label: webProducerKey (template to use)
         options:
-          values: [404, home, portfolio, hire-me, uses, simple]
+          values: ["404", home, portfolio, hire-me, uses, simple]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
