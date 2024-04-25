@@ -1,34 +1,70 @@
-media: cms/media
+media:
+  input: cms/media
+  output: /files/media
 content:
-  - name: posts
-    label: Posts
-    type: collection
-    path: cms/posts
-    format: json
-    view:
-      fields: [title, published, date]
+  - name: home
+    label: Home Page
+    path: cms/home.json
+    type: file
     fields:
-      - name: published
-        label: Published
-        type: boolean
-        default: true
-      - name: date
-        label: Date
-        type: date
-      - name: title
-        label: Title
+      - name: uri
+        label: The unique page slug
         type: string
+        pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
+      - name: webProducerKey
+        label: The Gilbert template to use to render the home page
+        type: string
+      - name: title
+        label: The title of the home page to show in the browser tab
+        type: string
+      - name: cover
+        label: Cover
+        type: image
+      - name: heading
+        label: The page heading-1 if different than the page title
+        type: string
+      - name: summary
+        label: The summary text for the page
+        type: rich-text
+      - name: body1
+        label: Body part one
+        type: rich-text
+        format: markdown
+      - name: body2
+        label: Body part two
+        type: rich-text
+        format: markdown
+  - name: simple
+    label: Simple pages
+    type: collection
+    path: cms/simple
+    icon: box
+    format: json
+    fields:
+      - name: uri
+        label: The unique page slug
+        type: string
+        pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
+      - name: webProducerKey
+        label: The Gilbert template to use to render the home page
+        type: string
+      - name: title
+        label: The title of the home page to show in the browser tab
+        type: string
+      - name: cover
+        label: Cover
+        type: image
+      - name: heading
+        label: The page heading-1 if different than the page title
+        type: string
+      - name: summary
+        label: The summary text for the page
+        type: rich-text
       - name: body
         label: Body
         type: rich-text
-      - name: cover
-        label: Preview image
-        type: image
-        description: Image used in the social preview on social networks (e.g. Facebook, Twitter...)
-      - name: url
-        label: Website URL
-        type: string
-        pattern: ^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$
+        format: markdown
+
   - name: pages
     label: pages
     path: cms/pages
@@ -47,28 +83,12 @@ content:
       - name: summary
         label: The summary text for the page
         type: rich-text
-  - name: home
-    label: Home Page
-    path: cms/home.json
-    type: file
-    fields:
-      - name: webProducerKey
-        label: The Gilbert template to use to render the home page
-        type: string
-      - name: title
-        label: The title of the home page to show in the browser tab
-        type: string
-      - name: heading
-        label: I can't remember
-        type: string
-      - name: summary
-        label: The summary text for the page
-        type: rich-text
+
   - name: playground
     label: Playground
     path: cms/playground.json
     type: file
-    fields: 
+    fields:
       - name: code
         label: code
         type: code
