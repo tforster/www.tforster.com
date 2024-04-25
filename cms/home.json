@@ -1,0 +1,6 @@
+{
+  "webProducerKey": "Home Page",
+  "title": "Home Page Title",
+  "heading": "Something here",
+  "summary": "**How** does this work\n\n`var k = 6;`\n\n```\nconst t = \"hello world\";\n```\n\n```\nconsole.log(t);\n```"
+}
