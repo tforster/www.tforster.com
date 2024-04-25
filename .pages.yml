@@ -12,8 +12,9 @@ content:
         type: string
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
-        label: The Gilbert template to use to render the home page
-        type: string
+        label: webProducerKey (template to use)
+        options:
+          values: [404, home, portfolio, hire-me, uses, simple]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
@@ -46,8 +47,9 @@ content:
         type: string
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
-        label: The Gilbert template to use to render the home page
-        type: string
+        label: webProducerKey (template to use)
+        options:
+          values: [404, home, portfolio, hire-me, uses, simple]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
