@@ -13,6 +13,7 @@ content:
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
         label: webProducerKey (template to use)
+        type: select
         options:
           values:
             - value: "404"
@@ -60,6 +61,7 @@ content:
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
         label: webProducerKey (template to use)
+        type: select
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
       - name: title
