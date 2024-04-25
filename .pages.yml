@@ -64,31 +64,3 @@ content:
         label: Body
         type: rich-text
         format: markdown
-
-  - name: pages
-    label: pages
-    path: cms/pages
-    type: collection
-    format: json
-    fields:
-      - name: webProducerKey
-        label: The Gilbert template to use to render the home page
-        type: string
-      - name: title
-        label: The title of the home page to show in the browser tab
-        type: string
-      - name: heading
-        label: I can't remember
-        type: string
-      - name: summary
-        label: The summary text for the page
-        type: rich-text
-
-  - name: playground
-    label: Playground
-    path: cms/playground.json
-    type: file
-    fields:
-      - name: code
-        label: code
-        type: code
