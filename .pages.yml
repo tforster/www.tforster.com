@@ -43,16 +43,15 @@ content:
       - name: body1
         label: Body part one
         type: rich-text
-        format: markdown
       - name: body2
         label: Body part two
         type: rich-text
-        format: markdown
   - name: simple
     label: Simple pages
     type: collection
     path: cms/simple
     format: json
+    filename: "{year}-{month}-{day}-{primary}.json"
     icon: box
     fields:
       - name: uri
