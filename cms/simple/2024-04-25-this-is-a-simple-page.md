@@ -4,6 +4,6 @@
   "title": "This is a simple page",
   "cover": "/files/media/code-background.jpg",
   "heading": "SIMPLE PAGE",
-  "summary": "No Summaryx",
+  "summary": "No Summaryxz",
   "body": "# Hello World"
 }
