@@ -52,8 +52,8 @@ content:
     label: Simple pages
     type: collection
     path: cms/simple
+    format: datagrid
     icon: box
-    format: json
     fields:
       - name: uri
         label: The unique page slug
