@@ -49,14 +49,14 @@ content:
         type: rich-text
   - name: home
     label: Home Page
-    path: home.json
+    path: cms/home.json
     type: file
     fields:
       - name: webProducerKey
         label: The Gilbert template to use to render the home page
         type: string
       - name: title
-        lable: The title of the home page to show in the browser tab
+        label: The title of the home page to show in the browser tab
         type: string
       - name: heading
         label: I can't remember
@@ -64,3 +64,11 @@ content:
       - name: summary
         label: The summary text for the page
         type: rich-text
+  - name: playground
+    label: Playground
+    path: cms/playground.json
+    type: file
+    fields: 
+      - name: code
+        label: code
+        type: code
