@@ -52,7 +52,7 @@ content:
     label: Simple pages
     type: collection
     path: cms/simple
-    format: datagrid
+    format: json
     icon: box
     fields:
       - name: uri
