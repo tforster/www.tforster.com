@@ -11,7 +11,9 @@
       "summary": "<p class=\"lead\">Welcome to FamStat where you can check in with your family group daily to make sure everyone's okay.</p><h1>How FamStat Works</h1><ol><li>Create a group and invite family members. Once they accept the invitation, you'll all be able to see each other's check in meter, and keep track of who's checked in each day.</li><li>Check yourself in by pressing the “Check In” button at the bottom of your screen. Your health meter will start at full after each check-in, and decrease down to zero every 24 hours. To get back up to full, check in again.</li><li>To add multiple families, scroll right to a new family screen.</li><li>Any questions, send an email to <a href=\"mailto:support@famstat.com\">support@famstat.com</a>.</li></ol><p>FamStat works on any device and on any platform. Let's get started.</p>"
     },
     "/about.html": {
-      "webProducerKey": "about"
+      "webProducerKey": "about",
+      "title": "About",
+      "heading": "Hi, I'm Troy"
     },
     "/services.html": {
       "webProducerKey": "services",
