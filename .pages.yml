@@ -41,7 +41,8 @@ content:
             label: Robots
             type: select
             options:
-              values: ["noindex, nofollow", "noindex, follow", "index, nofollow"]
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+              default: "index, follow"
               
       - name: cover
         label: Cover
