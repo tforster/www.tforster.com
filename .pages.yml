@@ -36,7 +36,13 @@ content:
         fields:
           - name: description
             label: Description
-            type: string        
+            type: string   
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["noindex, nofollow", "noindex, follow", "index, nofollow"]
+              
       - name: cover
         label: Cover
         type: image
