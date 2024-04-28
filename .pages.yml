@@ -3,7 +3,7 @@ media:
   output: /files/media
 content:
   - name: home
-    label: Home Page
+    label: Home
     path: cms/home.json
     type: file
     fields:
@@ -17,6 +17,7 @@ content:
         type: select
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple"]
+        default: home
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
@@ -31,7 +32,7 @@ content:
             type: select
             options:
               values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
-              default: "index, follow"
+            default: "index, follow"
           - name: ogTitle
             label: og:title
             type: string
@@ -50,8 +51,6 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
-
-            
       - name: cover
         label: Cover
         type: image
@@ -98,7 +97,60 @@ content:
             type: select
             options:
               values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
-              default: "index, follow"
+            default: "index, follow"
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: image
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string
+      - name: cover
+        label: Cover
+        type: image    
+
+  - name: services
+    label: Services
+    path: cms/services.json
+    type: file
+    fields:
+      - name: uri
+        label: The unique page slug
+        type: string
+        default: /services.html
+        pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
+      - name: webProducerKey
+        label: webProducerKey (template to use)
+        type: select
+        options:
+          values: ["404", "home", "portfolio", "hire-me", "uses", "simple", "about", "services"]
+        default: services
+      - name: title
+        label: The title of the home page to show in the browser tab
+        type: string
+      - name: meta
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: string   
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+            default: "index, follow"
           - name: ogTitle
             label: og:title
             type: string
