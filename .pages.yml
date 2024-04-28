@@ -43,7 +43,26 @@ content:
             options:
               values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
               default: "index, follow"
-              
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: string
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string
+
+            
       - name: cover
         label: Cover
         type: image
