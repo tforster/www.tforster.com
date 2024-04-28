@@ -66,6 +66,59 @@ content:
       - name: body2
         label: Body part two
         type: rich-text
+        
+  - name: about
+    label: About
+    path: cms/about.json
+    type: file
+    fields:
+      - name: uri
+        label: The unique page slug
+        type: string
+        default: /about
+        pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
+      - name: webProducerKey
+        label: webProducerKey (template to use)
+        type: select
+        options:
+          values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
+      - name: title
+        label: The title of the home page to show in the browser tab
+        type: string
+      - name: meta
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: string   
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+              default: "index, follow"
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: image
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string
+      - name: cover
+        label: Cover
+        type: image    
+        
   - name: simple
     label: Simple pages
     type: collection
