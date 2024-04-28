@@ -10,6 +10,7 @@ content:
       - name: uri
         label: The unique page slug
         type: string
+        default: /index.html
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
         label: webProducerKey (template to use)
@@ -75,13 +76,14 @@ content:
       - name: uri
         label: The unique page slug
         type: string
-        default: /about
+        default: /about.html
         pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
       - name: webProducerKey
         label: webProducerKey (template to use)
         type: select
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
+        default: about
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
