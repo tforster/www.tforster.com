@@ -147,15 +147,7 @@ content:
 
       - name: myValuesAndBeliefs
         label: My Values and Beliefs
-        type: object
-        fields: 
-          - name: heading
-            label: Heading
-            type: string
-            default: My Values & Beliefs
-          - name: body
-            label: Body
-            type: rich-text
+        type: string
 
       - name: whyWorkWithMe
         label: Why Work With Me
