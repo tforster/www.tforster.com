@@ -15,19 +15,7 @@ content:
         label: webProducerKey (template to use)
         type: select
         options:
-          values:
-            - value: "404"
-              label: "404"
-            - value: home
-              label: home
-            - value: portfolio
-              label: portfolio
-            - value: hire-me
-              label: hire-me
-            - value: uses
-              label: uses
-            - value: simple
-              label: simple
+          values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
@@ -95,6 +83,36 @@ content:
         type: select
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
+      - name: meta
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: string   
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+              default: "index, follow"
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: string
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string          
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
