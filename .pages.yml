@@ -135,9 +135,6 @@ content:
       - name: howIGotHere
         label: How I got here
         type: rich-text
-      - name: values
-        label: My Values & Beliefs
-        type: object
           
 
   - name: services
