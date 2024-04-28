@@ -132,11 +132,55 @@ content:
           - name: image
             label: Image
             type: image
+            
       - name: howIGotHere
         label: How I got here
-        type: rich-text
-          
+        type: object
+        fields: 
+          - name: heading
+            label: Heading
+            type: string
+            default: How I Got Here
+          - name: body
+            label: Body
+            type: rich-text
 
+      - name: myValuesAndBeliefs
+        label: My Values and Beliefs
+        type: object
+        fields: 
+          - name: heading
+            label: Heading
+            type: string
+            default: My Values & Beliefs
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: whyWorkWithMe
+        label: Why Work With Me
+        type: object
+        fields: 
+          - name: heading
+            label: Heading
+            type: string
+            default: Why Work With Me
+          - name: body
+            label: Body
+            type: rich-text   
+            
+      - name: aFewMoreWordsAboutMyself
+        label: A Few More Words About Myself
+        type: object
+        fields: 
+          - name: heading
+            label: Heading
+            type: string
+            default: A Few More Words About Myself
+          - name: body
+            label: Body
+            type: rich-text 
+            
   - name: services
     label: Services
     path: cms/services.json
