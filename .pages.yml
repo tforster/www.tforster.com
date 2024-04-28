@@ -26,7 +26,7 @@ content:
         fields:
           - name: description
             label: Description
-            type: string   
+            type: string
           - name: robots
             label: Robots
             type: select
@@ -66,7 +66,7 @@ content:
       - name: body2
         label: Body part two
         type: rich-text
-        
+
   - name: about
     label: About
     path: cms/about.json
@@ -91,7 +91,7 @@ content:
         fields:
           - name: description
             label: Description
-            type: string   
+            type: string
           - name: robots
             label: Robots
             type: select
@@ -118,7 +118,7 @@ content:
             type: string
       - name: cover
         label: Cover
-        type: image    
+        type: image
       - name: inspiration
         label: Inspiration
         type: object
@@ -132,11 +132,11 @@ content:
           - name: image
             label: Image
             type: image
-            
+
       - name: howIGotHere
         label: How I got here
         type: object
-        fields: 
+        fields:
           - name: heading
             label: Heading
             type: string
@@ -152,27 +152,27 @@ content:
       - name: whyWorkWithMe
         label: Why Work With Me
         type: object
-        fields: 
+        fields:
           - name: heading
             label: Heading
             type: string
             default: Why Work With Me
           - name: body
             label: Body
-            type: rich-text   
-            
+            type: rich-text
+
       - name: aFewMoreWordsAboutMyself
         label: A Few More Words About Myself
         type: object
-        fields: 
+        fields:
           - name: heading
             label: Heading
             type: string
             default: A Few More Words About Myself
           - name: body
             label: Body
-            type: rich-text 
-            
+            type: rich-text
+
   - name: services
     label: Services
     path: cms/services.json
@@ -197,7 +197,7 @@ content:
         fields:
           - name: description
             label: Description
-            type: string   
+            type: string
           - name: robots
             label: Robots
             type: select
@@ -224,7 +224,7 @@ content:
             type: string
       - name: cover
         label: Cover
-        type: image    
+        type: image
   - name: valuesAndBeliefs
     label: My Values & Beliefs
     type: collection
@@ -239,7 +239,7 @@ content:
       - name: body
         label: Body
         type: rich-text
-        
+
   - name: simple
     label: Simple pages
     type: collection
@@ -262,7 +262,7 @@ content:
         fields:
           - name: description
             label: Description
-            type: string   
+            type: string
           - name: robots
             label: Robots
             type: select
@@ -286,7 +286,7 @@ content:
             type: string
           - name: ogSiteName
             label: og:site_name
-            type: string          
+            type: string
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
