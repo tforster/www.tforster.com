@@ -16,7 +16,7 @@ content:
         label: webProducerKey (template to use)
         type: select
         options:
-          values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
+          values: ["404", "home", "portfolio", "hire-me", "uses", "simple"]
       - name: title
         label: The title of the home page to show in the browser tab
         type: string
@@ -82,7 +82,7 @@ content:
         label: webProducerKey (template to use)
         type: select
         options:
-          values: ["404", "home", "portfolio", "hire-me", "uses", "simple "]
+          values: ["404", "home", "portfolio", "hire-me", "uses", "simple", "about"]
         default: about
       - name: title
         label: The title of the home page to show in the browser tab
