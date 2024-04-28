@@ -4,6 +4,7 @@
   "version": "3.1.0",
   "private": false,
   "scripts": {
+    "build": "scripts/build.sh",
     "s3-server": "node ~/dev/tforster/s3-server/node_modules/s3rver/bin/s3rver.js -s -h 0.0.0.0 -p 4568 -d ~/dev/tforster/s3-server/data -i index.html -e app.html & gulp watch"
   },
   "dependencies": {
@@ -41,5 +42,6 @@
     "Troy",
     "Forster"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

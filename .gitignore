@@ -1,5 +1,21 @@
 ### Project ###
-build
+dist
+openapi-build.yaml
+.wrangler
+.dev.vars
+api/openapi.json
+api/openapi.yaml
+scripts/serve/openapi.json
+scratch.sql
+Session.sql
+src/scripts/config.js
+todo.md
+
+### Sensitive ###
+
+.env
+test.env
+*.pem
 
 ### Misc. Tooling ###
 
