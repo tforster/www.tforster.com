@@ -245,20 +245,8 @@ content:
       - name: cover
         label: Cover
         type: image
-  - name: valuesAndBeliefs
-    label: My Values & Beliefs
-    type: collection
-    path: cms/values
-    format: json
-    filename: "{year}-{month}-{day}-{primary}.json"
-    icon: box
-    fields:
-      - name: heading
-        label: Heading
-        type: string
-      - name: body
-        label: Body
-        type: rich-text
+  
+
   - name: projects
     label: Projects
     path: cms/projects.json
@@ -319,6 +307,21 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
+            
+  - name: valuesAndBeliefs
+    label: My Values & Beliefs
+    type: collection
+    path: cms/values
+    format: json
+    filename: "{year}-{month}-{day}-{primary}.json"
+    icon: box
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
         
   - name: simple
     label: Simple pages
