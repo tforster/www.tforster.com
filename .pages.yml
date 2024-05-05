@@ -19,7 +19,13 @@ content:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple"]
         default: home
       - name: title
-        label: The title of the home page to show in the browser tab
+        label: The title to show in the browser tab
+        type: string
+      - name: pageTitle
+        label: The title to display on the page
+        type: string
+      - name: pageSubTitle
+        label: The line to display immediately below the title on the page
         type: string
       - name: meta
         type: object
@@ -51,6 +57,7 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
+            
       - name: cover
         label: Cover
         type: image
