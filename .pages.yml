@@ -54,12 +54,13 @@ content:
       - name: cover
         label: Cover
         type: image
-      - name: introText
-        type: string
-        label: Intro Text
+
       - name: heading
         label: The page heading-1 if different than the page title
         type: string
+      - name: intro text
+        type: text
+        label: Intro Text
       - name: summary
         label: The summary text for the page
         type: rich-text
