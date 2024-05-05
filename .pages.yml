@@ -58,7 +58,7 @@ content:
       - name: heading
         label: The page heading-1 if different than the page title
         type: string
-      - name: intro text
+      - name: introText
         type: text
         label: Intro Text
       - name: summary
