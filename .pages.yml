@@ -105,6 +105,7 @@ content:
       - name: pageSubTitle
         label: The line to display immediately below the title on the page
         type: string
+        
       - name: cover
         label: Cover
         type: image
@@ -208,10 +209,17 @@ content:
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple", "about", "services"]
         default: services
+      
       - name: title
-        label: The title of the home page to show in the browser tab
+        label: The title to show in the browser tab
         type: string
-        
+      - name: pageTitle
+        label: The title to display on the page
+        type: string
+      - name: pageSubTitle
+        label: The line to display immediately below the title on the page
+        type: string
+  
       - name: meta
         type: object
         fields:
