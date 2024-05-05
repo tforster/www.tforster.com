@@ -2,6 +2,8 @@
   "uri": "/about.html",
   "webProducerKey": "about",
   "title": "About | Troy",
+  "pageTitle": "About",
+  "pageSubTitle": "Hi, I'm Troy",
   "meta": {
     "robots": "index, follow"
   },
