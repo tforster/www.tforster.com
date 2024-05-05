@@ -307,6 +307,67 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
+
+  - name: contact
+    label: Contact
+    path: cms/contact.json
+    type: file
+    fields:
+      - name: uri
+        label: The unique page slug
+        type: string
+        default: /projects.html
+        pattern: ^\/[a-zA-Z0-9-/]+\.[a-z0-9]*$
+      - name: webProducerKey
+        label: webProducerKey (template to use)
+        type: select
+        options:
+          values: ["404", "home", "projects", "contact", "uses", "simple", "about"]
+        default: contact
+        
+      - name: title
+        label: The title to show in the browser tab
+        type: string
+      - name: pageTitle
+        label: The title to display on the page
+        type: string
+      - name: pageSubTitle
+        label: The line to display immediately below the title on the page
+        type: string
+      - name: cover
+        label: Cover
+        type: image
+
+      - name: meta
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: string
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+            default: "index, follow"
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: image
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string
             
   - name: valuesAndBeliefs
     label: My Values & Beliefs
