@@ -1,7 +1,9 @@
 {
   "uri": "/index.html",
   "webProducerKey": "home",
-  "title": "Home Page Title",
+  "title": "About | Troy",
+  "pageTitle": "About",
+  "pageSubTitle": "Hi, I'm Troy",
   "meta": {
     "robots": "index, follow"
   },
