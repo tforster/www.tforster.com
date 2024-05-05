@@ -29,6 +29,25 @@ content:
         label: The line to display immediately below the title on the page
         type: string
         
+      - name: cover
+        label: Cover
+        type: image
+      - name: heading
+        label: The page heading-1 if different than the page title
+        type: string
+      - name: introText
+        type: text
+        label: Intro Text
+      - name: summary
+        label: The summary text for the page
+        type: rich-text
+      - name: body1
+        label: Body part one
+        type: rich-text
+      - name: body2
+        label: Body part two
+        type: rich-text
+        
       - name: meta
         type: object
         fields:
@@ -59,26 +78,6 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
-            
-      - name: cover
-        label: Cover
-        type: image
-
-      - name: heading
-        label: The page heading-1 if different than the page title
-        type: string
-      - name: introText
-        type: text
-        label: Intro Text
-      - name: summary
-        label: The summary text for the page
-        type: rich-text
-      - name: body1
-        label: Body part one
-        type: rich-text
-      - name: body2
-        label: Body part two
-        type: rich-text
 
   - name: about
     label: About
@@ -106,37 +105,6 @@ content:
       - name: pageSubTitle
         label: The line to display immediately below the title on the page
         type: string
-        
-      - name: meta
-        type: object
-        fields:
-          - name: description
-            label: Description
-            type: string
-          - name: robots
-            label: Robots
-            type: select
-            options:
-              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
-            default: "index, follow"
-          - name: ogTitle
-            label: og:title
-            type: string
-          - name: ogDescription
-            label: og:description
-            type: string
-          - name: ogType
-            label: og:type
-            type: string
-          - name: ogImage
-            label: og:image
-            type: image
-          - name: ogUrl
-            label: og:url
-            type: string
-          - name: ogSiteName
-            label: og:site_name
-            type: string
       - name: cover
         label: Cover
         type: image
@@ -193,7 +161,37 @@ content:
           - name: body
             label: Body
             type: rich-text
-
+      - name: meta
+        type: object
+        fields:
+          - name: description
+            label: Description
+            type: string
+          - name: robots
+            label: Robots
+            type: select
+            options:
+              values: ["index, follow", "noindex, nofollow", "noindex, follow", "index, nofollow"]
+            default: "index, follow"
+          - name: ogTitle
+            label: og:title
+            type: string
+          - name: ogDescription
+            label: og:description
+            type: string
+          - name: ogType
+            label: og:type
+            type: string
+          - name: ogImage
+            label: og:image
+            type: image
+          - name: ogUrl
+            label: og:url
+            type: string
+          - name: ogSiteName
+            label: og:site_name
+            type: string
+      
   - name: services
     label: Services
     path: cms/services.json
