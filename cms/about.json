@@ -1,0 +1,17 @@
+{
+  "uri": "/about.html",
+  "webProducerKey": "about",
+  "title": "About | Troy",
+  "meta": {
+    "robots": "index, follow"
+  },
+  "howIGotHere": {
+    "heading": "How I Got Here"
+  },
+  "whyWorkWithMe": {
+    "heading": "Why Work With Me"
+  },
+  "aFewMoreWordsAboutMyself": {
+    "heading": "A Few More Words About Myself"
+  }
+}
