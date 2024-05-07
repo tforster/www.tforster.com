@@ -12,24 +12,17 @@
     "marked": "^0.3.6"
   },
   "devDependencies": {
-    "aws-sdk": "^2.43.0",
-    "babel-eslint": "^7.2.3",
-    "concurrent-transform": "^1.0.0",
-    "del": "^2.2.2",
-    "eslint": "3.6.0",
-    "gulp": "^3.9.1",
-    "gulp-awspublish": "^3.3.0",
-    "gulp-debug": "^3.1.0",
-    "gulp-ejs": "^3.0.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.2",
-    "gulp-slack": "^0.1.2",
-    "gulp-tinypng": "^1.0.2",
-    "gulp-usemin": "^0.3.28",
-    "gulp-util": "^3.0.8",
-    "gulp-watch": "^4.3.11"
+    "@tforster/webproducer": "^1.0.0-beta.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-html": "^8.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "vinyl": "^3.0.0",
+    "vinyl-fs": "^3.0.3",
+    "wrangler": "^3.47.1"
   },
   "repository": "git+https://github.com/tforster/tforster.com.git",
   "author": "Troy Forster (http://tforster.com)",
@@ -37,7 +30,7 @@
     "url": "https://github.com/tforster/tforster.com/issues"
   },
   "homepage": "https://github.com/tforster/tforster.com#readme",
-  "main": "gulpfile.js",
+  "main": "",
   "keywords": [
     "Troy",
     "Forster"
