@@ -4,13 +4,14 @@
   "title": "Home",
   "pageTitle": "x",
   "pageSubTitle": "x",
-  "cover": "/files/media/downtown-toronto.jpg",
+  "cover": "/media/troy-forster.jpg",
   "heading": "Troy Forster",
   "introText": "I craft innovative tech\nsolutions that solve\ncomplex business\nchallenges",
   "summary": "Probably some SEO stuff can go here",
   "body1": "_Creative Technology Director, idea factory, tinkerer, cyclist, hiker, vegetarian living in the wilds of downtown Toronto_\n\n- Born in London, England and emigrated to Canada with my parents at the age of 10.\n- Vegetarian since I was 20 (and no, I have never missed meat)    \n- Love human-powered outdoor sports    \n- Successful kidney transplant in 2005    \n- Had a paper route at 11    \n- Had a neighbourhood grass cutting business at 13    \n- Worked in a children's zoo at 15 feeding bears, beavers, lemurs, otters, pigs and squirrel monkies   \n- Have waited tables, landscaped and laboured on construction sites    \n- Spent the last 30+ years in the technology world. I started as a developer and have been a technical director since 2010.    \n- Roadtripped across Canada to both West and East coasts    \n- Spent time in Colombia, France, Greece, Mexico and Switzerland     \n- Love cooking and trying new foods. Indian is still one of my all-time favourites.    \n- Played the keyboardist for boy band \"The Pragmatic Virgins\" in 1992's [Hurt Penguins](http://www.imdb.com/title/tt0104465/)\n- And yes ladies, I am single",
   "body2": "- Rock climbing\n- Ice climbing\n- Cycling\n- Mountain biking\n- Cross-country skiing\n- Snowshoeing\n- Running\n- Trail running\n- Hiking\n- Canoe/Kayaking\n- Sailing\n- Co-founder of The Screaming Carrots race team\n- Competed in dozens of 24 hour mountain bike relay races, 100Km enduros as well as 8 hour, 12 hour and multi-day adventure races\n- Created the exclusive SCAR (Screaming Carrots Adventure Race) series",
   "meta": {
-    "robots": "index, follow"
+    "robots": "index, follow",
+    "ogImage": "/media/troy-forster.jpg"
   }
 }
