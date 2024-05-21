@@ -1,6 +1,6 @@
 media:
   input: src/files
-  output: /files/media
+  output: /files
 content:
   - name: home
     label: Home
