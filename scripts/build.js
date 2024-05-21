@@ -45,6 +45,7 @@ query AggregateCmsData {
  * @class BuildScript
  */
 class BuildScript {
+  // @type {number}
   #start;
 
   /**
@@ -52,7 +53,6 @@ class BuildScript {
    * @memberof BuildScript
    */
   constructor() {
-    // @type {number}
     this.#start = new Date().getTime();
   }
 
