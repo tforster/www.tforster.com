@@ -1,6 +1,6 @@
 media:
-  input: src/images
-  output: /images
+  input: src/media
+  output: /media
 content:
   - name: home
     label: Home
