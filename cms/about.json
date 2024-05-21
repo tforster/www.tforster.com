@@ -4,10 +4,11 @@
   "title": "About",
   "pageTitle": "About",
   "pageSubTitle": "Hi, I'm Troy",
+  "cover": "/files/downtown-toronto.jpg",
   "inspiration": {
     "heading": "I am a serial technologist",
     "content": "I do this that and the other",
-    "image": "/files/media/troy-forster.jpg"
+    "image": "/files/troy-forster.jpg"
   },
   "howIGotHere": {
     "heading": "How I Got Here"
