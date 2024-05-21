@@ -24,23 +24,6 @@ Commands:
   exit 0
 }
 
-function buildOas() {
-  # Build the JSON OAS file using the APIDevTools Swagger CLI
-  npx @apidevtools/swagger-cli bundle docs/oas/openapi.yaml -o api/openapi.json
-  # Validate the resulting file
-  npx @apidevtools/swagger-cli validate api/openapi.json
-  # Create a YAML version of the OAS file
-  docker run -i --rm mikefarah/yq -p=json <api/openapi.json >api/openapi.yaml
-  # Sort the components/schemas section of the OAS file to make it easier to read in StopLight, Swagger, etc
-  docker run -i --rm mikefarah/yq '.components.schemas |= sort_keys(.)' <api/openapi.yaml >api/openapi.sorted.yaml
-  # Replace the original YAML file with the sorted one
-  cp api/openapi.sorted.yaml api/openapi.yaml
-  # Remove the sorted YAML file
-  rm api/openapi.sorted.yaml
-  # Copy the JSON version to the static server folder for Swagger viewing
-  cp api/openapi.json scripts/serve
-}
-
 function buildWebApp() {
   # Parse the argument
   if [[ "${1-}" = stage ]]; then
@@ -64,10 +47,10 @@ function buildWebApp() {
   # Run Gilbert to compile the web app, including the environment specific config.js file - optionally watching for changes
   if [[ "${1-}" =~ watch ]]; then
     # Watch for changes and build each time
-    node --watch-path ./src --watch-path ./cms scripts/build.js
+    doppler run -- node --watch-path ./src --watch-path ./cms scripts/build.js
   else
     # Build once
-    node scripts/build.js
+    doppler run -- node scripts/build.js
   fi
 }
 

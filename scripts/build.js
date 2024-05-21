@@ -105,7 +105,7 @@ class BuildScript {
       stylesheets: { entryPoints: ["./src/stylesheets/main.css", "./src/stylesheets/vendor.css"] },
       //files: { stream: vfs.src(["./src/files/**/*", "./src/_worker.js", "./src/serviceWorker.js", "./src/manifest.json"]) },
       files: {
-        stream: vfs.src(["./cms/media/**/*", "./src/files/**/*", "./src/images/**/*.*", "./src/*.png", "./src/site.webmanifest"]),
+        stream: vfs.src(["./src/media/**/*", "./src/*.png", "./src/site.webmanifest"]),
       },
     };
 
