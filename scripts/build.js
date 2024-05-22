@@ -1,6 +1,6 @@
 // System dependencies
 import { resolve } from "path";
-import { Readable } from "stream";
+import { Readable, Transform } from "stream";
 
 // Third party dependencies
 import vfs from "vinyl-fs";
@@ -56,6 +56,10 @@ class BuildScript {
     this.#start = new Date().getTime();
   }
 
+  /**
+   * @description Fetches the data stream from the GitHub GraphQL API.
+   * @memberof BuildScript
+   */
   #fetchDataStream = async () => {
     const url = "https://api.github.com/graphql";
     const options = {
@@ -95,15 +99,48 @@ class BuildScript {
     });
   };
 
+  /**
+   * @description Fetches the data from the local file system cms folder
+   * @note Use this when developing locally and reading the latest Git fetched data from the Pages CMS
+   * @memberof BuildScript
+   */
+  #fetchDataLocal = async () => {
+    // Create writable stream of Vinyl files
+    const dataStream = vfs.src(["./cms/**/*.json"]);
+    // Initialise the Gilbert data object
+    const data = { uris: {} };
+
+    // Create a transform stream to parse the JSON files and add them to the data object
+    const transform = new Transform({
+      objectMode: true,
+
+      // Transform function to parse the JSON files and add them to the data object
+      transform: (file, _, callback) => {
+        file = JSON.parse(file.contents.toString());
+        data.uris[file.uri] = file;
+        callback(null);
+      },
+    });
+
+    // Add an event handler to write the data object to a Vinyl file when the stream ends
+    dataStream.on("end", () => {
+      // Add the data object to the transform stream
+      transform.push(new vinyl({ path: "/data.json", contents: Buffer.from(JSON.stringify(data)) }));
+      // Signal the end of the stream
+      transform.push(null);
+    });
+
+    return dataStream.pipe(transform);
+  };
+
   async build() {
     this.params = {
       uris: {
-        data: { stream: await this.#fetchDataStream() },
+        data: { stream: await this.#fetchDataLocal() },
         theme: { stream: vfs.src(["./src/templates/**/*.hbs"]) },
       },
-      //scripts: { entryPoints: ["./src/scripts/main.js"] },
+      scripts: { entryPoints: ["./src/scripts/main.js"] },
       stylesheets: { entryPoints: ["./src/stylesheets/main.css", "./src/stylesheets/vendor.css"] },
-      //files: { stream: vfs.src(["./src/files/**/*", "./src/_worker.js", "./src/serviceWorker.js", "./src/manifest.json"]) },
       files: {
         stream: vfs.src(["./src/media/**/*", "./src/*.png", "./src/site.webmanifest"]),
       },
