@@ -116,7 +116,7 @@ content:
           - name: heading
             label: Heading
             type: string
-          - name: content
+          - name: contentx
             label: Content
             type: rich-text
           - name: image
