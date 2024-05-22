@@ -162,6 +162,8 @@ content:
           - name: body
             label: Body
             type: rich-text
+            format: markdown
+            
       - name: meta
         type: object
         fields:
