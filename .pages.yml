@@ -116,7 +116,7 @@ content:
           - name: heading
             label: Heading
             type: string
-          - name: contentx
+          - name: content
             label: Content
             type: rich-text
           - name: image
@@ -133,7 +133,7 @@ content:
             default: How I Got Here
           - name: body
             label: Body
-            type: rich-text
+            type: text
 
       - name: myValuesAndBeliefs
         label: My Values and Beliefs
