@@ -133,7 +133,7 @@ content:
             default: How I Got Here
           - name: body
             label: Body
-            type: rich-text
+            type: string
 
       - name: myValuesAndBeliefs
         label: My Values and Beliefs
