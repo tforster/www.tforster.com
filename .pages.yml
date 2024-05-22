@@ -115,7 +115,7 @@ content:
         fields:
           - name: heading
             label: Heading
-            type: string
+            type: rich-text
           - name: content
             label: Content
             type: rich-text
