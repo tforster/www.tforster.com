@@ -149,7 +149,7 @@ content:
             default: Why Work With Me
           - name: body
             label: Body
-            type: rich-text
+            type: text
 
       - name: aFewMoreWordsAboutMyself
         label: A Few More Words About Myself
@@ -161,7 +161,7 @@ content:
             default: A Few More Words About Myself
           - name: body
             label: Body
-            type: rich-text
+            type: text
       - name: meta
         type: object
         fields:
