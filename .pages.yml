@@ -161,7 +161,7 @@ content:
             default: A Few More Words About Myself
           - name: body
             label: Body
-            type: text
+            type: rich-text
       - name: meta
         type: object
         fields:
