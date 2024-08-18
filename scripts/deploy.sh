@@ -28,34 +28,34 @@ Usage
   exit 1
 }
 
-## 
-# Description:  Deploys the app and api as a CloudFlare Pages project. 
+##
+# Description:  Deploys the app and api as a CloudFlare Pages project.
 # Notes:        - Doppler secrets are synchronised using the Doppler integration for Cloudflare Pages projects
 #               - Cloudflare Pages cannot use variables from wrangler.toml. Wrangler.toml is ignored except for local Pages dev
 #               - Pages bindings such as D1 and environment variables must be set in the Cloudflare UI
 ##
-function deployApp() {  
+function deployApp() {
   ## Set a default and bound variable
   stage=${2:-default}
 
   ## Check the argument variable is one of the two allowed, otherwise display help and exit
-  if [[ ! $stage =~ ^(stage|prod)$   ]]; then
+  if [[ ! $stage =~ ^(stage|prod)$ ]]; then
     help
-  fi 
+  fi
 
-  ## Get the current Git branch 
+  ## Get the current Git branch
   currentBranch=$(git rev-parse --abbrev-ref HEAD)
 
-  if [[ $stage = stage ]]; then 
-    ## Note "--branch=stage" will force Cloudflare pages to ignore production and use "preview" settings and bindings. 
-    npx wrangler pages deploy --project-name=famstat --branch=stage ./dist
-    printf "\nPlease allow a few moments for your deployment to complete at https://stage.famstat.pages.dev\n"
+  if [[ $stage = stage ]]; then
+    ## Note "--branch=stage" will force Cloudflare pages to ignore production and use "preview" settings and bindings.
+    npx wrangler pages deploy --project-name=tforster --branch=stage ./dist
+    printf "\nPlease allow a few moments for your deployment to complete at https://stage.tforster.pages.dev\n"
 
   elif [[ $stage = prod && $currentBranch = "main" ]]; then
-    npx wrangler pages deploy --project-name=famstat --branch=main ./dist
-    printf "\nPlease allow a few moments for your deployment to complete at https://www.famstat.com\n"
+    npx wrangler pages deploy --project-name=tforster --branch=main ./dist
+    printf "\nPlease allow a few moments for your deployment to complete at https://www.tforster.com\n"
 
-  else     
+  else
     printf "\nBranch mismatch. You can only deploy the main branch to production.\n"
     exit 1
   fi
@@ -69,8 +69,6 @@ if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
 elif [[ "${1-}" = app ]]; then
   deployApp "$@"
 
-else 
+else
   help
 fi
-
-

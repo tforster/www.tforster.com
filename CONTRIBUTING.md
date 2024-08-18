@@ -1,6 +1,6 @@
 # Contributing <!-- omit in toc -->
 
-_A quick introduction to anyone interested in contributing to the FamStat project._
+_A quick introduction to anyone interested in contributing to the Troy Forster's website._
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -10,7 +10,7 @@ _A quick introduction to anyone interested in contributing to the FamStat projec
   - [Is it of good quality](#is-it-of-good-quality)
   - [Does it move this repository closer to our vision for the repository](#does-it-move-this-repository-closer-to-our-vision-for-the-repository)
   - [Does it follow the contributor covenant](#does-it-follow-the-contributor-covenant)
-  
+
 ## Issues
 
 Issues are very valuable to this project.
@@ -50,7 +50,7 @@ Tells us the problem that you have found, and the pull request shows us the acti
 
 The aim of this repository is:
 
-- Provide a starting point for JET's FamStat application, and documentation.
+- Provide a starting point for Troy Forster's website and documentation.
 
 ### Does it follow the contributor covenant
 
