@@ -7,7 +7,6 @@
     "build": "scripts/build.sh",
     "serve": "scripts/serve.sh"
   },
-  "dependencies": {},
   "devDependencies": {
     "@tforster/webproducer": "^1.0.0-beta.2",
     "eslint": "^8.56.0",
