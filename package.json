@@ -5,6 +5,7 @@
   "private": false,
   "scripts": {
     "build": "scripts/build.sh",
+    "deploy": "scripts/deploy.sh",
     "serve": "scripts/serve.sh"
   },
   "devDependencies": {

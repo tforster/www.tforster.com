@@ -1,0 +1,1738 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 34,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "6TlkUW9GRa6G2KAqq0isI",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:12:17.152Z",
+        "updatedAt": "2019-03-10T15:17:12.553Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Strand Beest",
+        "teaser": "Strand Beest",
+        "description": "A scale model of one of [Theo Jansen's incredible organic life sculptures](http://www.strandbeest.com/).\n\nhttps://scontent.cdninstagram.com/t50.2886-16/10476707_1465494897022975_1543498215_n.mp4",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10401757_1431299203809749_901528631_n.jpg",
+        "slug": "strand-beest"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "2OTNOSkQGA6QmQ46c48cwC",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:13:58.591Z",
+        "updatedAt": "2019-03-10T15:16:15.615Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Programatically Controlling a Parrot AR Drone",
+        "teaser": "Programatically Controlling a Parrot AR Drone",
+        "description": "https://scontent.cdninstagram.com/t50.2886-16/11670236_706889216089334_181584610_n.mp4",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11349171_1645234145714075_1331480564_n.jpg",
+        "slug": "programatically-controlling-a-parrot-ar-drone"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "2thYjPQZAsKOKKss00aaaE",
+        "type": "Entry",
+        "createdAt": "2017-07-13T14:30:58.983Z",
+        "updatedAt": "2017-07-13T14:30:58.983Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Infiniti Power of G",
+        "teaser": "Real-time telemetry from an Infiniti G used to conduct a sound and light show",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "45kKb42vw4ooKyay8WOQEs"
+          }
+        },
+        "yearCreated": 2013,
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11232503_560000450805099_1537029987_n.jpg",
+        "tags": ["odbii", "dmx"],
+        "slug": "infiniti-power-of-g"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "3lBzQepGMw4WAWWYQQwIEk",
+        "type": "Entry",
+        "createdAt": "2017-07-13T14:22:48.357Z",
+        "updatedAt": "2017-07-13T14:22:48.357Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Wearable Sweat Sensor",
+        "teaser": "A prototype wearable sweat sensor to provide hydration alerts",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3ueqe7ggROKWWeW468kQGk"
+          }
+        },
+        "yearCreated": 2014,
+        "tags": ["wearables", "arduino"],
+        "slug": "wearable-sweat-sensor"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "1FP7SkckT6g22ISSwMAksy",
+        "type": "Entry",
+        "createdAt": "2017-06-06T15:11:38.541Z",
+        "updatedAt": "2017-06-09T14:31:36.133Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 4,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "www.tforster.com (This website)",
+        "teaser": "This latest iteration of my website is utilizes serverless technology, the JAM stack and CaaS",
+        "description": "My own website has always been an experimental testbed and is my guinea pig for trying out new technologies. In the late 90's it comprised a handful of .HTML pages on an Interlog server followed by ASP.Classic and ASP.Net 1.1 running DotNetNuke on GoDaddy in 2010, Wordpress on wordpress.org (very brief), return to ASP.NET in 2011, and NodeJS/ExpressJS/MongoDB on Digital Ocean in 20\n\n* 1998 Static pages on Interlog\n* 2006 Wordpress\n* 2010 ASP.NET\n* 2013 Express\n* 2017 Serverless\n\n#### The Solution\n",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "Qut6zaMUcSQSKW8iUOEk6"
+          }
+        },
+        "yearCreated": 1997,
+        "liveUrl": "https://www.tforster.com",
+        "gitHubUrl": "https://github.com/tforster/tforster.com",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/28O090mt7uCU64WYKCWAKI/a65e320c76e6db9a000ab30bdd8c25fe/www.tforster.com.jpg",
+        "tags": ["serverless", "jam", "caas", "s3", "cloudfront", "contentful", "es6", "http2"],
+        "slug": "www-tforster-com-this-website"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "4CIcNLAZryAwmSqSWc8WkS",
+        "type": "Entry",
+        "createdAt": "2017-06-06T12:44:08.495Z",
+        "updatedAt": "2017-06-06T16:18:41.050Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 5,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Worlds First Sun Activated Mobile Coupon",
+        "teaser": "The size of the discount in this mobile coupon is tied directly to the intensity of the sunlight it is exposed to.",
+        "description": "#### The Challenge\n\nThe creative team on the Zealios account wanted a unique new way of providing product discounts on mobile devices.\n\n#### The solution\n\nI determined that a native application was out of the question because there was not a significant enough marketing budget to drive the number of downloads that would be required. Instead, a low barrier to entry was needed which can be achieved using typical web delivery.\n\nIn keeping with the phylosophy I promote the solution could not use any proprietary plugins and must be standards compliant. Fortunately Mozilla Firefox had implemented support for the [W3C ambient light sensor](https://www.w3.org/TR/2012/WD-ambient-light-20120802/) which meant it would be possible to detect light intensity measured in Lux.\n\nThe theory was tested by creating a single page that constantly polled the light sensor API and displayed the current lux value. My team then loaded this page on a variety of Android devices running Firefox and sampled light from numerous locations including indoors, outside in bright sun, outside on cloudy days and outside in the shade. The collated data not only confirmed the technical approach but it also gave us the threshold numbers to trigger the coupon.\n\n__Note: The ambient light sensor was intended by the W3C to be used in responsive web sites to serve different contrast stylesheets depending upon how bright the surrounding light is. It detects light intensity not wavelength and does not provide a measurement of ultraviolet or UV index. While perfect for a marketing gimmick this lack of UV detection bothered me enough to explore and build a [personal UV gauge](https://d2ajvvqj1r3ayh.cloudfront.net/portfolio/personal-bluetooth-uv-gauge-and-ios-companion-app)__\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/RvRw--WYdRQ?rel=0\" frameborder=\"0\" allowfullscreen></iframe>\n\n#### Media Hits\n\nThe Worlds First Sun Activated Mobile Coupon was a big hit with mentions on [Mashable](http://mashable.com/2014/07/23/zealios-coupon-sunlight/#p5fbxdHicsqw) and numourous other sites and was shortlisted for some awards.\n\n* https://digiday.com/marketing/performance-sunscreen-brand-zealios-launches-sun-activated-discount-coupon/\n* https://www.youtube.com/watch?v=5zpmEoiq8X4\n* https://www.youtube.com/watch?v=RvRw--WYdRQ\n* https://adsoftheworld.com/media/online/zealios_sun_activated_coupon\n* http://creativity-online.com/work/zealios-skin-care-sun-activated-coupon/36473\n* http://www.webbyawards.com/winners/2015/advertising-media/websites-micro-sites-and-rich-media/health-wellness-pharmaceutical/sun-activated-coupon/\n* http://www.adweek.com/digital/use-sun-activated-coupon-android-get-discounted-sunscreen/\n* https://www.appliedartsmag.com/winners_gallery/interactive/?id=812&year=2015&clip=5\n\n",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "5GCmBHZurSewiOmS4MiUwi"
+          }
+        },
+        "yearCreated": 2014,
+        "liveUrl": "http://holiday.tbwa-toronto.com/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/435RbTwWOI02yi4O2OisK2/3da13d7826730fba3cf3d51d6a92667d/zealios-ambient-device-mobile.png",
+        "tags": ["jam", "spa"],
+        "slug": "worlds-first-sun-activated-mobile-coupon"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5kkL2rqLm0mccWO6K2O4O2",
+        "type": "Entry",
+        "createdAt": "2017-06-05T21:04:29.212Z",
+        "updatedAt": "2017-06-05T21:04:29.212Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Take a Selfie with Shannon and Sophie ",
+        "teaser": "A fun app for W Network's Shannon and Sophie show that allowed users to take virtual selfies with the popular mother and daughter duo.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "73QWF3aNBCMWMmiQgwUiq2"
+          }
+        },
+        "yearCreated": 2014,
+        "liveUrl": "http://www.wnetwork.com/selfie",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/3tgqorCpFmmukYcgKoAOqi/f77549d336107338da704b6ce3cfe905/wnetwork-logo.jpg",
+        "tags": ["php", "drupal"],
+        "slug": "take-a-selfie-with-shannon-and-sophie"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5LfitegA36wiuwaoES6QEc",
+        "type": "Entry",
+        "createdAt": "2017-05-07T00:10:35.248Z",
+        "updatedAt": "2017-06-05T20:52:40.949Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 6,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Raymond George Consultancy Website",
+        "teaser": "Raymond George is a UK based startup that needed a strong web presence on a startup budget.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "4iOLO4EIvKYUYmeo0eOu2A"
+          }
+        },
+        "yearCreated": 2016,
+        "liveUrl": "http://www.raymondgeorge.agency/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/4yEoYG9XlmuwMKgSWMaUa0/a07fdb7c3bd014d854606821c3b1a8c5/raymondgeorge-logo.png",
+        "tags": ["jam", "nodejs", "s3", "caas"],
+        "slug": "raymond-george-consultancy-website"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "6LGfmqPThY02AgWkQiWwyQ",
+        "type": "Entry",
+        "createdAt": "2017-06-05T20:49:13.620Z",
+        "updatedAt": "2017-06-05T20:49:13.620Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "The Project Hive Web Application",
+        "teaser": "A comprehensive API driving a fast SPA client targeting the enterprise interior design industry.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "24uiJ6JN56I0GgyWc4o4wG"
+          }
+        },
+        "yearCreated": 2015,
+        "gitHubUrl": "https://github.com/tforster/api.theprojecthive.com",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/60sWl5d3MsoyKekEMsiaUq/ec73ccdc442aa7413c3f1799296ba788/project-hive-logo.jpg",
+        "tags": ["nodejs", "expressjs", "api", "spa", "soa", "application-architecture", "mongodb", "jam"],
+        "slug": "the-project-hive-web-application"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "6z9TSQ02CQyaWc8CK4cUQQ",
+        "type": "Entry",
+        "createdAt": "2017-06-05T20:29:33.911Z",
+        "updatedAt": "2017-06-05T20:29:33.911Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Vine Proxy",
+        "teaser": "A reverse engineered API for Twitter Vine",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "gitHubUrl": "https://github.com/TBWAToronto/vine-proxy",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/1nU7X0KTgAs4AwO6KeUoOO/ec9716be3d591774f2d499c6ea8eeda2/vine-logo.jpg",
+        "tags": ["nodejs", "expressjs", "api"],
+        "slug": "vine-proxy"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5qBTtFlfnUAuQugMa24m2E",
+        "type": "Entry",
+        "createdAt": "2017-06-05T20:20:10.284Z",
+        "updatedAt": "2017-06-05T20:20:10.284Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "C# Client for Sizeify",
+        "teaser": "Official C# client for SJC's Sizeify image resizing service",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "4vZp4VhEpOiaMwY4gOCasK"
+          }
+        },
+        "gitHubUrl": "https://github.com/stjosephcontent/sizeify-client/tree/master/csharp",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/3gkQIlvYWkes0ASm884a0c/5002bd8a6cfe6370b9764c04b845ab91/st-joseph-communications.png",
+        "tags": [".NET", "C#"],
+        "slug": "c-sharp-client-for-sizeify"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "TJQnysrCesCYKsYuYE2im",
+        "type": "Entry",
+        "createdAt": "2017-06-05T20:11:44.877Z",
+        "updatedAt": "2017-06-05T20:11:44.877Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Application Registry Submission for DockerCon",
+        "teaser": "The Registry as a Service component providing daemon-like assistance to St. Joseph Communication's in-house Docker orchestration tool we submitted to DockerCon",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "4vZp4VhEpOiaMwY4gOCasK"
+          }
+        },
+        "yearCreated": 2015,
+        "gitHubUrl": "https://github.com/stjosephcontent/app-registry",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/1FLIbQxhKwYCOeoacoC2Ey/1f8a6204b501b0179f44fc42a085c88a/docker-con-logo.jpg",
+        "tags": ["nodejs", "mongodb", "swagger", "docker", "soa"],
+        "slug": "application-registry-submission-for-dockercon"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "4ldm2soAYou62Oe0uaiGEa",
+        "type": "Entry",
+        "createdAt": "2017-05-06T20:30:41.018Z",
+        "updatedAt": "2017-06-05T19:34:40.554Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 5,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Milk Glass Campaign Site",
+        "teaser": "Dairy Farmers of Canada wanted an engaging campaign page to supplement their Television ad. ",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3ZVM56vCR2GECUwmOYgaGK"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "5VMA5bGQ9is2k4OiQeC20c"
+          }
+        },
+        "yearCreated": 2016,
+        "liveUrl": "https://www.themilkglass.ca/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/1LrosAUZcsKI8cOCegQAmy/6b501481724bf65b0fac870f4153103a/dfc-milk-glass.jpg",
+        "slug": "milk-glass-campaign-site"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "23NGyDKB6U0qM2gss4c8G8",
+        "type": "Entry",
+        "createdAt": "2017-05-06T21:57:14.609Z",
+        "updatedAt": "2017-06-05T19:28:56.099Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 5,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Cheese and Co Website",
+        "teaser": "Cheese and Co is a fictitious gourmet cheese shop created by St. Joseph Communications to help sell their Brandstem product. This website made extensive use of the Brandstem API as part of the demo.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "4vZp4VhEpOiaMwY4gOCasK"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "6YLpoLtvFYyeS0UaSwYEIE"
+          }
+        },
+        "yearCreated": 2015,
+        "liveUrl": "https://www.cheeseand.co/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/6FTXhd6iliyAS0I0y4oE24/0f71413a70c333f5b59b6ee38984e816/cheese-and-co-logo.svg",
+        "slug": "cheese-and-co-website"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "3nwXpHb4YoaeigS06Iuyem",
+        "type": "Entry",
+        "createdAt": "2017-05-07T00:12:56.060Z",
+        "updatedAt": "2017-06-05T19:24:53.051Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "MyGolio Website",
+        "teaser": "Consulting",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "256dIvtpzKAeK0M28YE80C"
+          }
+        },
+        "yearCreated": 2017,
+        "liveUrl": "http://www.mygolio.com/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/3rYDiTiroQsCoEgMwaCOwo/3171de527aaef1b4af338ac4e0b628d6/mygolio-logo.png",
+        "slug": "mygolio-website"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "1CQFpqdiswgeQkYiUOgWqM",
+        "type": "Entry",
+        "createdAt": "2017-05-06T22:00:57.516Z",
+        "updatedAt": "2017-06-05T19:23:08.431Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 5,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "KitchenAid Kiosk for Canadian Tire",
+        "teaser": "An interactive digital signage prototype to showcase Kitchenaid stand mixers in Canadian Tire stores.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "4vZp4VhEpOiaMwY4gOCasK"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "xY3BHyuURUkeESmiMsA6O"
+          }
+        },
+        "yearCreated": 2015,
+        "liveUrl": "http://kiosk.kitchenaid.ca.stage.sjc.io/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/2JB4etjtAAccomswGkoG4Q/904cdf59e6151890d51f3e52f431df78/kitchenaid-stand-mixer.jpg",
+        "slug": "kitchenaid-kiosk-for-canadian-tire"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "412MjGnB2wGQ82agaYwy06",
+        "type": "Entry",
+        "createdAt": "2017-05-06T22:02:12.633Z",
+        "updatedAt": "2017-06-05T19:19:59.917Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 4,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "UNICEF Website",
+        "teaser": "Transforming UNICEF's 40,000 page web presence in 100 countries and dozens of languages",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3ZVM56vCR2GECUwmOYgaGK"
+          }
+        },
+        "company": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1MtwHfcC4kA4gmgAQyyYGq"
+          }
+        },
+        "yearCreated": 2016,
+        "liveUrl": "https://www.unicef.org/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/6h1FvgsqXYqmSMOYEgekOI/f41d64996bc3f776aa5f295a0e3a100d/unicef-logo.jpg",
+        "slug": "unicef-website"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "6E6QwCiuHKe6wskOgO4OsG",
+        "type": "Entry",
+        "createdAt": "2017-05-06T20:22:06.900Z",
+        "updatedAt": "2017-06-05T19:17:38.291Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "adbeast Studio",
+        "teaser": "The adbeast Studio is fully web based application that lets advertising industry professionals present, manage and share work online - quickly, easily and securely.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "g5RgB4Ho6AWKQ0ikm2gGE"
+          }
+        },
+        "yearCreated": 2005,
+        "liveUrl": "http://studio.adbeast.com/",
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/5QqOMPSbuMUoIaOaS4uy00/fa7000257ff9ca103c1458cfadd49a82/adbeast.jpg",
+        "slug": "adbeast-studio"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "3VQn2ySIbCCewEMuKyW6U8",
+        "type": "Entry",
+        "createdAt": "2017-05-07T00:15:48.733Z",
+        "updatedAt": "2017-06-05T19:13:38.688Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 5,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Y2K Compliance Tool",
+        "teaser": "Scotiabank had specific requirements for Y2K compliance that necessitated me building a low-level hardware inspection tool. This tool was deployed to 50,000 PCs globally.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "6jKMFK66R28Uu0S68USAii"
+          }
+        },
+        "yearCreated": 1998,
+        "thumbnailUrl": "https://images.contentful.com/xyov37w0wvhz/3yE4M5tVuMWC4oWuyuM8im/8abc1a297bdb4ef37952e0de0ed01754/scotiabank.jpg",
+        "slug": "y2k-compliance-tool"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "1QIb0ZYcTmcaawemu4sOoe",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:12:04.805Z",
+        "updatedAt": "2017-06-04T23:19:13.617Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Two Wheel Self-Balancing Robot",
+        "teaser": "A cute palm-sized robot that balances itself on two wheels using an Arduino, accelerometer and PID (Proportional Integral Derivative) algorithm.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/1739944_615636835168731_771804883_n.jpg",
+        "tags": ["arduino", "microcontroller"],
+        "slug": "two-wheel-self-balancing-robot"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "4vjX7zuPAkOQ08mWum4g6i",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:02:34.047Z",
+        "updatedAt": "2017-06-04T23:18:51.779Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Custom Pebble Watch Face",
+        "teaser": "I was exploring application development for the Pebble smart watch platform and created the TBWA pirate logo as a watch face.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/927546_1412847352301410_438899249_n.jpg",
+        "tags": ["c", "application-development"],
+        "slug": "custom-pebble-watchface"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "51h6iffG7mawaWggGgUqAO",
+        "type": "Entry",
+        "createdAt": "2017-05-17T18:58:47.869Z",
+        "updatedAt": "2017-06-04T23:18:40.734Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "3D Printer",
+        "teaser": "Why buy a 3D printer when you can make one.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11258929_1589090318039069_1558743942_n.jpg",
+        "tags": ["3d-printing", "microcontroller", "mechanics"],
+        "slug": "3d-printer"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "7OlOVcNkuAIMOC6wGMCkw",
+        "type": "Entry",
+        "createdAt": "2017-05-17T18:40:43.014Z",
+        "updatedAt": "2017-06-04T23:18:30.053Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Personal Bluetooth UV Gauge and iOS Companion App",
+        "teaser": "A small Bluetooth enabled UV gadget that measures the current UV index and displays it on the companion iOS app.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/915608_292521030926357_1733005308_n.jpg",
+        "tags": ["ios", "arduino", "ble"],
+        "slug": "personal-bluetooth-uv-gauge-and-ios-companion-app"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "21pHSdiKwkk4GCMqQo8UMu",
+        "type": "Entry",
+        "createdAt": "2017-05-17T18:36:41.819Z",
+        "updatedAt": "2017-06-04T23:17:51.326Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Voice Activated Digital Candle",
+        "teaser": "A digital candle made from WS2812 LEDs and a realistic flickering effect. The brightness and intensity of flickering is based on ambient noise from people talking.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10522784_557003061088467_1661095738_n.jpg",
+        "tags": ["arduino", "neopixel"],
+        "slug": "voice-activated-digital-candle"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "63zsXzC3HUoeQO8CKQ4KwO",
+        "type": "Entry",
+        "createdAt": "2017-05-17T18:31:49.628Z",
+        "updatedAt": "2017-06-04T23:17:39.105Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Digital Thermometer",
+        "teaser": "One of my projects was generating too much heat so I added a heat sink. I wanted to measure the temperature difference and quickly hacked together a digital thermometer.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10683888_705924706156180_742209216_n.jpg",
+        "tags": ["arduino"],
+        "slug": "digital-thermometer"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "M3DK7nBlCgwg88MkwOS4S",
+        "type": "Entry",
+        "createdAt": "2017-05-07T22:31:15.293Z",
+        "updatedAt": "2017-06-04T23:15:56.798Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Adirondack Chairs",
+        "teaser": "A pair of Adirondack chairs I assembled from a kit.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "yearCreated": 2016,
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e35/13827434_1733880903550727_914138091_n.jpg",
+        "slug": "adirondack-chairs"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "2Mo2SmPB6oaIUKuCsus4GG",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:09:19.156Z",
+        "updatedAt": "2017-06-04T22:09:19.156Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Tweetie Pie",
+        "description": "https://scontent.cdninstagram.com/t50.2886-16/10507190_867070229988023_1489798932_n.mp4\nhttps://en.wikipedia.org/wiki/Tweety",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10401857_653833698037160_64721608_n.jpg",
+        "slug": "tweetie-pie"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "510n5L0N6ECMesusuUC2wA",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:07:12.004Z",
+        "updatedAt": "2017-06-04T22:07:12.004Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Hacking a Parrot AR Drone",
+        "description": "https://scontent.cdninstagram.com/t50.2886-16/10568295_1443692935906196_11923714_n.mp4",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10518018_752489371458914_1095899106_n.jpg",
+        "slug": "hacking-a-parrot-ar-drone"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5S41Us85Z6aIsCC4CIAkAI",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:05:38.132Z",
+        "updatedAt": "2017-06-04T22:05:38.132Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Drone Video Stream Processor",
+        "description": "https://scontent.cdninstagram.com/t50.2886-16/10679248_1533395506897136_978733441_n.mp4",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10691729_710826375651987_645133883_n.jpg",
+        "slug": "drone-video-stream-processor"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5ePltzruKWwaSCqgcYGGOE",
+        "type": "Entry",
+        "createdAt": "2017-06-04T22:01:58.872Z",
+        "updatedAt": "2017-06-04T22:01:58.872Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Plasma Speaker",
+        "teaser": "Plays music through an arc of electrical plasma running at 30,000 volts.",
+        "description": "https://scontent.cdninstagram.com/t50.2886-16/10701443_1469547466658381_393467642_n.mp4",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/10683907_1536218486612600_1040528242_n.jpg",
+        "slug": "plasma-speaker"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "5FzaaR93EIqwKMoS2MAqQ0",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:35:14.263Z",
+        "updatedAt": "2017-05-17T19:36:20.611Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Movember",
+        "teaser": "I made a mustache for Movember",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11084872_783047981812619_156138269_n.jpg",
+        "slug": "movember"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "1EYvLG05z2w6qwKKy86Ese",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:31:09.596Z",
+        "updatedAt": "2017-05-17T19:31:09.596Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "All Staff Hackathon",
+        "teaser": "I organized a highly successful hackathon with 75% staff attendance the majority of whom were not technical. The 48 hour event yielded five incredible applications.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11282636_372211012971546_1225316990_n.jpg",
+        "slug": "all-staff-hackathon"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "7fjfxkCRu8AaIqqmYIowuE",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:29:04.075Z",
+        "updatedAt": "2017-05-17T19:29:04.075Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "Tetris With People as Controllers",
+        "teaser": "This simple game relies on capacitve touch to trigger the up, down, left and right movements. The player high-fives one of four people to trigger a move.",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "1k6cqZD8m2sYe8iQcGgE0E"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/11311450_1607137702877462_362746433_n.jpg",
+        "tags": ["microcontroller"],
+        "slug": "tetris-with-people-as-controllers"
+      }
+    },
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "xyov37w0wvhz"
+          }
+        },
+        "id": "52jLBIeJZCooY4ei2k2Cq4",
+        "type": "Entry",
+        "createdAt": "2017-05-17T19:17:54.037Z",
+        "updatedAt": "2017-05-17T19:17:54.037Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "product"
+          }
+        },
+        "locale": "en-CA"
+      },
+      "fields": {
+        "title": "High Precision GPS Driven Linear Clock",
+        "teaser": "An Arduino obtains the micro-second accurate time from GPS satellites and displays it on two rows of WS2812 LEDs",
+        "employer": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "3O7zkVboViOQWcUQ6uO2KO"
+          }
+        },
+        "thumbnailUrl": "https://scontent.cdninstagram.com/t51.2885-15/e15/1742674_1426214824289822_877772184_n.jpg",
+        "tags": ["ws2812", "arduino", "gps"],
+        "slug": "high-precision-gps-driven-linear-clock"
+      }
+    }
+  ]
+}

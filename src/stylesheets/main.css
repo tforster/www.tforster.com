@@ -85,7 +85,7 @@
  * ## fonts 
  * ------------------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap");
-
+@import url(vendor.css);
 :root {
   --font-1: "Roboto Flex", sans-serif;
   --font-2: "DM Serif Display", Serif;
@@ -2865,6 +2865,10 @@ td:last-child {
   transition: all 0.5s;
 }
 
+.social-list svg {
+  height: var(--vspace-1); /* Adjust the value of --vspace-1 as needed */
+  width: var(--vspace-1);
+}
 /* ------------------------------------------------------------------- 
  * ## blog card
  * ------------------------------------------------------------------- */
@@ -4693,4 +4697,11 @@ td:last-child {
 
 .contact-list li {
   padding-left: 0;
+}
+
+/* Added by Troy */
+
+/* Super basic MPA transition - no JS required */
+@view-transition {
+  navigation: auto;
 }
