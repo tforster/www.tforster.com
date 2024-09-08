@@ -4705,3 +4705,7 @@ td:last-child {
 @view-transition {
   navigation: auto;
 }
+
+html {
+  scroll-behavior: smooth;
+}
