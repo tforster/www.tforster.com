@@ -1,0 +1,31 @@
+<svg version="1.1" id="Layer_1" xmlns:x="ns_extend;" xmlns:i="ns_ai;" xmlns:graph="ns_graphs;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55.7 63" style="enable-background:new 0 0 55.7 63;" xml:space="preserve">
+ <style type="text/css">
+  .st0{fill:url(#Path_2_1_);}
+ </style>
+ <metadata>
+  <sfw xmlns="ns_sfw;">
+   <slices>
+   </slices>
+   <sliceSourceBounds bottomLeftOrigin="true" height="63" width="55.7" x="-16.1" y="0">
+   </sliceSourceBounds>
+  </sfw>
+ </metadata>
+ <g id="Gradiet_Bolt" transform="translate(-0.001 0)">
+  <linearGradient id="Path_2_1_" gradientUnits="userSpaceOnUse" x1="-158.8626" y1="236.4357" x2="-157.5434" y2="237.8225" gradientTransform="matrix(39.585 0 0 -44.746 6283.7407 10636.4062)">
+   <stop offset="0" style="stop-color:#FF6E00">
+   </stop>
+   <stop offset="8.900001e-02" style="stop-color:#FE6B02">
+   </stop>
+   <stop offset="0.946" style="stop-color:#F75C0D">
+   </stop>
+   <stop offset="1" style="stop-color:#FA5000">
+   </stop>
+  </linearGradient>
+  <path id="Path_2" class="st0" d="M52.3,0l-8.1,9.7L54,7.4L0,63l14.6-36.8l-6.8,1.6L19.2,7.9L52.3,0z M54.7,2c0.6,0,1-0.5,1-1
+		c0-0.6-0.5-1-1-1c-0.6,0-1,0.5-1,1C53.7,1.6,54.2,2,54.7,2C54.7,2,54.7,2,54.7,2z M53.9,1c0-0.5,0.4-0.8,0.8-0.8
+		c0.5,0,0.8,0.4,0.8,0.8c0,0.4-0.4,0.8-0.8,0.8C54.3,1.9,53.9,1.5,53.9,1C53.9,1,53.9,1,53.9,1z M54.5,1.1h0.2L55,1.6h0.2l-0.3-0.5
+		c0.2,0,0.3-0.1,0.3-0.3c0,0,0,0,0,0c0-0.2-0.1-0.3-0.4-0.3h-0.4v1.2h0.2L54.5,1.1L54.5,1.1z M54.5,0.9V0.6h0.2c0.1,0,0.3,0,0.3,0.2
+		c0,0.2-0.1,0.2-0.3,0.2L54.5,0.9L54.5,0.9z">
+  </path>
+ </g>
+</svg>

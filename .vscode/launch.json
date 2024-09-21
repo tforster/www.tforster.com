@@ -2,6 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "svg.js",
+      "program": "${workspaceFolder}/scripts/svg.js",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "args": ["src/media/clients/google.svg"]
+    },
+    {
       "name": "Build.js",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],

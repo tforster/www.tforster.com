@@ -13,5 +13,146 @@
   "meta": {
     "robots": "index, follow",
     "ogImage": "/media/troy-forster.jpg"
-  }
+  },
+  "clients": [
+    { "name": "Acura Canada", "logo": "media/clients/acura.svg", "website": "https://www.acura.ca/" },
+    { "name": "adbeast", "logo": "media/clients/adbeast.jpg", "website": "https://www.linkedin.com/company/adbeast/" },
+    { "name": "Aird Berlis", "logo": "media/clients/airdberlis.png", "website": "https://www.airdberlis.com/" },
+    { "name": "BDC. The bank for Canadian entrepreneurs.", "logo": "media/clients/bdc.svg", "website": "https://www.bdc.ca/en" },
+    {
+      "name": "Burson. The global leader in communications purpose-built to create value for their clients through reputation",
+      "logo": "media/clients/burson.svg",
+      "website": "https://www.bursonglobal.com/"
+    },
+    { "name": "Canadian Pork Council", "logo": "media/clients/cpc.png", "website": "https://www.cpc-ccp.com/" },
+    { "name": "CNIB", "logo": "media/clients/cnib.svg", "website": "https://www.cnib.ca/" },
+    {
+      "name": "Corus Entertainment. Corus is a driving force in the media industry with a diverse portfolio of strong brands that entertain and inform audiences through great storytelling and compelling content, reaching millions of people around the world every day",
+      "logo": "media/clients/corus.svg",
+      "website": "https://www.corusent.com/"
+    },
+
+    { "name": "ENMAX", "logo": "media/clients/enmax.svg", "website": "https://www1.enmax.com/" },
+
+    { "name": "Ford Canada", "logo": "media/clients/ford.svg", "website": "https://ford.ca" },
+    {
+      "name": "Gatorade Canada",
+      "logo": "media/clients/gatorade.svg",
+      "website": "https://www.gatorade.ca/"
+    },
+    {
+      "name": "GSK: A focused biopharma company with strong momentum and big ambitions, to unite science, technology and talent to get ahead of disease together. They aim to positively impact the health of 2.5 billion people by the end of the decade, as a successful, growing company where people can thrive.",
+      "logo": "media/clients/gsk.png",
+      "website": "https://www.gsk.com/en-gb/"
+    },
+    {
+      "name": "Google",
+      "logo": "media/clients/google.svg",
+      "website": "https://www.google.ca"
+    },
+    {
+      "name": "GS1 Canada",
+      "logo": "media/clients/gs1canada.svg",
+      "website": "https://gs1ca.org"
+    },
+    { "name": "HepcoMotion", "logo": "media/clients/hepco.svg", "website": "https://www.hepcomotion.com/" },
+    {
+      "name": "ILO. International Labour Organization",
+      "logo": "media/clients/ilo.svg",
+      "website": "https://www.ilo.org"
+    },
+    {
+      "name": "Infiniti Canada",
+      "logo": "media/clients/infiniti.svg",
+      "website": "https://www.infiniti.ca/"
+    },
+    {
+      "name": "iQ Offices",
+      "logo": "media/clients/iqoffices.svg",
+      "website": "https://iqoffices.com"
+    },
+    {
+      "name": "Journeyman. Well travelled and trusted Canadian video production company.",
+      "logo": "media/clients/journeyman.png",
+      "website": "https://www.journeyman.global/"
+    },
+
+    {
+      "name": "Lead Podcasting",
+      "logo": "media/clients/leadpodcasting.png",
+      "website": "https://www.leadpodcasting.com/"
+    },
+
+    {
+      "name": "National PR: National Public Relations is Canada's leading public relations firm, servicing clients across a wide range of sectors including healthcare, manufacturing, energy, financial services, transportation and technology, with offices in Vancouver, Calgary, Toronto, Ottawa, Montreal, Quebec City, Saint John, Halifax and St",
+      "logo": "media/clients/nationalpr.svg",
+      "website": "https://www.national.ca/en/"
+    },
+    {
+      "name": "Nissan Canada",
+      "logo": "media/clients/nissancanada.svg",
+      "website": "https://www.nissan.ca/"
+    },
+    {
+      "name": "Ontario Ministry of Labour: Helping protect workers and settle workplace disputes, supporting skilled trades, apprenticeships and employment services, attracting highly-skilled newcomers and helping people get settled in Ontario.",
+      "logo": "media/clients/ontario.svg",
+      "website": "https://www.ontario.ca/page/ministry-labour-immigration-training-skills-development"
+    },
+    {
+      "name": "Orbyt Media: Canada’s premiere content syndication group, providing access to the World’s Largest Talent and Best in Class broadcast services to over 450 stations in 155 markets across the country.",
+      "logo": "media/clients/orbyt.png",
+      "website": "https://www.orbytmedia.com/"
+    },
+    { "name": "Petro-Canada", "logo": "media/clients/petrocanada.svg", "website": "https://www.petro-canada.ca/" },
+    { "name": "Roche", "logo": "media/clients/roche.svg", "website": "https://www.roche.com/" },
+
+    {
+      "name": "Rogers",
+      "logo": "media/clients/rogers.svg",
+      "website": "https://www.rogers.com/"
+    },
+    {
+      "name": "Scotiabank",
+      "logo": "media/clients/scotiabank.svg",
+      "website": "https://www.scotiabank.com/global/en/global-site.html"
+    },
+    {
+      "name": "SJC",
+      "logo": "media/clients/sjc.svg",
+      "website": "https://www.stjoseph.com/"
+    },
+    { "name": "Spirit Spa", "logo": "media/clients/spiritspa.png", "website": "https://www.spiritspa.ca/" },
+    {
+      "name": "TBWA\\Toronto",
+      "logo": "media/clients/tbwa.svg",
+      "website": "https://juniperparktbwa.com/"
+    },
+    { "name": "TD", "logo": "media/clients/td.svg", "website": "https://www.td.com/" },
+    { "name": "City of Toronto", "logo": "media/clients/cityoftoronto.svg", "website": "https://www.toronto.ca/" },
+    { "name": "Torys", "logo": "media/clients/torysllp.svg", "website": "https://www.torys.com/" },
+    {
+      "name": "Travelex. One of the market leading specialist providers of foreign exchange.",
+      "logo": "media/clients/travelex.svg",
+      "website": "https://www.travelex.co.uk/"
+    },
+    { "name": "unicef", "logo": "media/clients/unicef.svg", "website": "https://www.unicef.org/" },
+    {
+      "name": "Velcro: The inventors of the Original VELCRO® Brand hook and loop fastener more than 60 years ago",
+      "logo": "media/clients/velcro.svg",
+      "website": "https://www.velcro.co.uk/"
+    },
+    {
+      "name": "Visa",
+      "logo": "media/clients/visa.svg",
+      "website": "https://www.visa.ca/en_CA"
+    },
+    { "name": "Wazzio", "logo": "media/clients/wazzio.png", "website": "https://wazzio.com/" },
+    { "name": "WestJet", "logo": "media/clients/westjet.svg", "website": "https://www.westjet.com/" },
+    {
+      "name": "Yellow Tail: Wines for any occasion.",
+      "logo": "media/clients/yellowtail.svg",
+      "website": "https://www.yellowtailwine.com/en_ca/ca/our-wines/"
+    },
+    { "name": "Zealios", "logo": "media/clients/zealios.png", "website": "https://teamzealios.com/" }
+  ]
 }

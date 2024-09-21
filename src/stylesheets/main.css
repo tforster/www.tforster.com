@@ -4709,3 +4709,10 @@ td:last-child {
 html {
   scroll-behavior: smooth;
 }
+
+/* Define a class for the SVG logos */
+.svg-logo {
+  width: 100px; /* Set the desired width */
+  height: 100px; /* Set the desired height */
+  object-fit: contain; /* Ensure the aspect ratio is preserved */
+}
