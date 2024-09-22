@@ -274,38 +274,33 @@
 
       </section> <!-- end s-expertise -->
 
-      <!-- clients
-            ----------------------------------------------- -->
+      <!-- clients -->
       <section id="clients" class="s-clients">
-
         <div class="row s-clients__content-block width-sixteen-col">
           <div class="column xl-12 grid-block grid-section-split">
-
             <div class="section-header grid-section-split__header">
               <div class="text-pretitle">Clients</div>
               <h2 class="text-display-title">
                 I have had the privilege of working with these incredible brands.
               </h2>
-            </div> <!-- end section-header -->
-
+            </div>
             <div class="grid-section-split__primary">
               <p class="lead">
                 I've had the opportunity to partner with leading organizations across various sectors, delivering impactful results
                 and driving innovation.
               </p>
-
               <p>
                 These collaborations have not only honed my technical skills but also deepened my understanding of diverse business
                 challenges and the power of technology to drive meaningful change.
               </p>
-            </div> <!-- end grid-section-split__primary -->
+            </div>
 
-          </div> <!-- end column -->
-        </div> <!-- end row -->
+          </div>
+        </div>
 
         {{> components/clients.hbs clients=this.clients }}
 
-        {{> components/testimonials.hbs }}
+        {{> components/testimonials.hbs testimonials=this.testimonials }}
 
       </section> <!-- end s-clients -->
 

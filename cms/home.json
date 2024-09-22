@@ -14,6 +14,24 @@
     "robots": "index, follow",
     "ogImage": "/media/troy-forster.jpg"
   },
+  "testimonials": [
+    {
+      "content": "<p>lots of good things to say about Troy. He's awesome and does a great job on stuff</p>",
+      "author": {
+        "name": "John Doe",
+        "org": "Company Inc.",
+        "avatar": "media/testimonials/john-doe.png"
+      }
+    },
+    {
+      "content": "<p>I agree with John</p><p>lots of good things to say about Troy. He's awesome and does a great job on stuff</p>",
+      "author": {
+        "name": "Jane Doe",
+        "org": "Other Company Inc.",
+        "avatar": "media/testimonials/john-doe.png"
+      }
+    }
+  ],
   "clients": [
     { "name": "Acura Canada", "logo": "media/clients/acura.svg", "website": "https://www.acura.ca/" },
     { "name": "adbeast", "logo": "media/clients/adbeast.jpg", "website": "https://www.linkedin.com/company/adbeast/" },
