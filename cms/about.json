@@ -24,5 +24,27 @@
   "meta": {
     "robots": "index, follow",
     "ogImage": "/media/troy-forster.jpg"
-  }
+  },
+  "testimonials": [
+    {
+      "content": "<p>See your name here! If we have worked together please consider writing a testimonial. Send it, with your picture and a link to your website, to <a href='mailto:troy.forster@gmail.com'>troy.forster@gmail.com</a></p>",
+      "author": {
+        "name": "Troy Forster",
+        "org": "Troy Forster",
+        "avatar": "media/avatars/troy-tbwa-w450-square.jpg"
+      },
+      "next": 1,
+      "prev": 2
+    },
+    {
+      "content": "<p>I agree with John</p><p>lots of good things to say about Troy. He's awesome and does a great job on stuff</p>",
+      "author": {
+        "name": "Jane Doe",
+        "org": "Other Company Inc.",
+        "avatar": "media/avatars/user-02.jpg"
+      },
+      "next": 2,
+      "prev": 1
+    }
+  ]
 }

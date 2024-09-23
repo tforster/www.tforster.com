@@ -6,7 +6,8 @@
 </head>
 
 <body id="top">
-  <div id="page" class="s-pagewrap ss-home" style="view-transition-name: hero">
+
+  <div id="page" class="s-pagewrap ss-home " style="view-transition-name: hero">
     {{> components/header.hbs }}
 
     <section id="content" class="s-content">
@@ -54,7 +55,7 @@
         <div class="row s-about__content width-sixteen-col">
           <div class="column grid-block grid-section-split">
 
-            <img src="images/geometric_shape.svg" alt="" class="s-about__content-imgbg">
+            <img src="media/geometric_shape.svg" alt="" class="s-about__content-imgbg">
 
             <div class="section-header grid-section-split__header">
               <div class="text-pretitle">About</div>
@@ -134,7 +135,6 @@
 
 
       <section id="expertise" class="s-expertise">
-
         <div class="row s-expertise__content width-sixteen-col">
           <div class="column xl-12 grid-block grid-section-split">
 
@@ -150,7 +150,6 @@
             </div> <!-- end section-header -->
 
             <div class="s-expertise__content-main grid-section-split__primary">
-
               <div class="grid-list-items list-items show-ctr">
 
                 <div class="grid-list-items__item list-items__item">
@@ -181,6 +180,7 @@
                     </p>
                   </div>
                 </div> <!-- list-expertise__item -->
+
                 <div class="grid-list-items__item list-items__item">
                   <div class="grid-list-items__title list-items__item-header">
                     <h3 class="list-items__item-title">Cloud Computing</h3>
@@ -274,7 +274,7 @@
 
       </section> <!-- end s-expertise -->
 
-      <!-- clients -->
+      <!-- Clients Section -->
       <section id="clients" class="s-clients">
         <div class="row s-clients__content-block width-sixteen-col">
           <div class="column xl-12 grid-block grid-section-split">
@@ -294,66 +294,43 @@
                 challenges and the power of technology to drive meaningful change.
               </p>
             </div>
-
           </div>
         </div>
 
+        {{!-- Insert dynamic clients component --}}
         {{> components/clients.hbs clients=this.clients }}
 
-        {{> components/testimonials.hbs testimonials=this.testimonials }}
-
-      </section> <!-- end s-clients -->
-
-    </section> <!-- s-content-->
-
-    <!-- # cta
-        ================================================== -->
-    <section id="cta" class="s-cta">
-
-      <div class="row row-x-center text-center">
-        <div class="column xl-8 lg-12">
-
-          <div class="s-cta__content">
-            <h2 class="text-display-title">
-              Get started with a consultation today.
-            </h2>
-            <p class="lead">
-              Let's discuss your goals and explore how I can help you achieve them. Schedule a personalized consultation today and
-              discover how my expertise can transform your business.
-            </p>
-            <a href="contact.html" class="btn btn--primary">Let's Work Together</a>
-          </div>
-
+        <div class="row s-clients__content-block width-sixteen-col">
+          {{!-- Insert dynamic testimonials component --}}
+          {{> components/testimonials.hbs testimonials=this.testimonials }}
         </div>
-      </div>
 
-    </section> <!-- end s-cta -->
+      </section>
+    </section>
 
-    <!-- # journal
-        ================================================== -->
+    {{!-- Insert consultation CTA --}}
+    {{> components/consultation.hbs }}
+
     <section id="journal" class="s-journal">
-
       <div class="row s-journal__content width-sixteen-col">
         <div class="column xl-12 grid-block">
-
           <div class="grid-full section-header text-center">
             <div class="text-pretitle">Recent Articles</div>
             <h2 class="text-display-title">
               Latest Case Studies From my Portfolio
             </h2>
           </div> <!-- end section-header -->
-
           <div class="grid-full s-journal__content-main grid-list-items">
+            {{#each this.projects}}
+              {{!-- Insert dynamic case studies component --}}
+              {{> components/case-study.hbs projects=this.projects }}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </section>
 
-            {{> components/case-study.hbs }}
-
-
-          </div> <!-- end grid-list-items -->
-
-        </div> <!-- end grid-block-->
-      </div> <!-- end s-journal__content -->
-
-    </section> <!-- end s-journal -->
+    {{!-- Insert footer component --}}
     {{>components/footer.hbs }}
   </div>
 </body>

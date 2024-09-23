@@ -1,22 +1,21 @@
-<div class="row s-clients__content-block width-sixteen-col">
-  <div class="column xl-12 testimonials">
-    <div class="swiper-container testimonials__slider home-slider">
-      <div class="swiper-wrapper">
-        {{#each testimonials}}
-          <div class="testimonials__slide swiper-slide">
-            {{{this.content}}}
+<div class="column xl-12 testimonials">
+  <div class="swiper-container testimonials__slider home-slider">
+    <div class="swiper-wrapper">
 
-            <div class="testimonials__author">
-              <img src="{{this.author.avatar}}" alt="{{this.author.name}}" class="testimonials__avatar">
-              <cite class="testimonials__cite">
-                <strong>{{this.author.name}}</strong>
-                <span>{{this.author.org}}</span>
-              </cite>
-            </div>
+      {{#each testimonials}}
+        <div class="testimonials__slide swiper-slide">
+          {{{this.content}}}
+          <div class="testimonials__author">
+            <img src="{{this.author.avatar}}" alt="{{this.author.name}}" class="testimonials__avatar">
+            <cite class="testimonials__cite">
+              <strong>{{this.author.name}}</strong>
+              <span>{{this.author.org}}</span>
+            </cite>
           </div>
-        {{/each}}
-      </div>
-      <div class="swiper-pagination"></div>
+        </div>
+      {{/each}}
+
     </div>
+    <div class="swiper-pagination"></div>
   </div>
 </div>

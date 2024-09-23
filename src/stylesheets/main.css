@@ -3610,6 +3610,7 @@ td:last-child {
   margin-top: 0;
   margin-bottom: var(--vspace-1_25);
   color: var(--color-3);
+  opacity: 0;
 }
 
 .s-intro__content-media {
@@ -3718,7 +3719,7 @@ td:last-child {
 /* --------------------------------------------------------------------
  * ## intro transitions
  * -------------------------------------------------------------------- */
-.ss-home .s-header__inner,
+/* .ss-home .s-header__inner,
 .s-intro__content-media img,
 .s-intro__content-media .lines,
 .s-intro__content-title,
@@ -3728,7 +3729,7 @@ td:last-child {
   transition-duration: 0.9s;
   transition-delay: 0s;
   opacity: 0;
-}
+} */
 
 .ss-home .s-header__inner {
   transition-duration: 0.6s;
@@ -3749,11 +3750,11 @@ td:last-child {
   transform: translate(-9.6rem, 150px);
 }
 
-.s-intro__content-title,
+/* .s-intro__content-title,
 .s-intro__scroll-down {
   transition-property: opacity, transform;
   transform: translateY(150px);
-}
+} */
 
 .no-js .ss-home .s-header__inner,
 .no-js .s-intro__content-media .lines,
@@ -3774,13 +3775,13 @@ td:last-child {
   transform: translate(-9.6rem, 0);
 }
 
-.no-js .s-intro__content-title,
+/* .no-js .s-intro__content-title,
 .no-js .s-intro__scroll-down,
 .ss-show .s-intro__content-title,
 .ss-show .s-intro__scroll-down {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 .no-js .s-intro__content-media img,
 .ss-show .s-intro__content-media img {
@@ -3796,11 +3797,11 @@ td:last-child {
 .ss-show .s-intro__content-pretitle {
   transition-delay: 1.2s;
 }
-
+/* 
 .no-js .s-intro__content-title,
 .ss-show .s-intro__content-title {
   transition-delay: 1.5s;
-}
+} */
 
 .no-js .s-intro__scroll-down,
 .ss-show .s-intro__scroll-down {
@@ -4706,13 +4707,58 @@ td:last-child {
   navigation: auto;
 }
 
+/* Ensure smooth scrolling throughout  */
 html {
   scroll-behavior: smooth;
 }
 
-/* Define a class for the SVG logos */
+/* Define a class for the SVG logos on the homepage */
 .svg-logo {
   width: 100px; /* Set the desired width */
   height: 100px; /* Set the desired height */
   object-fit: contain; /* Ensure the aspect ratio is preserved */
+}
+
+/* Home page intro animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.s-intro__content-pretitle {
+  animation-name: slideUp;
+  animation-timing-function: cubic-bezier(0.28, 0.12, 0.22, 1);
+  animation-duration: 1.5s;
+  opacity: 0;
+}
+
+.s-intro__content-title,
+.s-intro__scroll-down {
+  animation-delay: 0.9s;
+  animation-name: slideUp;
+  animation-timing-function: cubic-bezier(0.28, 0.12, 0.22, 1);
+  animation-duration: 1.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.s-intro__content-media img {
+  animation-name: slideInFromLeft;
+  animation-timing-function: cubic-bezier(0.28, 0.12, 0.22, 1);
+  animation-duration: 0.9s;
 }
