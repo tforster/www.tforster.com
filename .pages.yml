@@ -285,9 +285,7 @@ content:
       - name: cover
         label: Cover
         type: image
-      - name: body
-        label: Body
-        type: rich-text
+
 
       - name: meta
         type: object
@@ -413,7 +411,10 @@ content:
       - name: image
         label: Image
         type: image
-
+      - name: body
+        label: Body
+        type: rich-text
+        
   - name: valuesAndBeliefs
     label: My Values & Beliefs
     type: collection
