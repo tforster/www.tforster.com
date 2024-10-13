@@ -18,7 +18,7 @@ content:
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple"]
         default: home
-        
+
       - name: title
         label: The title to show in the browser tab
         type: string
@@ -28,7 +28,7 @@ content:
       - name: pageSubTitle
         label: The line to display immediately below the title on the page
         type: string
-        
+
       - name: cover
         label: Cover
         type: image
@@ -47,7 +47,7 @@ content:
       - name: body2
         label: Body part two
         type: rich-text
-        
+
       - name: meta
         type: object
         fields:
@@ -95,7 +95,7 @@ content:
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple", "about"]
         default: about
-        
+
       - name: title
         label: The title to show in the browser tab
         type: string
@@ -105,7 +105,7 @@ content:
       - name: pageSubTitle
         label: The line to display immediately below the title on the page
         type: string
-        
+
       - name: cover
         label: Cover
         type: image
@@ -163,7 +163,7 @@ content:
             label: Body
             type: rich-text
             format: markdown
-            
+
       - name: meta
         type: object
         fields:
@@ -194,7 +194,7 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
-      
+
   - name: services
     label: Services
     path: cms/services.json
@@ -211,7 +211,7 @@ content:
         options:
           values: ["404", "home", "portfolio", "hire-me", "uses", "simple", "about", "services"]
         default: services
-      
+
       - name: title
         label: The title to show in the browser tab
         type: string
@@ -221,7 +221,7 @@ content:
       - name: pageSubTitle
         label: The line to display immediately below the title on the page
         type: string
-  
+
       - name: meta
         type: object
         fields:
@@ -255,7 +255,6 @@ content:
       - name: cover
         label: Cover
         type: image
-  
 
   - name: projects
     label: Projects
@@ -273,7 +272,7 @@ content:
         options:
           values: ["404", "home", "projects", "hire-me", "uses", "simple", "about"]
         default: projects
-        
+
       - name: title
         label: The title to show in the browser tab
         type: string
@@ -334,7 +333,7 @@ content:
         options:
           values: ["404", "home", "projects", "contact", "uses", "simple", "about"]
         default: contact
-        
+
       - name: title
         label: The title to show in the browser tab
         type: string
@@ -378,7 +377,40 @@ content:
           - name: ogSiteName
             label: og:site_name
             type: string
-            
+
+  - name: portfolio
+    label: Portfolio
+    type: collection
+    path: cms/portfolio
+    format: json
+    filename: "{year}-{month}-{day}-{primary}.json"
+    icon: box
+    fields:
+      - name: project
+        label: Project
+        type: string
+      - name: description
+        label: Description
+        type: string
+      - name: client
+        label: Client
+        type: string
+      - name: url
+        label: URL
+        type: string
+      - name: year
+        label: Year
+        type: string
+      - name: tags
+        label: Tags
+        type: select
+        options:
+          values: ["all", "design", "development", "marketing", "product", "ux"]
+        default: all
+      - name: image
+        label: Image
+        type: image
+
   - name: valuesAndBeliefs
     label: My Values & Beliefs
     type: collection
@@ -393,7 +425,7 @@ content:
       - name: body
         label: Body
         type: rich-text
-        
+
   - name: simple
     label: Simple pages
     type: collection
